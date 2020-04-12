@@ -125,6 +125,7 @@ function save_student_submissions($json, $conn)
 
     //$user_exams_obj = array("input1" => $question['input1'], "input2" => $question['input2'], "output1" => $question['output1'], "output2" => $question['output2'], "points" => $question['points'], "questionID" => $question['questionID'], "solution" => $question['solution']);
     $user_exams_obj = array("questionID" => $qid, "points" => $pts, "solution" => $S, "input1" => $i1,"output1" => $o1, "input2" => $i2, "output2" => $o2);
+    
     echo $user_exams_obj;
 
 
