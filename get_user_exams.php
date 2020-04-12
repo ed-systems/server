@@ -22,7 +22,7 @@ function gue($json, $conn){
   $usersinfo->execute();
   $uinfo = $usersinfo->fetchAll(\PDO::FETCH_ASSOC);
 
-  echo json_encode("{ 'info': '" . $uinfo[0] . "'}");
+  echo json_encode("{ 'info': '" . $uinfo['id'] . "'}");
 
   foreach ($uinfo as $info){
     $fname=$info['full_name'];
