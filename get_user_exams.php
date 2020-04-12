@@ -128,7 +128,7 @@ function gue($json, $conn){
   header('Content-Type: application/json');
     
 
-  //echo $output_data;  
+  echo $output_data;  
 
 }
 
