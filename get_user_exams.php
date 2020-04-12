@@ -107,7 +107,7 @@ function gue($json, $conn){
       array_push($user_exams, $user_exams_obj);
     }
      echo $minfo['name'];
-     echo json_encode($en);
+    //echo json_encode($en);
   }
  
   //encodes dataArr in json formatting
