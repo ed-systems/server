@@ -73,20 +73,20 @@ function gue($json, $conn){
 
 
 
-        echo "here1";
+       // echo "here1";
       $q = $conn->query("SELECT `name` FROM exams WHERE id=$eid");
         $en = $q->fetchColumn();
         //echo $en;
-        echo "here2";
+        //echo "here2";
       $q = $conn->query("SELECT `description` FROM exams WHERE id=$eid");
         $ed = $q->fetchColumn();
         //echo $ed;
-        echo "here3";
+        //echo "here3";
 
 
 
-      $user_exams_obj = array("studentName" => $fname, "examID" => $eid, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
-      //$user_exams_obj = array("studentName" => $fname, "examID" => $eid, "name" = $en, "description" = $ed, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
+      //$user_exams_obj = array("studentName" => $fname, "examID" => $eid, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
+      $user_exams_obj = array("studentName" => $fname, "examID" => $eid, "name" = $en, "description" = $ed, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
 
       array_push($user_exams, $user_exams_obj);
     }
@@ -100,7 +100,7 @@ function gue($json, $conn){
   header('Content-Type: application/json');
     
 
-  //echo $output_data;  
+  echo $output_data;  
 
 }
 
