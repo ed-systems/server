@@ -91,7 +91,7 @@ function gue($json, $conn){
         $subminfo->execute();
         $minfo = $subminfo->fetchAll(\PDO::FETCH_ASSOC);
 
-       foreach($minfo as $info){
+       foreach($subinfo as $info){
 
        echo $info['name'];
 
