@@ -74,14 +74,11 @@ function gue($json, $conn){
 
 
 
-      $subQinfoquery = 'SELECT * FROM `exams` WHERE `id`=:e';
-      $subEinfo = $conn->prepare($subQinfoquery);
-      $subEinfo->bindValue(':e', $eid);
-      $subEinfo->execute();
-      $einfo = $subEinfo->fetchAll(\PDO::FETCH_ASSOC);
-
-      $en=$einfo['name'];
-      $ed=$einfo['description'];
+      $q = $conn->query("SELECT name FROM exams WHERE id=$eid");
+        $en = $q->fetchColumn();
+      $q = $conn->query("SELECT description FROM exams WHERE id=$eid");
+        $ed = $q->fetchColumn();
+      
 
 
 
