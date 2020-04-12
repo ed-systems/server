@@ -201,13 +201,13 @@ function save_student_submissions($json, $conn)
     $update_questioncomments->bindValue(':res1', $r1);
     $r2 = $results['result2'];
     $update_questioncomments->bindValue(':res2', $r2);
-    $r3 = $results['result3']
+    $r3 = $results['result3'];
     $update_questioncomments->bindValue(':res3', $r3);
-    $r4 = $results['result4']
+    $r4 = $results['result4'];
     $update_questioncomments->bindValue(':res4', $r4);
-    $r5 = $results['result5']
+    $r5 = $results['result5'];
     $update_questioncomments->bindValue(':res5', $r5);
-    $r6 = $results['result6']
+    $r6 = $results['result6'];
     $update_questioncomments->bindValue(':res6', $r6);
 
     $rp1 = $results['result1_points'];
