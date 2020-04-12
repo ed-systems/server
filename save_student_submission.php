@@ -82,6 +82,8 @@ function save_student_submissions($json, $conn)
   $questionsArr = array("solution" => "", "ID" => "");
   $arrQarr = array();
 
+  //$counter = 0
+
   foreach ($json['questions'] as $question) {
     $update_questioncomments_query = 'UPDATE `submitted_questions` SET solution=:sol, result1=:res1, result2=:res2, autograde=:ag WHERE subID=:sd AND questionID=:qd';
 
@@ -136,6 +138,7 @@ function save_student_submissions($json, $conn)
 
 
 
+    //$counter = $counter + $results['autoGrade']
 
     $r1 = $results['result1'];
 
@@ -155,6 +158,8 @@ function save_student_submissions($json, $conn)
 
     array_push($arrQarr, $questionsArr);
   }
+
+  // update exam submission record which includes the sum of the scores of the each question
 }
 
 
