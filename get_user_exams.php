@@ -93,6 +93,7 @@ function gue($json, $conn){
   header('Content-Type: application/json');
     
 
+  echo "before null 2";
   echo $output_data;  
 
 }
