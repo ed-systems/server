@@ -104,6 +104,11 @@
                 $sql="DELETE FROM exam_questions WHERE examID='$eid'";
                 $conn->query($sql);
 
+
+
+
+
+                //address issue number 2 in this loop
                 foreach($questions as $question){
                     
                     $qid = $question['questionID'];
@@ -113,6 +118,16 @@
                     $conn->query($sql);
                 }
 
+
+
+
+
+
+
+
+
+
+                
                 $message = "Exam record updates succesfully";
                 $m=json_encode($message);
                 echo $m;
