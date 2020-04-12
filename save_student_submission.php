@@ -170,7 +170,7 @@ function save_student_submissions($json, $conn)
 
 
     $resultspackage = querry_middle($user_exams_obj);
-    echo $resultspackage;
+    //echo $resultspackage;
     $results = json_decode($resultspackage, true);
 
 //autograde question\\
