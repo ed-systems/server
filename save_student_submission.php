@@ -140,7 +140,7 @@ function save_student_submissions($json, $conn)
 //autograde question\\
 //add total of all results points, constrain points, name points, colon points; store in $qAg
 //$eMarks = $eMarks + $qAg;
-    $eMarks = $eMarks + $results['autoGrade'];
+    $eMarks = $eMarks + $results['autograde'];
 
     $r1 = $results['result1'];
     $r2 = $results['result2'];
