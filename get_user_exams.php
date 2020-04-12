@@ -23,8 +23,6 @@ function gue($json, $conn){
   $uinfo = $usersinfo->fetchAll(\PDO::FETCH_ASSOC);
 
   foreach ($uinfo as $info){
-    
-    echo "kek";
     $fname=$info['full_name'];
     //echo json_encode($fname);
     $uid=$info['id'];
@@ -109,6 +107,7 @@ try {
 
 //err handling
 Catch(PDOException $e){
+  echo "before null"
   echo $sql . "<br>" . $e->getMessage();
 }
 
