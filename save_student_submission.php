@@ -37,7 +37,6 @@ function querry_middle($in)
   curl_close($ch); // Closing request
 
   header('Content-Type: application/json'); // Setting header for our PHP response
-  echo "in query middle";
   return $result; // Returning result
 
 }
@@ -47,7 +46,6 @@ function querry_middle($in)
 
 function save_student_submissions($json, $conn)
 {
-  echo "in save_student function";
   $update_status_query = 'UPDATE `submissions` SET status = 1 WHERE id = :id';
   $update_status = $conn->prepare($update_status_query);
   $update_status->bindValue(':id', $json['ID']);
@@ -62,11 +60,11 @@ function save_student_submissions($json, $conn)
 
   $eid = $json['examID'];
 
-  $update_gradecomments_query = 'UPDATE `submissions` SET autograde=:autoG WHERE id=:subID';
+  //$update_gradecomments_query = 'UPDATE `submissions` SET autograde=:autoG WHERE id=:subID';
 
-  $update_gradecomments = $conn->prepare($update_gradecomments_query);
+  //$update_gradecomments = $conn->prepare($update_gradecomments_query);
   //$G = $json['autoGrade'];
-  //$update_gradecomments->bindValue(':autoG', $G);
+ // $update_gradecomments->bindValue(':autoG', $G);
 
   $sid = $json['ID'];
   //$update_gradecomments->bindValue(':subID', $sid);
@@ -129,7 +127,7 @@ function save_student_submissions($json, $conn)
 
     //$user_exams_obj = array("input1" => $question['input1'], "input2" => $question['input2'], "output1" => $question['output1'], "output2" => $question['output2'], "points" => $question['points'], "questionID" => $question['questionID'], "solution" => $question['solution']);
     $user_exams_obj = array("questionID" => $qid, "points" => $pts, "solution" => $S, "input1" => $i1,"output1" => $o1, "input2" => $i2, "output2" => $o2);
-    //also send input/output points, function name&points, constraint & points, colon_points
+    //also send input/output points, function name&points, constraint & points, colon_points,
     //echo json_encode($user_exams_obj);
 
 
@@ -145,21 +143,17 @@ function save_student_submissions($json, $conn)
     $eMarks = $eMarks + $results['autoGrade'];
 
     $r1 = $results['result1'];
+
     $r2 = $results['result2'];
-   /* $r3 = $results['result3'];
-    $r4 = $results['result4'];
-    $r5 = $results['result5'];
-    $r6 = $results['result6'];*/
 
     $update_questioncomments->bindValue(':res1', $r1);
+
     $update_questioncomments->bindValue(':res2', $r2);
-    /*$update_questioncomments->bindValue(':res3', $r3);
-    $update_questioncomments->bindValue(':res4', $r4);   
-    $update_questioncomments->bindValue(':res5', $r5);
-    $update_questioncomments->bindValue(':res6', $r6);*/
 
 
 
+
+    $g = $results['autoGrade'];
     $update_questioncomments->bindValue(':ag', $g);
 
     $update_questioncomments->execute();
@@ -189,9 +183,7 @@ function save_student_submissions($json, $conn)
 try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "before save func";
   save_student_submissions($json, $conn);
-  echo "after save func";
 } catch (PDOException $e) {
   echo $sql . "<br>" . $e->getMessage();
 }
