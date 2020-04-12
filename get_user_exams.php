@@ -22,22 +22,24 @@ function gue($json, $conn){
   $usersinfo->execute();
   $uinfo = $usersinfo->fetchAll(\PDO::FETCH_ASSOC);
   
-    foreach ($uinfo as $info){
+  echo $json['token'];
+
+  foreach ($uinfo as $info){
     $fname=$info['full_name'];
     //echo json_encode($fname);
     $uid=$info['id'];
     //echo json_encode($sid);
 
-     //examsubmissioninfo
-     $examssubinfoquery = 'SELECT * FROM `submissions` WHERE `studentID`=:s';
-     $examssubinfo = $conn->prepare($examssubinfoquery);
-     $examssubinfo->bindValue(':s', $uid);
-     $examssubinfo->execute();
-     $einfo = $examssubinfo->fetchAll(\PDO::FETCH_ASSOC);
-     
-     $user_exams=array();
+    //examsubmissioninfo
+    $examssubinfoquery = 'SELECT * FROM `submissions` WHERE `studentID`=:s';
+    $examssubinfo = $conn->prepare($examssubinfoquery);
+    $examssubinfo->bindValue(':s', $uid);
+    $examssubinfo->execute();
+    $einfo = $examssubinfo->fetchAll(\PDO::FETCH_ASSOC);
+    
+    $user_exams=array();
 
-     foreach($einfo as $info){
+    foreach($einfo as $info){
 
       $eid=$info['examID'];
       $stat=$info['status'];
@@ -77,13 +79,12 @@ function gue($json, $conn){
         $questionsArr["comments"]=$info['comments'];
         $questionsArr["ID"]=$info['id'];
         array_push($arrQarr, $questionsArr);
-        //echo json_encode($arrQarr);
+
       }
       $user_exams_obj = array("studentName" => $fname, "examID" => $eid, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
-      echo json_encode($user_exams_obj);
 
       array_push($user_exams, $user_exams_obj);
-     }
+    }
      
   }
  
@@ -98,20 +99,17 @@ function gue($json, $conn){
 
 }
 
-try {
-    
+try {    
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-// set the PDO error mode to exception
+  // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  gue($json, $conn);
-
-  
+  gue($json, $conn);  
 }
 
 //err handling
 Catch(PDOException $e){
-echo $sql . "<br>" . $e->getMessage();
+  echo $sql . "<br>" . $e->getMessage();
 }
 
 $conn = null;
