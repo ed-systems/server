@@ -35,6 +35,8 @@ function gue($json, $conn){
     $examssubinfo->execute();
     $einfo = $examssubinfo->fetchAll(\PDO::FETCH_ASSOC);
     
+    echo $einfo;
+
     $user_exams=array();
 
     foreach($einfo as $info){
@@ -90,11 +92,7 @@ function gue($json, $conn){
   $output_data = json_encode($user_exams);
 
   //json header
-  header('Content-Type: application/json');
-    
-  echo $user_exams;
-  echo "before null 2";
-  echo $output_data;  
+  header('Content-Type: application/json'); 
 
 }
 
