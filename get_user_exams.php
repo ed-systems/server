@@ -93,11 +93,14 @@ function gue($json, $conn){
 
        foreach($minfo as $info){
 
-       echo json_encode($info['name']);
+       //echo json_encode($info['name']);
        $en=$info['name'];
-       echo json_encode($info['description']);
+       echo json_encode($en);
+
+       //echo json_encode($info['description']);
        $ed = $info['description'];
-       
+       echo json_encode($ed);
+
       //$user_exams_obj = array("studentName" => $fname, "examID" => $eid, "name" = $en, "description" = $ed, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
 
 
@@ -107,8 +110,8 @@ function gue($json, $conn){
 
 
 
-      //$user_exams_obj = array("studentName" => $fname, "examID" => $eid, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
-      $user_exams_obj = array("studentName" => $fname, "examID" => $eid, "name" = $en, "description" = $ed, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
+      $user_exams_obj = array("studentName" => $fname, "examID" => $eid, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
+      //$user_exams_obj = array("studentName" => $fname, "examID" => $eid, "name" = $en, "description" = $ed, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
 
       array_push($user_exams, $user_exams_obj);
     }
