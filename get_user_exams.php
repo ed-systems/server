@@ -11,24 +11,17 @@ $username = "npm26";
 $password = "DBPassword1!";
 $dbname = "npm26";
 
-function gue($json, $conn){
-  //$token = $json['token'];
-  //echo json_encode($token);
-  
+function gue($json, $conn){  
   //user info
   $usersinfoquery = 'SELECT * FROM `users` WHERE `token`=:token';
   $usersinfo = $conn->prepare($usersinfoquery);
   $usersinfo->bindValue(':token', $json['token']);
   $usersinfo->execute();
   $uinfo = $usersinfo->fetchAll(\PDO::FETCH_ASSOC);
-
-  echo json_encode("{ 'info': '" . $uinfo['id'] . "'}");
-
+  
   foreach ($uinfo as $info){
     $fname=$info['full_name'];
     $uid=$info['id'];
-
-    echo $info['id'];
 
     //examsubmissioninfo
     $examssubinfoquery = 'SELECT * FROM `submissions` WHERE `studentID`=:s';
@@ -36,7 +29,7 @@ function gue($json, $conn){
     $examssubinfo->bindValue(':s', $uid);
     $examssubinfo->execute();
     $einfo = $examssubinfo->fetchAll(\PDO::FETCH_ASSOC);
-
+    
     $user_exams=array();
 
     foreach($einfo as $info){
@@ -46,7 +39,7 @@ function gue($json, $conn){
       $ag=$info['autograde'];
       $g=$info['grade'];
       $c=$info['comments'];
-      $subid=$info['id'];
+      $subid=$info['id'];      
 
       $subQinfoquery = 'SELECT * FROM `submited_questions_with_info` WHERE `subID`=:s';
       $subQinfo = $conn->prepare($subQinfoquery);
@@ -88,7 +81,10 @@ function gue($json, $conn){
   $output_data = json_encode($user_exams);
 
   //json header
-  header('Content-Type: application/json'); 
+  header('Content-Type: application/json');
+    
+
+  echo $output_data;  
 
 }
 
@@ -102,7 +98,6 @@ try {
 
 //err handling
 Catch(PDOException $e){
-  echo "before null";
   echo $sql . "<br>" . $e->getMessage();
 }
 
