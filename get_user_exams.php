@@ -107,7 +107,7 @@ try {
 
 //err handling
 Catch(PDOException $e){
-  echo "before null"
+  echo "before null";
   echo $sql . "<br>" . $e->getMessage();
 }
 
