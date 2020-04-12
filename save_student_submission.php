@@ -143,17 +143,17 @@ function save_student_submissions($json, $conn)
     $o6 = $q->fetchColumn();
 
 
-    $q = $conn->query("SELECT output_points1 FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
+    $q = $conn->query("SELECT output1_points FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
     $op1 = $q->fetchColumn();
-    $q = $conn->query("SELECT output_points2 FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
+    $q = $conn->query("SELECT output2_points FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
     $op2 = $q->fetchColumn();
-    $q = $conn->query("SELECT output_points3 FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
+    $q = $conn->query("SELECT output3_points FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
     $op3 = $q->fetchColumn();
-    $q = $conn->query("SELECT output_points4 FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
+    $q = $conn->query("SELECT output4_points FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
     $op4 = $q->fetchColumn();
-    $q = $conn->query("SELECT output_points5 FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
+    $q = $conn->query("SELECT output5_points FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
     $op5 = $q->fetchColumn();
-    $q = $conn->query("SELECT output_points6 FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
+    $q = $conn->query("SELECT output6_points FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
     $op6 = $q->fetchColumn();
 
     
