@@ -53,11 +53,9 @@
         
         $q = $conn->query("SELECT id FROM users WHERE username='$un'");
         $uid = $q->fetchColumn();
-        //echo $uid;
 
         $q = $conn->query("SELECT type FROM users WHERE username='$un'");
         $typ = $q->fetchColumn();
-        echo $typ;
 
         $updateAuthTable = 'UPDATE `auth_table` SET token=:tk WHERE id=:usid';
         $updateTok = $conn->prepare($updateAuthTable);
