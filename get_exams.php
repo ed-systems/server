@@ -27,19 +27,21 @@
       //$uid = 9;
 
         //query view
-        $sql = "SELECT DISTINCT examID FROM `exam_questions_with_userid` WHERE creatorID = '$uid'";
+        $sql = "SELECT DISTINCT id FROM `exams` WHERE creatorID = '$uid'";
 
         //create array variable for examIds
         $examIds=array();
 
         foreach ($conn->query($sql) as $row) {
           # code...
-          array_push($examIds,$row['examID']);
+          array_push($examIds,$row['id']);
         }
         //print_r($examIds);
         //echo "<br>";
             //creates array variable for exams
             $exams=array();
+
+
 
             foreach($examIds as $id){
               
