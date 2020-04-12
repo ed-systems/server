@@ -21,10 +21,10 @@ function gue($json, $conn){
   $usersinfo->bindValue(':token', $json['token']);
   $usersinfo->execute();
   $uinfo = $usersinfo->fetchAll(\PDO::FETCH_ASSOC);
-  
-  echo $json['token'];
 
   foreach ($uinfo as $info){
+    
+    echo "kek";
     $fname=$info['full_name'];
     //echo json_encode($fname);
     $uid=$info['id'];
