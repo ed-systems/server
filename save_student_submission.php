@@ -81,7 +81,7 @@ function save_student_submissions($json, $conn)
 
   $questionsArr = array("solution" => "", "ID" => "");
   $arrQarr = array();
-
+ echo "here1";
   //exam score counter
   $eMarks = 0;
 
@@ -174,7 +174,7 @@ function save_student_submissions($json, $conn)
   $update_gradecomments->bindValue(':subID', $sid);
 
   $update_gradecomments->execute();
-
+echo "here2"
   // update exam submission record which includes the sum of the scores of the each question
 }
 
