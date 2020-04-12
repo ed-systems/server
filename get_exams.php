@@ -87,7 +87,7 @@ $q = $conn->query("SELECT `name` FROM exams WHERE id='$id'");
              // $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE examID = '$id'");
               $n = $q->fetchColumn();
 
-              $q = $conn->query("SELECT examDescription FROM exam_questions_with_userid WHERE examID = '$id'");
+              $q = $conn->query("SELECT examDescription FROM exam_questions_with_userid WHERE `name` = '$n'");
               $d = $q->fetchColumn();
               //echo $d;
               //exam info obj
