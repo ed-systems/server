@@ -121,7 +121,7 @@ $q = $conn->query("SELECT `name` FROM exams WHERE id='$id'");
     header('Content-Type: application/json');
     
 
-    //echo $output_data;
+    echo $output_data;
     //curl responds with results
     //print_r($jsonArr);
 ?>
