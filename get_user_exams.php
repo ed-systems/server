@@ -76,9 +76,10 @@ function gue($json, $conn){
 
       $q = $conn->query("SELECT `name` FROM exams WHERE id=$eid");
         $en = $q->fetchColumn();
+        echo $en;
       $q = $conn->query("SELECT `description` FROM exams WHERE id=$eid");
         $ed = $q->fetchColumn();
-      
+        echo $ed;
 
 
 
