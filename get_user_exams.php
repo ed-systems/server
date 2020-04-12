@@ -91,7 +91,11 @@ function gue($json, $conn){
         $subminfo->execute();
         $minfo = $subminfo->fetchAll(\PDO::FETCH_ASSOC);
 
-        
+        foreach($minfo as $info){
+
+          echo $info['name'];
+
+        }
 
 
 
@@ -102,7 +106,7 @@ function gue($json, $conn){
 
       array_push($user_exams, $user_exams_obj);
     }
-     echo $minfo['name'];
+     //echo $minfo['name'];
      echo json_encode($en);
   }
  
