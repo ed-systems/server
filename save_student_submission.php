@@ -127,7 +127,7 @@ function save_student_submissions($json, $conn)
 
     //$user_exams_obj = array("input1" => $question['input1'], "input2" => $question['input2'], "output1" => $question['output1'], "output2" => $question['output2'], "points" => $question['points'], "questionID" => $question['questionID'], "solution" => $question['solution']);
     $user_exams_obj = array("questionID" => $qid, "points" => $pts, "solution" => $S, "input1" => $i1,"output1" => $o1, "input2" => $i2, "output2" => $o2);
-    
+    //also send input/output points, function name&points, constraint & points, colon_points
     //echo json_encode($user_exams_obj);
 
 
@@ -137,22 +137,54 @@ function save_student_submissions($json, $conn)
 
     $results = json_decode($resultspackage, true);
 
-
-
+//autograde question\\
+//add total of all results points, constrain points, name points, colon points; store in $qAg
+//$eMarks = $eMarks + $qAg;
     $eMarks = $eMarks + $results['autoGrade'];
 
     $r1 = $results['result1'];
-
     $r2 = $results['result2'];
+   /* $r3 = $results['result3'];
+    $r4 = $results['result4'];
+    $r5 = $results['result5'];
+    $r6 = $results['result6'];*/
 
     $update_questioncomments->bindValue(':res1', $r1);
-
     $update_questioncomments->bindValue(':res2', $r2);
+    /*$update_questioncomments->bindValue(':res3', $r3);
+    $update_questioncomments->bindValue(':res4', $r4);   
+    $update_questioncomments->bindValue(':res5', $r5);
+    $update_questioncomments->bindValue(':res6', $r6);*/
 
 
+    $rpt=0;
 
+    $q = $conn->query('SELECT `result1_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd');
+    $rp1 = $q->fetchColumn();
+    $q = $conn->query('SELECT `result2_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd');
+    $rp2 = $q->fetchColumn();
+    $q = $conn->query('SELECT `result3_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd');
+    $rp3 = $q->fetchColumn();
+    $q = $conn->query('SELECT `result4_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd');
+    $rp4 = $q->fetchColumn();
+    $q = $conn->query('SELECT `result5_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd');
+    $rp5 = $q->fetchColumn();
+    $q = $conn->query('SELECT `result6_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd');
+    $rp6 = $q->fetchColumn();
+    /*$rpt=$rpt+$results['result1_points'];
+    $rpt=$rpt+$results['result2_points'];
+    $rpt=$rpt+$results['result3_points'];
+    $rpt=$rpt+$results['result4_points'];
+    $rpt=$rpt+$results['result5_points'];
+    $rpt=$rpt+$results['result6_points'];*/
+    $rpt=$rpt+$rp1;
+    $rpt=$rpt+$rp2;
+    $rpt=$rpt+$rp3;
+    $rpt=$rpt+$rp4;
+    $rpt=$rpt+$rp5;
+    $rpt=$rpt+$rp6;
 
-    $g = $results['autoGrade'];
+    $g = $rpt;
     $update_questioncomments->bindValue(':ag', $g);
 
     $update_questioncomments->execute();
