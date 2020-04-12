@@ -83,7 +83,7 @@ function save_student_submissions($json, $conn)
   $arrQarr = array();
  //echo "here1";
   //exam score counter
-  $eMarks = 0;
+  $eMarks = 100;
   //echo json_encode($eMarks);
 
   foreach ($json['questions'] as $question) {
