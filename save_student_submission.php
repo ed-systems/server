@@ -198,6 +198,7 @@ function save_student_submissions($json, $conn)
 
 
     $g = $results['autoGrade'];
+    echo json_encode($g);
     $update_questioncomments->bindValue(':ag', $g);
 
     $update_questioncomments->execute();
