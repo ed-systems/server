@@ -89,7 +89,7 @@ $q = $conn->query("SELECT `name` FROM exams WHERE id='$id'");
 
               $q = $conn->query("SELECT examDescription FROM exam_questions_with_userid WHERE examID = '$id'");
               $d = $q->fetchColumn();
-              echo $d;
+              //echo $d;
               //exam info obj
               $exam_obj = array("name" => $n, "description"=> $d, "questions" => $arrQarr, "id" => $id);
               array_push($exams, $exam_obj);
