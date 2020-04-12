@@ -85,17 +85,17 @@ function gue($json, $conn){
 
 
 
-        $subminfoquery = 'SELECT * FROM `exams` WHERE `id`=:s';
+        $subminfoquery = 'SELECT * FROM `exams` WHERE `id`=:i';
         $subminfo = $conn->prepare($subminfoquery);
         $subminfo->bindValue(':i', $eid);
         $subminfo->execute();
         $minfo = $subminfo->fetchAll(\PDO::FETCH_ASSOC);
 
-        foreach($minfo as $info){
+       // foreach($minfo as $info){
 
-          echo $info['name'];
+       //   echo $info['name'];
 
-        }
+      //  }
 
 
 
@@ -106,7 +106,7 @@ function gue($json, $conn){
 
       array_push($user_exams, $user_exams_obj);
     }
-     //echo $minfo['name'];
+     echo $minfo['name'];
      echo json_encode($en);
   }
  
