@@ -60,16 +60,16 @@ function save_student_submissions($json, $conn)
 
   $eid = $json['examID'];
 
-  $update_gradecomments_query = 'UPDATE `submissions` SET autograde=:autoG WHERE id=:subID';
+  //$update_gradecomments_query = 'UPDATE `submissions` SET autograde=:autoG WHERE id=:subID';
 
-  $update_gradecomments = $conn->prepare($update_gradecomments_query);
-  $G = $json['autoGrade'];
-  $update_gradecomments->bindValue(':autoG', $G);
+  //$update_gradecomments = $conn->prepare($update_gradecomments_query);
+  //$G = $json['autoGrade'];
+ // $update_gradecomments->bindValue(':autoG', $G);
 
   $sid = $json['ID'];
-  $update_gradecomments->bindValue(':subID', $sid);
+  //$update_gradecomments->bindValue(':subID', $sid);
 
-  $update_gradecomments->execute();
+  //$update_gradecomments->execute();
 
 
   $q = $conn->query("SELECT studentID FROM submissions WHERE id=$sid");
@@ -82,7 +82,8 @@ function save_student_submissions($json, $conn)
   $questionsArr = array("solution" => "", "ID" => "");
   $arrQarr = array();
 
-  //$counter = 0
+  //exam score counter
+  $eMarks = 0;
 
   foreach ($json['questions'] as $question) {
     $update_questioncomments_query = 'UPDATE `submitted_questions` SET solution=:sol, result1=:res1, result2=:res2, autograde=:ag WHERE subID=:sd AND questionID=:qd';
@@ -138,7 +139,7 @@ function save_student_submissions($json, $conn)
 
 
 
-    //$counter = $counter + $results['autoGrade']
+    $eMarks = $eMarks + $results['autoGrade'];
 
     $r1 = $results['result1'];
 
@@ -158,6 +159,20 @@ function save_student_submissions($json, $conn)
 
     array_push($arrQarr, $questionsArr);
   }
+
+
+ // $eid = $json['examID'];
+
+  $update_gradecomments_query = 'UPDATE `submissions` SET autograde=:autoG WHERE id=:subID';
+
+  $update_gradecomments = $conn->prepare($update_gradecomments_query);
+  //$G = $json['autoGrade'];
+  $update_gradecomments->bindValue(':autoG', $eMarks);
+
+ // $sid = $json['ID'];
+  $update_gradecomments->bindValue(':subID', $sid);
+
+  $update_gradecomments->execute();
 
   // update exam submission record which includes the sum of the scores of the each question
 }
