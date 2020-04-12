@@ -92,7 +92,7 @@ function gue($json, $conn){
   //json header
   header('Content-Type: application/json');
     
-
+  echo $user_exams;
   echo "before null 2";
   echo $output_data;  
 
