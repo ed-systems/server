@@ -91,7 +91,7 @@ function gue($json, $conn){
 
       array_push($user_exams, $user_exams_obj);
     }
-     echo $en;
+     echo json_encode($en);
   }
  
   //encodes dataArr in json formatting
