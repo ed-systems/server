@@ -63,6 +63,24 @@
               json_encode($arrQarrr);      
 
 
+
+
+#make edits with code below
+/*
+              //$q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE examID = '$id'");
+              $q = $conn->query("SELECT `name` FROM exams WHERE id='$id'");
+              $n = $q->fetchColumn();
+
+             // $q = $conn->query("SELECT examDescription FROM exam_questions_with_userid WHERE examID = '$id'");
+              $q = $conn->query("SELECT 'description' FROM exams WHERE id='$id'");
+              $d = $q->fetchColumn();
+*/
+#make edits with code above
+
+//code edit is below!!!
+
+
+
               $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE examID = '$id'");
               $n = $q->fetchColumn();
 
