@@ -70,7 +70,24 @@ function gue($json, $conn){
         array_push($arrQarr, $questionsArr);
 
       }
-      $user_exams_obj = array("studentName" => $fname, "examID" => $eid, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
+
+
+
+
+      $subQinfoquery = 'SELECT * FROM `exams` WHERE `id`=:e';
+      $subEinfo = $conn->prepare($subQinfoquery);
+      $subEinfo->bindValue(':e', $eid);
+      $subEinfo->execute();
+      $einfo = $subEinfo->fetchAll(\PDO::FETCH_ASSOC);
+
+      $en=$einfo['name'];
+      $ed=$einfo['description'];
+
+
+
+
+
+      $user_exams_obj = array("studentName" => $fname, "examID" => $eid, "name" = $en, "description" = $ed, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
 
       array_push($user_exams, $user_exams_obj);
     }
