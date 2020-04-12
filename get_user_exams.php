@@ -93,7 +93,8 @@ function gue($json, $conn){
 
        foreach($minfo as $info){
 
-       echo $info['name'];
+       echo json_encode($info['name']);
+       echo json_encode($info['description']);
 
       }
 
