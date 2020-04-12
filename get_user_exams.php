@@ -22,14 +22,14 @@ function gue($json, $conn){
   $usersinfo->execute();
   $uinfo = $usersinfo->fetchAll(\PDO::FETCH_ASSOC);
 
-  echo json_encode("{ 'info': '" . $uinfo . "'}");
+  echo json_encode("{ 'info': '" . $uinfo[0] . "'}");
 
   foreach ($uinfo as $info){
     $fname=$info['full_name'];
     $uid=$info['id'];
 
     echo $info['id'];
-    
+
     //examsubmissioninfo
     $examssubinfoquery = 'SELECT * FROM `submissions` WHERE `studentID`=:s';
     $examssubinfo = $conn->prepare($examssubinfoquery);
