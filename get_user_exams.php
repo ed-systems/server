@@ -51,85 +51,70 @@ function gue($json, $conn){
       $questionsArr = array("name" => "", "description" => "", "task"=> "", "input1" => "", "output1" => "", "input2" => "", "output2" => "", "solution" => "", "result1" => "", "result2" => "", "autoGrade" => "", "grade" => "", "comments" => "", "ID" => "");
       $arrQarr = array();
 
+      foreach($qinfo as $info){
+        
+        $questionsArr["name"]=$info['name'];
+        $questionsArr["description"]=$info['description'];
+        $questionsArr["task"]=$info['task'];
+        $questionsArr["input1"]=$info['input1'];
+        $questionsArr["output1"]=$info['output1'];
+        $questionsArr["input2"]=$info['input2'];
+        $questionsArr["output2"]=$info['output2'];
+        $questionsArr["solution"]=$info['solution'];
+        $questionsArr["result1"]=$info['result1'];
+        $questionsArr["result2"]=$info['result2'];
+        $questionsArr["autoGrade"]=$info['autograde'];
+        $questionsArr["grade"]=$info['grade'];
+        $questionsArr["comments"]=$info['comments'];
+        $questionsArr["ID"]=$info['id'];
+        array_push($arrQarr, $questionsArr);
 
-
-
-
-
-
-
-
-      $subminfoquery = 'SELECT * FROM `exams` WHERE `id`=:i';
-      $subminfo = $conn->prepare($subminfoquery);
-      $subminfo->bindValue(':i', $eid);
-      $subminfo->execute();
-      $minfo = $subminfo->fetchAll(\PDO::FETCH_ASSOC);
-
-      foreach($minfo as $info){
-
-        //echo json_encode($info['name']);
-        $en=$info['name'];
-        //echo json_encode($en);
- 
-        //echo json_encode($info['description']);
-        $ed = $info['description'];
-        //echo json_encode($ed);
- 
-       //$user_exams_obj = array("studentName" => $fname, "examID" => $eid, "name" = $en, "description" = $ed, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
- 
-
-
-
-
-
-
-                          foreach($qinfo as $info){
-                            
-                            $questionsArr["name"]=$info['name'];
-                            $questionsArr["description"]=$info['description'];
-                            $questionsArr["task"]=$info['task'];
-                            $questionsArr["input1"]=$info['input1'];
-                            $questionsArr["output1"]=$info['output1'];
-                            $questionsArr["input2"]=$info['input2'];
-                            $questionsArr["output2"]=$info['output2'];
-                            $questionsArr["solution"]=$info['solution'];
-                            $questionsArr["result1"]=$info['result1'];
-                            $questionsArr["result2"]=$info['result2'];
-                            $questionsArr["autoGrade"]=$info['autograde'];
-                            $questionsArr["grade"]=$info['grade'];
-                            $questionsArr["comments"]=$info['comments'];
-                            $questionsArr["ID"]=$info['id'];
-                            array_push($arrQarr, $questionsArr);
-
-                          }
-
-
-
-                          //echo "here1";
-                        // $q = $conn->query("SELECT `name` FROM `exams` WHERE `id`=$eid");
-                          //  $en = $q->fetchColumn();
-                            //echo $en;
-                            //echo "here2";
-                          //$q = $conn->query("SELECT `description` FROM `exams` WHERE `id`=$eid");
-                          //  $ed = $q->fetchColumn();
-                            //echo $ed;
-                            //echo "here3";
-
-
-
-      
-
-
-
-
-
-          //$user_exams_obj = array("studentName" => $fname, "examID" => $eid, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
-          $user_exams_obj = array("studentName" => $fname, "examID" => $eid, "name" = $en, "description" = $ed, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
-
-           array_push($user_exams, $user_exams_obj);
       }
+
+
+
+       //echo "here1";
+     // $q = $conn->query("SELECT `name` FROM `exams` WHERE `id`=$eid");
+      //  $en = $q->fetchColumn();
+        //echo $en;
+        //echo "here2";
+      //$q = $conn->query("SELECT `description` FROM `exams` WHERE `id`=$eid");
+      //  $ed = $q->fetchColumn();
+        //echo $ed;
+        //echo "here3";
+
+
+
+        $subminfoquery = 'SELECT * FROM `exams` WHERE `id`=:i';
+        $subminfo = $conn->prepare($subminfoquery);
+        $subminfo->bindValue(':i', $eid);
+        $subminfo->execute();
+        $minfo = $subminfo->fetchAll(\PDO::FETCH_ASSOC);
+
+       foreach($minfo as $info){
+
+       //echo json_encode($info['name']);
+       $en=$info['name'];
+       echo json_encode($en);
+
+       //echo json_encode($info['description']);
+       $ed = $info['description'];
+       echo json_encode($ed);
+
+      //$user_exams_obj = array("studentName" => $fname, "examID" => $eid, "name" = $en, "description" = $ed, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
+
+
+      }
+
+
+
+
+
+      $user_exams_obj = array("studentName" => $fname, "examID" => $eid, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
+      //$user_exams_obj = array("studentName" => $fname, "examID" => $eid, "name" = $en, "description" = $ed, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
+
+      array_push($user_exams, $user_exams_obj);
     }
-  
     // echo $minfo['name'];
      //echo json_encode($en);
   }
