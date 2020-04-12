@@ -120,7 +120,7 @@ function save_student_submissions($json, $conn)
     $q = $conn->query("SELECT input2 FROM questions WHERE id= '$qid'");
     $i2 = $q->fetchColumn();
     $q = $conn->query("SELECT input3 FROM questions WHERE id= '$qid'");
-    $i2 = $q->fetchColumn();
+    $i3 = $q->fetchColumn();
     $q = $conn->query("SELECT input4 FROM questions WHERE id= '$qid'");
     $i4 = $q->fetchColumn();
     $q = $conn->query("SELECT input5 FROM questions WHERE id= '$qid'");
@@ -170,7 +170,7 @@ function save_student_submissions($json, $conn)
 
 
     $resultspackage = querry_middle($user_exams_obj);
-
+    echo $resultspackage;
     $results = json_decode($resultspackage, true);
 
 //autograde question\\
