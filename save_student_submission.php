@@ -158,31 +158,12 @@ function save_student_submissions($json, $conn)
 
 
     $rpt=0;
-
-    //$q = $conn->query("SELECT `result1_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd");
-    //$rp1 = $q->fetchColumn();
-    //$q = $conn->query('SELECT `result2_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd');
-    //$rp2 = $q->fetchColumn();
-    //$q = $conn->query('SELECT `result3_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd');
-    //$rp3 = $q->fetchColumn();
-    //$q = $conn->query('SELECT `result4_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd');
-    //$rp4 = $q->fetchColumn();
-    //$q = $conn->query('SELECT `result5_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd');
-    //$rp5 = $q->fetchColumn();
-    //$q = $conn->query('SELECT `result6_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd');
-    //$rp6 = $q->fetchColumn();
     /*$rpt=$rpt+$results['result1_points'];
     $rpt=$rpt+$results['result2_points'];
     $rpt=$rpt+$results['result3_points'];
     $rpt=$rpt+$results['result4_points'];
     $rpt=$rpt+$results['result5_points'];
     $rpt=$rpt+$results['result6_points'];*/
-    //$rpt=$rpt+$rp1;
-    //$rpt=$rpt+$rp2;
-    //$rpt=$rpt+$rp3;
-    //$rpt=$rpt+$rp4;
-    //$rpt=$rpt+$rp5;
-    //$rpt=$rpt+$rp6;
 
     $g = $rpt;
     $update_questioncomments->bindValue(':ag', $g);
