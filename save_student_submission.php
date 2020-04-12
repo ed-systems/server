@@ -84,7 +84,7 @@ function save_student_submissions($json, $conn)
  //echo "here1";
   //exam score counter
   $eMarks = 0;
-  echo json_encode($eMarks);
+  //echo json_encode($eMarks);
 
   foreach ($json['questions'] as $question) {
     $update_questioncomments_query = 'UPDATE `submitted_questions` SET solution=:sol, result1=:res1, result2=:res2, autograde=:ag WHERE subID=:sd AND questionID=:qd';
@@ -183,6 +183,7 @@ function save_student_submissions($json, $conn)
 //add total of all results points, constrain points, name points, colon points; store in $qAg
 //$eMarks = $eMarks + $qAg;
     $eMarks = $eMarks + $results['autoGrade'];
+    echo json_encode($eMarks);
 
     $r1 = $results['result1'];
 
