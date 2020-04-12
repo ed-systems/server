@@ -58,10 +58,16 @@
         $typ = $q->fetchColumn();
 
         $updateAuthTable = 'UPDATE `auth_table` SET token=:tk WHERE id=:usid';
-        $updateTok = $conn->prepare($updateAuthTable);
-        $updateTok->bindValue(':tk', $tok);
-        $updateTok->bindValue(':usid', $uid);
-        $updateTok->execute();
+        $updateTokAT = $conn->prepare($updateAuthTable);
+        $updateTokAT->bindValue(':tk', $tok);
+        $updateTokAT->bindValue(':usid', $uid);
+        $updateTokAT->execute();
+
+        $updateUserTable = 'UPDATE `users` SET token=:tk WHERE id=:usid';
+        $updateTokUT = $conn->prepare($updateAuthTable);
+        $updateTokUT->bindValue(':tk', $tok);
+        $updateTokUT->bindValue(':usid', $uid);
+        $updateTokUT->execute();
 
         $dataArr = array("token" => $tok, "type" => $typ);
 
