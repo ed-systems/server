@@ -22,6 +22,8 @@ function gue($json, $conn){
   $usersinfo->execute();
   $uinfo = $usersinfo->fetchAll(\PDO::FETCH_ASSOC);
 
+  echo $uinfo;
+
   foreach ($uinfo as $info){
     $fname=$info['full_name'];
     //echo json_encode($fname);
@@ -34,8 +36,6 @@ function gue($json, $conn){
     $examssubinfo->bindValue(':s', $uid);
     $examssubinfo->execute();
     $einfo = $examssubinfo->fetchAll(\PDO::FETCH_ASSOC);
-    
-    echo $einfo;
 
     $user_exams=array();
 
@@ -47,10 +47,6 @@ function gue($json, $conn){
       $g=$info['grade'];
       $c=$info['comments'];
       $subid=$info['id'];
-      //echo $subid
-
-      
-      //echo json_encode($eid);
 
       $subQinfoquery = 'SELECT * FROM `submited_questions_with_info` WHERE `subID`=:s';
       $subQinfo = $conn->prepare($subQinfoquery);
