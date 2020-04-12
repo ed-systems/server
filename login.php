@@ -84,7 +84,6 @@
 
     //set response header
     header('Content-Type: application/json');
-
     //return result
     echo $output_data;
 ?>
