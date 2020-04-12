@@ -74,15 +74,26 @@ function gue($json, $conn){
 
 
        //echo "here1";
-      $q = $conn->query("SELECT name FROM exams WHERE id=$eid");
+      $q = $conn->query("SELECT * FROM exams WHERE id=$eid");
         $en = $q->fetchColumn();
         //echo $en;
         //echo "here2";
       $q = $conn->query("SELECT description FROM exams WHERE id=$eid");
-      
         $ed = $q->fetchColumn();
         //echo $ed;
         //echo "here3";
+
+
+
+        $subminfoquery = 'SELECT * FROM `exams` WHERE `id`=:s';
+        $subminfo = $conn->prepare($subminfoquery);
+        $subminfo->bindValue(':i', $eid);
+        $subminfo->execute();
+        $minfo = $subminfo->fetchAll(\PDO::FETCH_ASSOC);
+
+        
+
+
 
 
 
@@ -91,6 +102,7 @@ function gue($json, $conn){
 
       array_push($user_exams, $user_exams_obj);
     }
+     echo $minfo['name'];
      echo json_encode($en);
   }
  
