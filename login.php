@@ -64,7 +64,7 @@
         $updateTokAT->execute();
 
         $updateUserTable = 'UPDATE `users` SET token=:tk WHERE id=:usid';
-        $updateTokUT = $conn->prepare($updateAuthTable);
+        $updateTokUT = $conn->prepare($updateUserTable);
         $updateTokUT->bindValue(':tk', $tok);
         $updateTokUT->bindValue(':usid', $uid);
         $updateTokUT->execute();
