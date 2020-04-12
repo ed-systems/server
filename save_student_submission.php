@@ -37,6 +37,7 @@ function querry_middle($in)
   curl_close($ch); // Closing request
 
   header('Content-Type: application/json'); // Setting header for our PHP response
+  echo "in query middle";
   return $result; // Returning result
 
 }
@@ -46,6 +47,7 @@ function querry_middle($in)
 
 function save_student_submissions($json, $conn)
 {
+  echo "in save_student function";
   $update_status_query = 'UPDATE `submissions` SET status = 1 WHERE id = :id';
   $update_status = $conn->prepare($update_status_query);
   $update_status->bindValue(':id', $json['ID']);
@@ -60,11 +62,11 @@ function save_student_submissions($json, $conn)
 
   $eid = $json['examID'];
 
-  //$update_gradecomments_query = 'UPDATE `submissions` SET autograde=:autoG WHERE id=:subID';
+  $update_gradecomments_query = 'UPDATE `submissions` SET autograde=:autoG WHERE id=:subID';
 
-  //$update_gradecomments = $conn->prepare($update_gradecomments_query);
+  $update_gradecomments = $conn->prepare($update_gradecomments_query);
   //$G = $json['autoGrade'];
- // $update_gradecomments->bindValue(':autoG', $G);
+  //$update_gradecomments->bindValue(':autoG', $G);
 
   $sid = $json['ID'];
   //$update_gradecomments->bindValue(':subID', $sid);
@@ -134,7 +136,7 @@ function save_student_submissions($json, $conn)
 
 
     $resultspackage = querry_middle($user_exams_obj);
-echo $resultspackage;
+
     $results = json_decode($resultspackage, true);
 
 //autograde question\\
@@ -157,15 +159,7 @@ echo $resultspackage;
     $update_questioncomments->bindValue(':res6', $r6);*/
 
 
-    $rpt=0;
-    /*$rpt=$rpt+$results['result1_points'];
-    $rpt=$rpt+$results['result2_points'];
-    $rpt=$rpt+$results['result3_points'];
-    $rpt=$rpt+$results['result4_points'];
-    $rpt=$rpt+$results['result5_points'];
-    $rpt=$rpt+$results['result6_points'];*/
 
-    $g = $rpt;
     $update_questioncomments->bindValue(':ag', $g);
 
     $update_questioncomments->execute();
@@ -195,7 +189,9 @@ echo $resultspackage;
 try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "before save func";
   save_student_submissions($json, $conn);
+  echo "after save func";
 } catch (PDOException $e) {
   echo $sql . "<br>" . $e->getMessage();
 }
