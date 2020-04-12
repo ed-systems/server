@@ -73,11 +73,11 @@ function gue($json, $conn){
 
 
 
-       echo "here1";
+       //echo "here1";
       $q = $conn->query("SELECT `name` FROM exams WHERE id=$eid");
         $en = $q->fetchColumn();
-        echo $en;
-        echo "here2";
+        //echo $en;
+        //echo "here2";
       $q = $conn->query("SELECT `description` FROM exams WHERE id=$eid");
         $ed = $q->fetchColumn();
         //echo $ed;
@@ -90,7 +90,7 @@ function gue($json, $conn){
 
       array_push($user_exams, $user_exams_obj);
     }
-     
+     echo $en;
   }
  
   //encodes dataArr in json formatting
