@@ -48,7 +48,7 @@ function enroll_student($json, $conn){
 ///////////////////////////////////////////////////////////////////
   //echo "here0";
 
-  $submitted_questions_insert_query = 'INSERT INTO `submitted_questions` (`questionID` ,`subID`, `solution`, `result1`, `result2`, `autograde`, `grade`, `comments`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);';
+  $submitted_questions_insert_query = 'INSERT INTO `submitted_questions` (`questionID` ,`subID`, `solution`, `result1`, `result2`, `result1_points`, `result2_points`, `result3_points`, `result4_points`, `result5_points`, `result6_points`,`autograde`, `grade`, `comments`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
   //echo "here1";
   $submitted_questions_insert = $conn->prepare($submitted_questions_insert_query);
   //echo "here2";
@@ -61,7 +61,7 @@ function enroll_student($json, $conn){
   ##returns empty array ?????? because $exam_questions wasnt executed. see issue with $exam_questions exectuion error.
   foreach ($questions as $question){
     //echo "here4";
-    $submitted_questions_insert->execute([$question['questionID'], $submission_id, "", "", "", 0, 0, ""]);
+    $submitted_questions_insert->execute([$question['questionID'], $submission_id, "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, ""]);
     //echo "here5";
   }  
   #issue
