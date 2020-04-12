@@ -159,7 +159,7 @@ function save_student_submissions($json, $conn)
 
     $rpt=0;
 
-    $q = $conn->query('SELECT `result1_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd');
+    $q = $conn->query("SELECT `result1_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd");
     $rp1 = $q->fetchColumn();
     $q = $conn->query('SELECT `result2_points` FROM `submitted_questions` WHERE subID=:sd AND questionID=:qd');
     $rp2 = $q->fetchColumn();
