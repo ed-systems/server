@@ -82,7 +82,7 @@
               $d = $q->fetchColumn();
 
               //exam info obj
-              $exam_obj = array("name" => "$n", "description"=> "$d", "questions" => $arrQarr, "id" => "$id");
+              $exam_obj = array("name" => $n, "description"=> $d, "questions" => $arrQarr, "id" => $id);
               array_push($exams, $exam_obj);
               //$jsonArr = array();
              // array_push($jsonArr, $exams);      
