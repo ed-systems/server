@@ -80,8 +80,9 @@ function gue($json, $conn){
         //echo json_encode($arrQarr);
       }
       $user_exams_obj = array("studentName" => $fname, "examID" => $eid, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
-     array_push($user_exams, $user_exams_obj);
-     //echo json_encode($user_exams);
+      echo json_encode($user_exams_obj);
+
+      array_push($user_exams, $user_exams_obj);
      }
      
   }
