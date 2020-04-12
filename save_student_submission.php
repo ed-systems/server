@@ -158,16 +158,12 @@ function save_student_submissions($json, $conn)
 
 
     $rpt=0;
-    $rp1=0;
-    $rp2=10;
-    $rpt=$rpt+$rp1;
-    $rpt=$rpt+$rp2;
-    /*$rpt=$rpt+$results['result1_points'];
+    $rpt=$rpt+$results['result1_points'];
     $rpt=$rpt+$results['result2_points'];
     $rpt=$rpt+$results['result3_points'];
     $rpt=$rpt+$results['result4_points'];
     $rpt=$rpt+$results['result5_points'];
-    $rpt=$rpt+$results['result6_points'];*/
+    $rpt=$rpt+$results['result6_points'];
 
     $g = $rpt;
     $update_questioncomments->bindValue(':ag', $g);
