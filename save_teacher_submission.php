@@ -57,6 +57,7 @@ function save_teacher_submissions($json, $conn){
   $update_questioncomments = $conn->prepare($update_questioncomments_query);
  
   
+  $update_questioncomments->bindValue(':gr', $question['grade']);
   $update_questioncomments->bindValue(':crp', $question['colon_result_points']);
   $update_questioncomments->bindValue(':corp', $question['constraint_result_points']);
   $update_questioncomments->bindValue(':fnrp', $question['function_name_result_points']);
@@ -67,11 +68,7 @@ function save_teacher_submissions($json, $conn){
   $update_questioncomments->bindValue(':r4p', $question['result4_points']);
   $update_questioncomments->bindValue(':r5p', $question['result5_points']);
   $update_questioncomments->bindValue(':r6p', $question['result6_points']);
- 
-
-  $G=$question['grade'];
-  
-  $update_questioncomments->bindValue(':gr', $G);
+   
  
   $C=$question['comments'];
   
