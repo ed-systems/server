@@ -47,7 +47,7 @@
 
             $question_rows = $conn->query($subQuery);
 
-            $questionsArr = array("name" => "", "description" => "", "task"=> "", "input1" => "", "output1" => "", "input2" => "", "output2" => "", "solution" => "", "result1" => "", "result2" => "", "autoGrade" => "", "grade" => "", "comments" => "", "ID" => "");
+            $questionsArr = array("name" => "", "description" => "", "task"=> "", "input1" => "", "input2" => "", "input3" => "", "input4" => "", "input5" => "", "input6" => "", "output1" => "", "output2" => "", "output3" => "", "output4" => "", "output5" => "", "output6" => "", "solution" => "", "result1" => "", "result2" => "", "result3" => "", "result4" => "", "result5" => "", "result6" => "", "result1_points" => "", "result2_points" => "", "result3_points" => "", "result4_points" => "", "result5_points" => "", "result6_points" => "", "autoGrade" => "", "grade" => "", "comments" => "", "ID" => "");
             $arrQarr = array();
             foreach ($question_rows as $q) {
               
@@ -55,12 +55,30 @@
               $questionsArr["description"]=$q['description'];
               $questionsArr["task"]=$q['task'];
               $questionsArr["input1"]=$q['input1'];
-              $questionsArr["output1"]=$q['output1'];
               $questionsArr["input2"]=$q['input2'];
+              $questionsArr["input3"]=$q['input3'];
+              $questionsArr["input4"]=$q['input4'];
+              $questionsArr["input5"]=$q['input5'];
+              $questionsArr["input6"]=$q['input6'];
+              $questionsArr["output1"]=$q['output1'];
               $questionsArr["output2"]=$q['output2'];
+              $questionsArr["output3"]=$q['output3'];
+              $questionsArr["output4"]=$q['output4'];
+              $questionsArr["output5"]=$q['output5'];
+              $questionsArr["output6"]=$q['output6'];
               $questionsArr["solution"]=$q['solution'];
               $questionsArr["result1"]=$q['result1'];
               $questionsArr["result2"]=$q['result2'];
+              $questionsArr["result3"]=$q['result3'];
+              $questionsArr["result4"]=$q['result4'];
+              $questionsArr["result5"]=$q['result5'];
+              $questionsArr["result6"]=$q['result6'];
+              $questionsArr["result1_points"]=$q['result1_points'];
+              $questionsArr["result2_points"]=$q['result2_points'];
+              $questionsArr["result3_points"]=$q['result3_points'];
+              $questionsArr["result4_points"]=$q['result4_points'];
+              $questionsArr["result5_points"]=$q['result5_points'];
+              $questionsArr["result6_points"]=$q['result6_points'];
               $questionsArr["autoGrade"]=$q['autograde'];
               $questionsArr["grade"]=$q['grade'];
               $questionsArr["comments"]=$q['comments'];
