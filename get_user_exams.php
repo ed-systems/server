@@ -112,13 +112,9 @@ function gue($json, $conn){
         $questionsArr["colon_points"]=$info['colonPoints'];
         $questionsArr["colon_result"]=$info['colon_result'];
         $questionsArr["colon_result_points"]=$info['colon_result_points'];
-        
-        echo "\nFISRT HERE!!\n";
-       
+             
 
-        $cid=$q['constraintID'];
-        echo $cid;
-        echo "\SECOND HERE!!\n";
+        $cid=$info['constraintID'];
 
         $f = $conn->query("SELECT constraint_string FROM constraints WHERE 'id'=$cid");
 
