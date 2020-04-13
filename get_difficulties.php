@@ -32,7 +32,14 @@ function getD(){
         }
 
 
-    return json_encode($difficulty_array);
+    //encodes dataArr in json formatting
+    $output_data = json_encode($difficulty_array);
+
+    //json header
+    header('Content-Type: application/json');
+    
+
+    echo $output_data;  
 
 
 }
