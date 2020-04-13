@@ -252,15 +252,6 @@ function save_student_submissions($json, $conn)
 
   $update_gradecomments->execute();
 
-
-     //encode data for curl
-    // $output_data = json_encode($dataArr);
-
-     //set response header
-     header('Content-Type: application/json');
-     //return result
-    // echo $output_data;
-
   echo $arrQarr;
 
   //echo json_encode($update_questioncomments);
