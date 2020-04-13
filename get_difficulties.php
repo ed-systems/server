@@ -44,7 +44,7 @@ try {
 
             echo json_encode($difficulty_array_obj);
 
-            array_push($difficulty_array_obj, $difficulty_array);
+            array_push($difficulty_array, $difficulty_array_obj);
 
 
         }
