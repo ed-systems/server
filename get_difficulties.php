@@ -5,10 +5,22 @@
 $json = json_decode(file_get_contents('php://input'), true);
 
 
-//get difficulties
-function getD(){
 
-echo "here0";
+$servername = "sql1.njit.edu";
+$username = "npm26";
+$password = "DBPassword1!";
+$dbname = "npm26";
+
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "before func";
+
+
+
+
+    echo "here0";
     echo "here0.1";
     $stmt = $conn->prepare("SELECT id FROM difficulties");
     echo "here0.2";
@@ -42,20 +54,9 @@ echo "here3";
     echo $output_data;  
 
 
-}
 
 
-$servername = "sql1.njit.edu";
-$username = "npm26";
-$password = "DBPassword1!";
-$dbname = "npm26";
 
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "before func";
-    getD();
     echo "after func";
   } catch (PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
