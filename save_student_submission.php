@@ -226,7 +226,8 @@ function save_student_submissions($json, $conn)
     $update_questioncomments->bindValue(':resp6', $rp6);
 
     $g = $results['autoGrade'];
-    echo json_encode($g);
+    echo $g;
+  
 
     $update_questioncomments->bindValue(':ag', $g);
 
