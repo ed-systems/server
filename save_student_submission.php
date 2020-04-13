@@ -191,8 +191,9 @@ function save_student_submissions($json, $conn)
 
     $resultspackage = querry_middle($user_exams_obj);
     //echo $resultspackage;
-    $results = $resultspackage;
-    echo $resultspackage;
+    $results = unserialize($resultspackage);
+
+    echo $results;
     //autograde question\\
     //add total of all results points, constrain points, name points, colon points; store in $qAg
     //$eMarks = $eMarks + $qAg;
