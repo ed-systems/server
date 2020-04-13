@@ -53,13 +53,16 @@
                     //create array variable for questions
                     $questionsArr = array("questionID"=>"","points"=>"", "function_name_points" => "", "constraint_points" => "", "colon_points" => "", "output1_points" => "", "output2_points" => "", "output3_points" => "", "output4_points" => "", "output5_points" => "", "output6_points" => "" );
                     $arrQarr = array();
-                    foreach($question_rows as $q){
+                    foreach($question_rows as $qr){
                       #code...
                       //array_push($questionsArr, "questionID" => $q['questionID'], "points" => $q['points']);
-                      $questionsArr["questionID"]=$q['questionID'];
-                      $questionsArr["points"]=$q['points'];
+                      $questionsArr["questionID"]=$qr['questionID'];
+                      $questionsArr["points"]=$qr['points'];
 
-                      $q = $conn->query("SELECT functionNamePoints FROM exam_questions WHERE questionID='$qid' AND examID=$eid");
+
+                      $qid=$qr['questionID'];
+                      
+                      $q = $conn->query("SELECT functionNamePoints FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $fnp = $q->fetchColumn();
                       $questionsArr["function_name_points"]=$fnp;
 
