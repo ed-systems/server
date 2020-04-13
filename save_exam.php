@@ -99,9 +99,9 @@
 
                     
                     $csp = $question['constraint_points'];
-                    echo $csp;
+                    //echo $csp;
                     $cp = $question['colon_points'];
-                    echo $cp;
+                    //echo $cp;
 
 
 
