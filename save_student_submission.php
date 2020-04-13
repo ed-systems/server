@@ -189,7 +189,6 @@ function save_student_submissions($json, $conn)
     
 
     $resultspackage = querry_middle($user_exams_obj);
-    echo $resultspackage;
     $results = json_decode($resultspackage, true);
     //echo $results;
 
@@ -231,6 +230,7 @@ function save_student_submissions($json, $conn)
     //echo $g;
    // $g=6;
 
+
     $update_questioncomments->bindValue(':ag', $g);
 
     $update_questioncomments->execute();
@@ -251,6 +251,8 @@ function save_student_submissions($json, $conn)
   $update_gradecomments->bindValue(':subID', $sid);
 
   $update_gradecomments->execute();
+
+  echo $arrQarr;
 
   //echo json_encode($update_questioncomments);
 
