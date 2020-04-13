@@ -9,10 +9,13 @@ $json = json_decode(file_get_contents('php://input'), true);
 function getD(){
 
 echo "here0";
-    $q = $conn->query("SELECT * FROM difficulties");
     echo "here0.1";
+    $q = $conn->query("SELECT * FROM difficulties");
+    echo "here0.2";
+    $dinfo = $q->fetchColumn();
     //$dinfo = $q->fetchColumn();
-    $dinfo = $q->fetchAll(\PDO::FETCH_ASSOC);
+    //$dinfo = $q->fetchAll(\PDO::FETCH_ASSOC);
+    echo "here0.3";
 echo "here1";
 
     $difficulty_array=array();
