@@ -159,7 +159,7 @@ function save_student_submissions($json, $conn)
 
     
     //function name
-    $q = $conn->query("SELECT functionName FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
+    $q = $conn->query("SELECT functionName FROM questions WHERE questionID= '$id'");
     $fn = $q->fetchColumn();
     //function name points
     $q = $conn->query("SELECT functionNamePoints FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
