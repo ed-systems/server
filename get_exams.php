@@ -27,7 +27,7 @@
       //$uid = 9;
 
         //query view
-        $sql = "SELECT DISTINCT id FROM exams WHERE creatorID = $uid";
+        $sql = "SELECT DISTINCT id FROM exams WHERE creatorID = '$uid'";
 
         //create array variable for examIds
         $examIds=array();
@@ -51,7 +51,8 @@
 
                     $question_rows = $conn->query($examQuery);
                     //create array variable for questions
-                    $questionsArr = array("questionID"=>"","points"=>"", "function_name_points" => "", "constraint_points" => "", "colon_points" => "", "output1_points" => "", "output2_points" => "", "output3_points" => "", "output4_points" => "", "output5_points" => "", "output6_points" => "" );
+                    //$questionsArr = array("questionID"=>"","points"=>"", "function_name_points" => "", "constraint_points" => "", "colon_points" => "", "output1_points" => "", "output2_points" => "", "output3_points" => "", "output4_points" => "", "output5_points" => "", "output6_points" => "" );
+                    $questionsArr = array("questionID"=>"","points"=>"");
                     $arrQarr = array();
                     foreach($question_rows as $q){
                       #code...
@@ -61,7 +62,7 @@
 
 
 
-
+/*
                       //functionName points
                       $q = $conn->query("SELECT functionNamePoints FROM exam_questions WHERE questionID='$qid' AND examID=$eid");
                       $fnp = $q->fetchColumn();
@@ -98,7 +99,7 @@
                       $q = $conn->query("SELECT output6_points FROM exam_questions WHERE questionID='$qid' AND examID=$eid");
                       $op6 = $q->fetchColumn();
                       $questionsArr["output6_points"]=$op6;
-
+*/
 
 
 
