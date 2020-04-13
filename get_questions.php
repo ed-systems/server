@@ -130,7 +130,7 @@
 
 
               //questions info obj
-              $questions_obj = array("name"=> "$n", "description"=> "$d", "task"=>"$t", "function_name"=>"$fn", "topicID"=>"$tid", "difficultyID"=>"$did", "topicID"=>"$tid","input1" => "$i1", "output1" => "$o1", "input2" => "$i2", "output2" => "$o2", "input3" => "$i3", "output3" => "$o3", "input4" => "$i4", "output4" => "$o4", "input5" => "$i5", "output5" => "$o5", "input6" => "$i6", "output6" => "$o6", "ID" => "$id");
+              $questions_obj = array("name"=> "$n", "description"=> "$d", "task"=>"$t", "function_name"=>"$fn", "constraintID"=>"$cid", "difficultyID"=>"$did", "topicID"=>"$tid","input1" => "$i1", "output1" => "$o1", "input2" => "$i2", "output2" => "$o2", "input3" => "$i3", "output3" => "$o3", "input4" => "$i4", "output4" => "$o4", "input5" => "$i5", "output5" => "$o5", "input6" => "$i6", "output6" => "$o6", "ID" => "$id");
               array_push($questions, $questions_obj);
             }
           //print_r($questions);
