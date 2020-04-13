@@ -123,14 +123,14 @@
               $fn = $q->fetchColumn();
               $q = $conn->query("SELECT topicID FROM questions WHERE id ='$id'");
               $tid = $q->fetchColumn();
-              $q = $conn->query("SELECT descriptionID FROM questions WHERE id ='$id'");
+              $q = $conn->query("SELECT difficultyID FROM questions WHERE id ='$id'");
               $did = $q->fetchColumn();
               $q = $conn->query("SELECT constraintID FROM questions WHERE id ='$id'");
               $cid = $q->fetchColumn();
 
 
               //questions info obj
-              $questions_obj = array("name"=> "$n", "description"=> "$d", "task"=>"$t", "function_name"=>"$fn", "topicID"=>"$tid", "descriptionID"=>"$did", "topicID"=>"$tid","input1" => "$i1", "output1" => "$o1", "input2" => "$i2", "output2" => "$o2", "ID" => "$id");
+              $questions_obj = array("name"=> "$n", "description"=> "$d", "task"=>"$t", "function_name"=>"$fn", "topicID"=>"$tid", "difficultyID"=>"$did", "topicID"=>"$tid","input1" => "$i1", "output1" => "$o1", "input2" => "$i2", "output2" => "$o2", "input3" => "$i3", "output3" => "$o3", "input4" => "$i4", "output4" => "$o4", "input5" => "$i5", "output5" => "$o5", "input6" => "$i6", "output6" => "$o6", "ID" => "$id");
               array_push($questions, $questions_obj);
             }
           //print_r($questions);
