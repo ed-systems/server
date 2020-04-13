@@ -94,11 +94,43 @@
               $q = $conn->query("SELECT output2 FROM questions WHERE id ='$id'");
               $o2 = $q->fetchColumn();
 
+              $q = $conn->query("SELECT input3 FROM questions WHERE id ='$id'");
+              $i3 = $q->fetchColumn();
 
+              $q = $conn->query("SELECT output3 FROM questions WHERE id ='$id'");
+              $o3 = $q->fetchColumn();
+
+              $q = $conn->query("SELECT input4 FROM questions WHERE id ='$id'");
+              $i4 = $q->fetchColumn();
+
+              $q = $conn->query("SELECT output4 FROM questions WHERE id ='$id'");
+              $o4 = $q->fetchColumn();
+
+              $q = $conn->query("SELECT input5 FROM questions WHERE id ='$id'");
+              $i5 = $q->fetchColumn();
+
+              $q = $conn->query("SELECT output5 FROM questions WHERE id ='$id'");
+              $o5 = $q->fetchColumn();
+
+              $q = $conn->query("SELECT input6 FROM questions WHERE id ='$id'");
+              $i6 = $q->fetchColumn();
+
+              $q = $conn->query("SELECT output6 FROM questions WHERE id ='$id'");
+              $o6 = $q->fetchColumn();
+
+
+              $q = $conn->query("SELECT functionName FROM questions WHERE id ='$id'");
+              $fn = $q->fetchColumn();
+              $q = $conn->query("SELECT topicID FROM questions WHERE id ='$id'");
+              $tid = $q->fetchColumn();
+              $q = $conn->query("SELECT descriptionID FROM questions WHERE id ='$id'");
+              $did = $q->fetchColumn();
+              $q = $conn->query("SELECT constraintID FROM questions WHERE id ='$id'");
+              $cid = $q->fetchColumn();
 
 
               //questions info obj
-              $questions_obj = array("name"=> "$n", "description"=> "$d", "task"=>"$t", "input1" => "$i1", "output1" => "$o1", "input2" => "$i2", "output2" => "$o2", "ID" => "$id");
+              $questions_obj = array("name"=> "$n", "description"=> "$d", "task"=>"$t", "function_name"=>"$fn", "topicID"=>"$tid", "descriptionID"=>"$did", "topicID"=>"$tid","input1" => "$i1", "output1" => "$o1", "input2" => "$i2", "output2" => "$o2", "ID" => "$id");
               array_push($questions, $questions_obj);
             }
           //print_r($questions);
