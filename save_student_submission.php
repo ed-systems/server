@@ -193,7 +193,7 @@ function save_student_submissions($json, $conn)
 
     echo $user_exams_obj;
     echo "\n";
-    echo json_encode($resultspackage);
+    echo $resultspackage;
     echo "\n";
 
     //echo $results;
