@@ -2,8 +2,9 @@
 
 
 // pass json_decode'd data into these 
-$json = json_decode(file_get_contents('php://input'), true);
+//$json = json_decode(file_get_contents('php://input'), true);
 
+header('Content-Type: application/json');
 
 
 $servername = "sql1.njit.edu";
@@ -51,7 +52,7 @@ echo json_encode($info['difficulty_description']);
     $output_data = json_encode($difficulty_array);
 
     //json header
-    header('Content-Type: application/json');
+    //header('Content-Type: application/json');
     
 
     //echo $output_data;  
