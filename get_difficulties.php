@@ -23,13 +23,15 @@ try {
  
  
     $stmt = $conn->prepare("SELECT id FROM difficulties");
-    $dinfo = $stmt->execute();
+    $stmt->execute();
+
+    $dInfo = $stmt->setFetchMode(PDO::FETCH_ASSOC);
  
 
     $difficulty_array=array();
 
-
-        foreach($dinfo as $info){
+echo "before loop";
+        foreach($dInfo as $info){
 echo "beginloop";
         
             $dId = $info['id'];
@@ -41,7 +43,7 @@ echo "midloop";
 echo "endloop";
 
         }
-
+echo "afterloop";
 
     //encodes dataArr in json formatting
     //$output_data = json_encode($difficulty_array);
