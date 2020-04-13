@@ -43,11 +43,9 @@
 //      echo "here2";
        
         $subQuery = "SELECT * FROM submitted_questions_with_info WHERE subID='$id'";
-
-
             $question_rows = $conn->query($subQuery);
 
-            $questionsArr = array("name" => "", "description" => "", "task"=> "", "input1" => "", "input2" => "", "input3" => "", "input4" => "", "input5" => "", "input6" => "", "output1" => "", "output2" => "", "output3" => "", "output4" => "", "output5" => "", "output6" => "", "solution" => "", "result1" => "", "result2" => "", "result3" => "", "result4" => "", "result5" => "", "result6" => "", "result1_points" => "", "result2_points" => "", "result3_points" => "", "result4_points" => "", "result5_points" => "", "result6_points" => "", "function_name_result" => true, "function_name_result_points"=>"", "colon_result" => true, "colon_result_points"=>"", "constraint_result"=>true, "constraint_result_points"=>"", "autoGrade" => "", "grade" => "", "comments" => "", "ID" => "");
+            $questionsArr = array("name" => "", "description" => "", "task"=> "", "solution" => "", "function_name_points"=>"", "constraint_points"=>"", "colon_points"=>"", "input1" => "", "input2" => "", "input3" => "", "input4" => "", "input5" => "", "input6" => "", "output1" => "", "output2" => "", "output3" => "", "output4" => "", "output5" => "", "output6" => "", "result1" => "", "result2" => "", "result3" => "", "result4" => "", "result5" => "", "result6" => "", "result1_points" => "", "result2_points" => "", "result3_points" => "", "result4_points" => "", "result5_points" => "", "result6_points" => "", "function_name_result" => true, "function_name_result_points"=>"", "colon_result" => true, "colon_result_points"=>"", "constraint_result"=>true, "constraint_result_points"=>"", "autoGrade" => "", "grade" => "", "comments" => "", "ID" => "");
             $arrQarr = array();
             foreach ($question_rows as $q) {
               
@@ -84,17 +82,27 @@
               $questionsArr["comments"]=$q['comments'];
               $questionsArr["ID"]=$q['id'];
               $questionsArr["function_name"]=$q['functionName'];
-              //function name points
               //function_name_result
               $questionsArr["function_name_result_points"]=$q['function_name_result_points'];
-              //colon points
               //colon result
               $questionsArr["colon_result_points"]=$q['colon_result_points'];
               //constraint
-              //constraint points
               //constraint result
               $questionsArr["constraint_result_points"]=$q['constraint_result_points'];
               array_push($arrQarr, $questionsArr);
+            }
+
+            $pointsQuery = "SELECT * FROM view_some_points WHERE subID='$id'";
+            $points_row = $conn->query($pointsQuery);
+
+            foreach($points_row as $p){
+                //function name points
+                $questionsArr["function_name_points"]=$p['functionNamePoints'];
+                //colon points
+                $questionsArr["constraint_points"]=$p['constraintStringPoints']
+                //constraint points
+                $questionsArr["colon_points"]=$p['colonPoints']
+                //output points
             }
 
 //echo "here4";
