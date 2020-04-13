@@ -216,9 +216,9 @@ function save_student_submissions($json, $conn)
     $rp1 = $results['result1_points'];
     $update_questioncomments->bindValue(':resp1', $rp1);
 
-    echo "Some funky shit";
-    echo $rp1;
-    echo "Fuck me";
+    echo "Some funky shit \n";
+    echo $r1;
+    echo "Fuck me \n";
 
     $rp2 = $results['result2_points'];
     $update_questioncomments->bindValue(':resp2', $rp2);    
