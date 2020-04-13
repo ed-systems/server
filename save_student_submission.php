@@ -181,16 +181,17 @@ function save_student_submissions($json, $conn)
 
 
     
-    //$user_exams_obj = array("input1" => $question['input1'], "input2" => $question['input2'], "output1" => $question['output1'], "output2" => $question['output2'], "points" => $question['points'], "questionID" => $question['questionID'], "solution" => $question['solution']);
+    
     $user_exams_obj = array("questionID" => $qid, "points" => $pts, "solution" => $S, "function_name" => $fn, "function_name_points" => $fnp, "constraint" => $cs, "constraint_points" => $csp, "colon_points" => $clnp, "input1" => $i1, "input2" => $i2, "input3" => $i3, "input4" => $i4, "input5" => $i5, "input6" => $i6, "output1" => $o1, "output2" => $o2, "output3" => $o3, "output4" => $o4, "output5" => $o5, "output6" => $o6, "output1_points" => $op1, "output2_points" => $op2, "output3_points" => $op3, "output4_points" => $op4, "output5_points" => $op5, "output6_points" => $op6);
     //also send input/output points, function name&points, constraint & points, colon_points,
     //echo json_encode($user_exams_obj);
 
 
-    echo json_encode($user_exams_obj);
   
     $resultspackage = querry_middle($user_exams_obj);
     $results = json_decode($resultspackage, true);
+    
+    echo json_encode($resultspackage);
 
     //echo $results;
 
@@ -201,39 +202,20 @@ function save_student_submissions($json, $conn)
     //print_r($results['autoGrade']);
     //echo json_encode($eMarks);
 
-    $r1 = $results['result1'];
-    $update_questioncomments->bindValue(':res1', $r1);
-    $r2 = $results['result2'];
-    $update_questioncomments->bindValue(':res2', $r2);
-    $r3 = $results['result3'];
-    $update_questioncomments->bindValue(':res3', $r3);
-    $r4 = $results['result4'];
-    $update_questioncomments->bindValue(':res4', $r4);
-    $r5 = $results['result5'];
-    $update_questioncomments->bindValue(':res5', $r5);
-    $r6 = $results['result6'];
-    $update_questioncomments->bindValue(':res6', $r6);
+    $update_questioncomments->bindValue(':res1', $results['result1']);
+    $update_questioncomments->bindValue(':res2', $results['result2']);
+    $update_questioncomments->bindValue(':res3', $results['result3']);
+    $update_questioncomments->bindValue(':res4', $results['result4']);
+    $update_questioncomments->bindValue(':res5', $results['result5']);
+    $update_questioncomments->bindValue(':res6', $results['result6']);
+    $update_questioncomments->bindValue(':resp1', $results['result1_points']);
 
-    $rp1 = $results['result1_points'];
-    $update_questioncomments->bindValue(':resp1', $rp1);
-
-    $rp2 = $results['result2_points'];
-    $update_questioncomments->bindValue(':resp2', $rp2);    
-    $rp3 = $results['result3_points'];
-    $update_questioncomments->bindValue(':resp3', $rp3);
-    $rp4 = $results['result4_points'];
-    $update_questioncomments->bindValue(':resp4', $rp4);
-    $rp5 = $results['result5_points'];
-    $update_questioncomments->bindValue(':resp5', $rp5);
-    $rp6 = $results['result6_points'];
-    $update_questioncomments->bindValue(':resp6', $rp6);
-
-    $g = $results['autoGrade'];
-    //echo $g;
-   // $g=6;
-
-
-    $update_questioncomments->bindValue(':ag', $g);
+    $update_questioncomments->bindValue(':resp2', $results['result2_points']);    
+    $update_questioncomments->bindValue(':resp3', $results['result3_points']);
+    $update_questioncomments->bindValue(':resp4', $results['result4_points']);
+    $update_questioncomments->bindValue(':resp5', $results['result5_points']);
+    $update_questioncomments->bindValue(':resp6', $results['result6_points']);
+    $update_questioncomments->bindValue(':ag', $results['autoGrade']);
 
     $update_questioncomments->execute();
   }
