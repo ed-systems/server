@@ -117,11 +117,11 @@ function gue($json, $conn){
        
 
         $cid=$q['constraintID'];
-        $f = $conn->query("SELECT constraint_string FROM constraints WHERE id=$cid");
+        echo $cid;
+        echo "\SECOND HERE!!\n";
 
-        echo $f;
-        echo "\nFISRT HERE!!\n";
-        
+        $f = $conn->query("SELECT constraint_string FROM constraints WHERE 'id'=$cid");
+
         $cn = $f->fetchColumn();
         $questionsArr["constraint"]=$cn;
       
