@@ -186,10 +186,9 @@ function save_student_submissions($json, $conn)
     //echo json_encode($user_exams_obj);
 
 
-
+    echo json_encode($user_exams_obj);
   
     $resultspackage = querry_middle($user_exams_obj);
-    echo $resultspackage;
     $results = json_decode($resultspackage, true);
 
     //echo $results;
