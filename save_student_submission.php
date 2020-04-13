@@ -226,7 +226,8 @@ function save_student_submissions($json, $conn)
     $update_questioncomments->bindValue(':resp6', $rp6);
 
     $g = $results['autoGrade'];
-    //echo json_encode($g);
+    echo json_encode($g);
+
     $update_questioncomments->bindValue(':ag', $g);
 
     $update_questioncomments->execute();
@@ -248,7 +249,7 @@ function save_student_submissions($json, $conn)
 
   $update_gradecomments->execute();
 
-  echo json_encode($update_questioncomments);
+  //echo json_encode($update_questioncomments);
 
 //echo "here2"
   // update exam submission record which includes the sum of the scores of the each question
