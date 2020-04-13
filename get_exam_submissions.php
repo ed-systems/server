@@ -85,7 +85,7 @@
               $questionsArr["function_name_points"]=$q['functionNamePoints'];
               //function_name_result
               $questionsArr["function_name_result_points"]=$q['function_name_result_points'];
-              $questionsArr["colon_points"]=$q['colonPoints']
+              $questionsArr["colon_points"]=$q['colonPoints'];
               //colon result
               $questionsArr["colon_result_points"]=$q['colon_result_points'];
               //constraint
