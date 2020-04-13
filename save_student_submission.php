@@ -86,7 +86,6 @@ function save_student_submissions($json, $conn)
   $eMarks = 0;
 
   foreach ($json['questions'] as $question) {
-    //$update_questioncomments_query = 'UPDATE `submitted_questions` SET solution=:sol, result1=:res1, result2=:res2, result3=:res3, result4=:res4, result5=:res5, result6=:res6, result1_points=:resp1, result2_points=:resp2, result3_points=:resp3, result4_points=:resp4, result5_points=:resp5, result6_points=:resp6, autograde=:ag, functionName_result=:fnrr, constraint_result=:cnrr, colon_result=:clrr, colon_result_points=:clrpp, constraint_result_points=:cnrp, functionName_result_points=:fnrpp WHERE subID=:sd AND questionID=:qd';
     $update_questioncomments_query = 'UPDATE `submitted_questions` SET solution=:sol, result1=:res1, result2=:res2, result3=:res3, result4=:res4, result5=:res5, result6=:res6, result1_points=:resp1, result2_points=:resp2, result3_points=:resp3, result4_points=:resp4, result5_points=:resp5, result6_points=:resp6, autograde=:ag WHERE subID=:sd AND questionID=:qd';
 
     $qid = $question['ID'];
@@ -223,16 +222,6 @@ function save_student_submissions($json, $conn)
     $update_questioncomments->bindValue(':resp6', $results['result6_points']);
     $update_questioncomments->bindValue(':ag', $results['autoGrade']);
 
-   // $update_questioncomments->bindValue(':fnrr', $results['function_name_result']);
-   // $update_questioncomments->bindValue(':cnrr', $results['constraint_result']);
-   // $update_questioncomments->bindValue(':clrr', $results['colon_result']);
-   // $update_questioncomments->bindValue(':clrpp', $results['colon_result_points']);
-   // $update_questioncomments->bindValue(':cnrp', $results['constraint_result_points']);
-    //$update_questioncomments->bindValue(':fnrpp', $results['function_name_result_points']);
-
-    functionName_result=:fnrr, constraint_result=:cnrr, colon_result=:clrr, colon_result_points=:clrpp, constraint_result_points=:cnrp, functionName_result_points=:fnrpp
-
-    
     $update_questioncomments->execute();
   }
 
