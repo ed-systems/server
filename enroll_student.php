@@ -11,7 +11,7 @@ $dbname = "npm26";
 function enroll_student($json, $conn){
 
   $exmid=$json['examID'];
-  //echo $exmid;
+  echo $exmid;
 
   $q = $conn->query("SELECT creatorID FROM exams WHERE id=$exmid");
     $cid = $q->fetchColumn();
