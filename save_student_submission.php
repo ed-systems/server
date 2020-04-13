@@ -70,7 +70,7 @@ function save_student_submissions($json, $conn)
   //$update_gradecomments->bindValue(':subID', $sid);
 
   //$update_gradecomments->execute();
-
+//somecomment
 
   $q = $conn->query("SELECT studentID FROM submissions WHERE id=$sid");
   $uid = $q->fetchColumn();
