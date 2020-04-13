@@ -41,11 +41,13 @@ function gue($json, $conn){
       $c=$info['comments'];
       $subid=$info['id'];      
 
-      echo "\nOUTPUT HERE\n";
+      echo "\nOUTPUT HERE\n"
 
       $subQinfoquery = 'SELECT * FROM `grand_view` WHERE `subID`=:s';
+      echo $subQinfoquery . "\nOUTPUT HERE1\n";
       $subQinfo = $conn->prepare($subQinfoquery);
       $subQinfo->bindValue(':s', $subid);
+      echo $subQinfoquery . "\nOUTPUT HERE1\n";
       $subQinfo->execute();
       $qinfo = $subQinfo->fetchAll(\PDO::FETCH_ASSOC);
 
@@ -130,11 +132,9 @@ function gue($json, $conn){
 
 
 
-      echo "\nOUTPUT HERE1\n";
        //echo "here1";
       $q = $conn->query("SELECT `name` FROM `exams` WHERE `id`=$eid");
         $en = $q->fetchColumn();
-        echo "\nOUTPUT HERE2\n";
        // echo json_encode($en);
         //echo "here2";
       $q = $conn->query("SELECT `description` FROM `exams` WHERE `id`=$eid");
