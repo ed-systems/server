@@ -33,9 +33,11 @@ try {
 
         foreach($dInfo as $info){
 
-        
+echo json_encode($info['id']);
             $dId = $info['id'];
+echo json_encode($info['difficulty_string']); 
             $dName = $info['difficulty_string'];
+echo json_encode($info['difficulty_description']);             
             $dDescription = $info['difficulty_description'];
 
             $difficulty_array_obj=array("id" => $dId, "name" => $dName, "description" => $dDescription);
@@ -52,7 +54,7 @@ try {
     header('Content-Type: application/json');
     
 
-    echo $output_data;  
+    //echo $output_data;  
 
     //print_r($difficulty_array);
 
