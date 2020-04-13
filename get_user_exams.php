@@ -27,11 +27,6 @@ function gue($json, $conn){
     $examssubinfoquery = 'SELECT * FROM `submissions` WHERE `studentID`=:s';
     $examssubinfo = $conn->prepare($examssubinfoquery);
     $examssubinfo->bindValue(':s', $uid);
-    
-    echo "\nOUTPUT HERE\n";
-    echo $examssubinfo;
-    echo "\nOUTPUT HERE\n";
-    
     $examssubinfo->execute();
     $einfo = $examssubinfo->fetchAll(\PDO::FETCH_ASSOC);
     
@@ -44,21 +39,11 @@ function gue($json, $conn){
       $ag=$info['autograde'];
       $g=$info['grade'];
       $c=$info['comments'];
-      $subid=$info['id'];      
+      $subid=$info['id'];
 
-      echo "\nOUTPUT HERE\n";
-      echo $subid;
-      echo "\nOUTPUT HERE\n";
-
-      $subQinfoquery = 'SELECT * FROM `grand_view` WHERE `subID`=:s';
-      echo $subQinfoquery;
-      echo "\nOUTPUT HERE\n";
-
+      $subQinfoquery = 'SELECT * FROM `grand_view` WHERE `subID`=186';
       $subQinfo = $conn->prepare($subQinfoquery);
-      $subQinfo->bindValue(':s', $subid);
-
-      echo $subQinfo;
-      echo "\nOUTPUT HERE\n";
+      //$subQinfo->bindValue(':s', $subid);
 
       $subQinfo->execute();
       $qinfo = $subQinfo->fetchAll(\PDO::FETCH_ASSOC);
