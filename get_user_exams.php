@@ -41,9 +41,10 @@ function gue($json, $conn){
       $c=$info['comments'];
       $subid=$info['id'];
 
-      $subQinfoquery = 'SELECT * FROM `grand_view` WHERE `subID`=186';
+      $subQinfoquery = 'SELECT * FROM `grand_view` WHERE `subID`=:s';
+
       $subQinfo = $conn->prepare($subQinfoquery);
-      //$subQinfo->bindValue(':s', $subid);
+      $subQinfo->bindValue(':s', $subid);
 
       $subQinfo->execute();
       $qinfo = $subQinfo->fetchAll(\PDO::FETCH_ASSOC);
@@ -112,7 +113,9 @@ function gue($json, $conn){
         $questionsArr["colon_result"]=$info['colon_result'];
         $questionsArr["colon_result_points"]=$info['colon_result_points'];
         
+        echo "\nFISRT HERE!!\n";
        
+
         $cid=$q['constraintID'];
         $f = $conn->query("SELECT constraint_string FROM constraints WHERE id=$cid");
         $cn = $f->fetchColumn();
