@@ -10,14 +10,11 @@ function getD(){
 
 echo "here0";
     echo "here0.1";
-    $q = $conn->prepare("SELECT * FROM difficulties");
+    $stmt = $conn->prepare("SELECT * FROM difficulties");
     echo "here0.2";
-    $dinfo = $q->execute();
-    //$dinfo = $q->fetchColumn();
-    //$dinfo = $q->fetchAll(\PDO::FETCH_ASSOC);
+    $dinfo = $stmt->execute();
     echo "here0.3";
 echo "here1";
-
     $difficulty_array=array();
 echo "here2";
 
