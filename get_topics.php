@@ -20,28 +20,28 @@ try {
 
  
  
-    $stmt = $conn->prepare("SELECT * FROM difficulties");
+    $stmt = $conn->prepare("SELECT * FROM topics");
     $stmt->execute();
 
-    $dInfo = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    $tInfo = $stmt->fetchAll(\PDO::FETCH_ASSOC);
  
 
-    $difficulties_array=array();
+    $topics_array=array();
 
 
-        foreach($dInfo as $info){
-            $dId = $info['id'];
-            $dName = $info['difficulty_string'];
-            $dDescription = $info['difficulty_description'];
+        foreach($tInfo as $info){
+            $tId = $info['id'];
+            $tName = $info['topic_string'];
+            $tDescription = $info['topic_description'];
 
-            $difficulty_array_obj = array("id" => $dId, "name" => $dName, "description" => $dDescription);
+            $topic_array_obj = array("id" => $tId, "name" => $tName, "description" => $tDescription);
 
-            array_push($difficulties_array, $difficulty_array_obj);
+            array_push($topics_array, $topic_array_obj);
         }
 
 
     //encodes dataArr in json formatting
-    $output_data = json_encode($difficulties_array);
+    $output_data = json_encode($topics_array);
 
     //json header
     header('Content-Type: application/json');
