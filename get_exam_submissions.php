@@ -90,20 +90,19 @@
               //constraint result
               $questionsArr["constraint_result_points"]=$q['constraint_result_points'];
               array_push($arrQarr, $questionsArr);
+           
             }
 
-            $pointsQuery = "SELECT * FROM view_some_points WHERE subID='$id'";
-            $points_row = $conn->query($pointsQuery);
+           // $pointsQuery = "SELECT * FROM view_some_points WHERE subID='$id'";
+           // $points_row = $conn->query($pointsQuery);
 
-            foreach($points_row as $p){
-                //function name points
-                $questionsArr["function_name_points"]=$p['functionNamePoints'];
-                //colon points
-                $questionsArr["constraint_points"]=$p['constraintStringPoints']
-                //constraint points
-                $questionsArr["colon_points"]=$p['colonPoints']
+           // foreach($points_row as $p){
+             //   $questionsArr["function_name_points"]=$p['functionNamePoints'];
+              //  $questionsArr["constraint_points"]=$p['constraintStringPoints']                
+               // $questionsArr["colon_points"]=$p['colonPoints']
+
                 //output points
-            }
+           // }
 
 //echo "here4";
 
