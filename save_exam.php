@@ -134,6 +134,9 @@
                 // remove exam_submissions connected to this exam
                     $sql="DELETE FROM submissions WHERE examID='$eid'";
                     $conn->query($sql);
+                // remove submitted_questions connected to this exam
+                    $sql="DELETE FROM submitted_questions WHERE examID='$eid'";
+                    $conn->query($sql);
                
                
 
