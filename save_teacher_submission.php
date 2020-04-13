@@ -17,7 +17,7 @@ function save_teacher_submissions($json, $conn){
 
   $update_gradecomments = $conn->prepare($update_gradecomments_query);
  
- $g=$json['grade'];
+  $g=$json['grade'];
   $update_gradecomments->bindValue(':grade', $g);
  
   $c=$json['comments'];
@@ -40,18 +40,33 @@ function save_teacher_submissions($json, $conn){
   
 
 
-  $questionsArr = array("questionID"=>"","grade"=>"","comments"=>"");
+  $questionsArr = array(
+    "questionID"=>"",
+    "grade"=>"",
+    "comments"=>""
+  );
+
   $arrQarr=array();
   
  foreach($json['questions'] as $question){
 
   
-  $update_questioncomments_query = 'UPDATE `submitted_questions` SET grade=:gr, comments=:comm WHERE subID=:sd AND questionID=:qd';
+  $update_questioncomments_query = 'UPDATE `submitted_questions` SET colon_result_points=:crp, constraint_result_points=:corp, function_name_result_points=:fnrp, result1_points=:r1p, result2_points=:r2p, result3_points=:r3p, result4_points=:r4p, result5_points=:r5p, result6_points=:r6p, grade=:gr, comments=:comm WHERE subID=:sd AND questionID=:qd';
   $qid=$question['ID'];
  
   $update_questioncomments = $conn->prepare($update_questioncomments_query);
  
   
+  $update_questioncomments->bindValue(':crp', $question['colon_result_points']);
+  $update_questioncomments->bindValue(':corp', $question['constraint_result_points']);
+  $update_questioncomments->bindValue(':fnrp', $question['function_name_result_points']);
+
+  $update_questioncomments->bindValue(':r1p', $question['result1_points']);
+  $update_questioncomments->bindValue(':r2p', $question['result2_points']);
+  $update_questioncomments->bindValue(':r3p', $question['result3_points']);
+  $update_questioncomments->bindValue(':r4p', $question['result4_points']);
+  $update_questioncomments->bindValue(':r5p', $question['result5_points']);
+  $update_questioncomments->bindValue(':r6p', $question['result6_points']);
  
 
   $G=$question['grade'];
