@@ -38,7 +38,7 @@
 
     		if($id==''){
     			$sql = "INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, output1, input2, output2, input3, output3, input4, output4, input5, output5, input6, output6)
-    			VALUES ('$cid','$did' ,'$tid' ,'$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2', '$i3', '$o3', '$i4', '$o4', '$i5', '$o5', '$i6', '$o6')";
+    			VALUES (0, 0, 0,'$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2', '$i3', '$o3', '$i4', '$o4', '$i5', '$o5', '$i6', '$o6')";
     			// use exec() because no results are returned
     			$conn->exec($sql);
     			$message = "New question record created successfully";
