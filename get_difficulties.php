@@ -30,29 +30,29 @@ try {
 
 
         foreach($dinfo as $info){
-//echo "beginloop";
+echo "beginloop";
         
             $dId = $info['id'];
             $dName = $info['difficulty_string'];
             $dDescription = $info['difficulty_description'];
-//echo "midloop";
+echo "midloop";
             $difficulty_array_obj=array("id" => $dId, "name" => $dName, "description" => $dDescription);
             array_push($difficulty_array_obj, $difficulty_array);
-//echo "endloop";
+echo "endloop";
 
         }
 
 
     //encodes dataArr in json formatting
-    $output_data = json_encode($difficulty_array);
+    //$output_data = json_encode($difficulty_array);
 
     //json header
-    header('Content-Type: application/json');
+    //header('Content-Type: application/json');
     
 
-    echo $output_data;  
+    //echo $output_data;  
 
-        //print_r($difficulty_array);
+    print_r($difficulty_array);
 
 
 
