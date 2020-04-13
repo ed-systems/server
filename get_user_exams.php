@@ -52,9 +52,9 @@ function gue($json, $conn){
       $subQinfo = $conn->prepare($subQinfoquery);
       $subQinfo->bindValue(':s', $subid);
 
-      echo $subQinfoquery;
+      echo $subQinfo;
       echo "\nOUTPUT HERE\n";
-      
+
       $subQinfo->execute();
       $qinfo = $subQinfo->fetchAll(\PDO::FETCH_ASSOC);
 
