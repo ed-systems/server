@@ -199,8 +199,8 @@ function save_student_submissions($json, $conn)
     //print_r($results['autoGrade']);
     //echo json_encode($eMarks);
 
-    $r1 = json_encode($results['result1']);
-    echo $r1;
+    $r1 = $results['result1']);
+    //echo $r1;
 
     $update_questioncomments->bindValue(':res1', $r1);
     $r2 = $results['result2'];
@@ -251,6 +251,15 @@ function save_student_submissions($json, $conn)
   $update_gradecomments->bindValue(':subID', $sid);
 
   $update_gradecomments->execute();
+
+
+     //encode data for curl
+    // $output_data = json_encode($dataArr);
+
+     //set response header
+     header('Content-Type: application/json');
+     //return result
+    // echo $output_data;
 
   echo $arrQarr;
 
