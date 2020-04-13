@@ -42,6 +42,8 @@ try {
 
             $difficulty_array_obj = array("id" => $dId, "name" => $dName, "description" => $dDescription);
 
+            echo json_encode($difficulty_array_obj);
+
             array_push($difficulty_array_obj, $difficulty_array);
 
 
