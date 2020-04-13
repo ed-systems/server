@@ -44,6 +44,10 @@
             $questionsArr = array("name" => "", "description" => "", "task"=> "", "solution" => "", "function_name" => "", "function_name_points"=>"", "constraint"=>"", "constraint_points"=>"", "colon_points"=>"", "input1" => "", "input2" => "", "input3" => "", "input4" => "", "input5" => "", "input6" => "", "output1" => "", "output2" => "", "output3" => "", "output4" => "", "output5" => "", "output6" => "", "result1" => "", "result2" => "", "result3" => "", "result4" => "", "result5" => "", "result6" => "", "function_name_result" => "", "colon_result" => "", "constraint_result" => "", "output1_points" => "", "output2_points" => "", "output3_points" => "", "output4_points" => "", "output5_points" => "", "output6_points" => "", "result1_points" => "", "result2_points" => "", "result3_points" => "", "result4_points" => "", "result5_points" => "", "result6_points" => "", "function_name_result" => true, "function_name_result_points"=>"", "colon_result" => true, "colon_result_points"=>"", "constraint_result"=>true, "constraint_result_points"=>"", "autoGrade" => "", "grade" => "", "comments" => "", "ID" => "");
             $arrQarr = array();
             foreach ($question_rows as $q) {
+
+              echo "Points here \n";
+              echo $q['output6_points'];
+              echo "\nPoints here \n";
               
               $questionsArr["name"]=$q['name'];
               $questionsArr["description"]=$q['description'];
@@ -103,11 +107,9 @@
               $questionsArr["output4_points"]=$q['output4_points'];
               $questionsArr["output5_points"]=$q['output5_points'];
               $questionsArr["output6_points"]=$q['output6_points'];
-              
-              array_push($arrQarr, $questionsArr);
+            
 
-              
-       
+              array_push($arrQarr, $questionsArr);    
             }
 
 
