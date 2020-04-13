@@ -93,7 +93,7 @@
               
               //constraint name
               $cid=$q['constraintID'];
-              $f = $conn->query("SELECT constraintString FROM constraints WHERE id=$cid");
+              $f = $conn->query("SELECT constraint_string FROM constraints WHERE id=$cid");
               //$cn = $f->fetchColumn();
               //$questionsArr["constraint"]=$cn;
               //
