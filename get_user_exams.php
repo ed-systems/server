@@ -44,10 +44,11 @@ function gue($json, $conn){
       echo "\nOUTPUT HERE\n"
 
       $subQinfoquery = 'SELECT * FROM `grand_view` WHERE `subID`=:s';
-      echo $subQinfoquery . "\nOUTPUT HERE1\n";
+      echo $subQinfoquery;
+      
       $subQinfo = $conn->prepare($subQinfoquery);
       $subQinfo->bindValue(':s', $subid);
-      echo $subQinfoquery . "\nOUTPUT HERE1\n";
+      //echo $subQinfoquery . "\nOUTPUT HERE1\n";
       $subQinfo->execute();
       $qinfo = $subQinfo->fetchAll(\PDO::FETCH_ASSOC);
 
