@@ -123,8 +123,8 @@
 
 
 
-                $sql="DELETE FROM submitted_questions WHERE examID='submittedQid'";
-                $conn->query($sql);
+                //$sql="DELETE FROM submitted_questions WHERE examID='submittedQid'";
+               // $conn->query($sql);
 
 
                 // Pseudocode:
