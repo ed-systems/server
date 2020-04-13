@@ -74,35 +74,36 @@
 
                       //constraint points
                       $q = $conn->query("SELECT constraintStringPoints FROM exam_questions WHERE questionID='$qid' AND examID=$id");
+                      
                       $csp = $q->fetchColumn();
-                      $questionsArr["constraint_points"]=$csp;
+                      $questionsArr["constraint_points"]=$fnp;
 
                       //colon points
                       $q = $conn->query("SELECT colonPoints FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $clnp = $q->fetchColumn();
-                      $questionsArr["colon_points"]=$clnp;
+                      $questionsArr["colon_points"]=$fnp;
 
 
 
 
                       $q = $conn->query("SELECT output1_points FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $op1 = $q->fetchColumn();
-                      $questionsArr["output1_points"]=$op1;
+                      $questionsArr["output1_points"]=$fnp;
                       $q = $conn->query("SELECT output2_points FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $op2 = $q->fetchColumn();
-                      $questionsArr["output2_points"]=$op2;
+                      $questionsArr["output2_points"]=$fnp;
                       $q = $conn->query("SELECT output3_points FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $op3 = $q->fetchColumn();
-                      $questionsArr["outpu3t_points"]=$op3;
+                      $questionsArr["output3_points"]=$fnp;
                       $q = $conn->query("SELECT output4_points FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $op4 = $q->fetchColumn();
-                      $questionsArr["output4_points"]=$op4;
+                      $questionsArr["output4_points"]=$fnp;
                       $q = $conn->query("SELECT output5_points FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $op5 = $q->fetchColumn();
-                      $questionsArr["output5_points"]=$op5;
+                      $questionsArr["output5_points"]=$fnp;
                       $q = $conn->query("SELECT output6_points FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $op6 = $q->fetchColumn();
-                      $questionsArr["output6_points"]=$op6;
+                      $questionsArr["output6_points"]=$fnp;
 
 
 
