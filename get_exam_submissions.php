@@ -45,7 +45,7 @@
         $subQuery = "SELECT * FROM grand_view WHERE subID='$id'";
             $question_rows = $conn->query($subQuery);
 
-            $questionsArr = array("name" => "", "description" => "", "task"=> "", "solution" => "", "function_name_points"=>"", "constraint_points"=>"", "colon_points"=>"", "input1" => "", "input2" => "", "input3" => "", "input4" => "", "input5" => "", "input6" => "", "output1" => "", "output2" => "", "output3" => "", "output4" => "", "output5" => "", "output6" => "", "result1" => "", "result2" => "", "result3" => "", "result4" => "", "result5" => "", "result6" => "", "result1_points" => "", "result2_points" => "", "result3_points" => "", "result4_points" => "", "result5_points" => "", "result6_points" => "", "function_name_result" => true, "function_name_result_points"=>"", "colon_result" => true, "colon_result_points"=>"", "constraint_result"=>true, "constraint_result_points"=>"", "autoGrade" => "", "grade" => "", "comments" => "", "ID" => "");
+            $questionsArr = array("name" => "", "description" => "", "task"=> "", "solution" => "", "function_name_points"=>"", "constraint_points"=>"", "colon_points"=>"", "input1" => "", "input2" => "", "input3" => "", "input4" => "", "input5" => "", "input6" => "", "output1" => "", "output2" => "", "output3" => "", "output4" => "", "output5" => "", "output6" => "", "result1" => "", "result2" => "", "result3" => "", "result4" => "", "result5" => "", "result6" => "", "output1_points" => "", "output2_points" => "", "output3_points" => "", "output4_points" => "", "output5_points" => "", "output6_points" => "", "result1_points" => "", "result2_points" => "", "result3_points" => "", "result4_points" => "", "result5_points" => "", "result6_points" => "", "function_name_result" => true, "function_name_result_points"=>"", "colon_result" => true, "colon_result_points"=>"", "constraint_result"=>true, "constraint_result_points"=>"", "autoGrade" => "", "grade" => "", "comments" => "", "ID" => "");
             $arrQarr = array();
             foreach ($question_rows as $q) {
               
@@ -92,6 +92,15 @@
               $questionsArr["constraint_points"]=$q['constraint_result_points'];
               //constraint result
               $questionsArr["constraint_result_points"]=$q['constraint_result_points'];
+
+              //outputs
+              $questionsArr["output1_result"]=$q['output1_result'];
+              $questionsArr["output2_result"]=$q['output2_result'];
+              $questionsArr["output3_result"]=$q['output3_result'];
+              $questionsArr["output4_result"]=$q['output4_result'];
+              $questionsArr["output5_result"]=$q['output5result'];
+              $questionsArr["output6_result"]=$q['output6result'];
+              
               array_push($arrQarr, $questionsArr);
 
               
