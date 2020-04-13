@@ -11,7 +11,7 @@ $dbname = "npm26";
 function enroll_student($json, $conn){
 
   $exmid=$json['examID'];
-  echo $exmid;
+  //echo $exmid;
 
   $q = $conn->query("SELECT creatorID FROM exams WHERE id=$exmid");
     $cid = $q->fetchColumn();
@@ -56,12 +56,14 @@ function enroll_student($json, $conn){
   //($questions);
   //echo "here3";
     
+  $pp=$json['examID'];
+  echo $pp;
   #issue
   //echo "these are questions " . $questions . " ";
   ##returns empty array ?????? because $exam_questions wasnt executed. see issue with $exam_questions exectuion error.
   foreach ($questions as $question){
     //echo "here4";
-    $submitted_questions_insert->execute($exmid,[$question['questionID'], $submission_id, "", "", "", "", "", "", "", false, false, false, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ""]);
+    $submitted_questions_insert->execute([$pp,$question['questionID'], $submission_id, "", "", "", "", "", "", "", false, false, false, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ""]);
     //echo "here5";
   }  
   #issue
