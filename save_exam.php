@@ -105,8 +105,8 @@
 
 
 
-                    $sql = "INSERT INTO exam_questions (examID, questionID, output1_points, output2_points, output3_points, output4_points, output5_points, output6_points, functionNamePoints, constraintStringPoints, colonPoints)
-                    VALUES ('$eid', '$qid', '$op1', '$op2', '$op3', '$op4', '$op5', '$op6', '$fnp', '$csp', '$cp')";
+                    $sql = "INSERT INTO exam_questions (examID, questionID, points, output1_points, output2_points, output3_points, output4_points, output5_points, output6_points, functionNamePoints, constraintStringPoints, colonPoints)
+                    VALUES ('$eid', '$qid', '', '$op1', '$op2', '$op3', '$op4', '$op5', '$op6', '$fnp', '$csp', '$cp')";
                     $conn->query($sql);
                 }
                 $message = "New exam record created successfully";
