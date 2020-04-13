@@ -41,54 +41,75 @@ function gue($json, $conn){
       $c=$info['comments'];
       $subid=$info['id'];      
 
-      $subQuery = "SELECT * FROM grand_view WHERE subID='$id'";
-      $question_rows = $conn->query($subQuery);
+      $subQinfoquery = 'SELECT * FROM `grand_view` WHERE `subID`=:s';
+      $subQinfo = $conn->prepare($subQinfoquery);
+      $subQinfo->bindValue(':s', $subid);
+      $subQinfo->execute();
+      $qinfo = $subQinfo->fetchAll(\PDO::FETCH_ASSOC);
 
-      $questionsArr = array("name" => "", "description" => "", "task"=> "", "solution" => "", "function_name" => "", "function_name_points"=>"", "constraint"=>"", "constraint_points"=>"", "colon_points"=>"", "input1" => "", "input2" => "", "input3" => "", "input4" => "", "input5" => "", "input6" => "", "output1" => "", "output2" => "", "output3" => "", "output4" => "", "output5" => "", "output6" => "", "result1" => "", "result2" => "", "result3" => "", "result4" => "", "result5" => "", "result6" => "", "function_name_result" => "", "colon_result" => "", "constraint_result" => "", "output1_points" => "", "output2_points" => "", "output3_points" => "", "output4_points" => "", "output5_points" => "", "output6_points" => "", "result1_points" => "", "result2_points" => "", "result3_points" => "", "result4_points" => "", "result5_points" => "", "result6_points" => "", "function_name_result" => true, "function_name_result_points"=>"", "colon_result" => true, "colon_result_points"=>"", "constraint_result"=>true, "constraint_result_points"=>"", "autoGrade" => "", "grade" => "", "comments" => "", "ID" => "");
+
+      $questionsArr = array("output1_points" => "", "output2_points" => "", "output3_points" => "", "output4_points" => "", "output5_points" => "", "output6_points" => "", "name" => "", "description" => "", "task"=> "", "input1" => "", "input2" => "", "input3" => "", "input4" => "", "input5" => "", "input6" => "", "output1" => "", "output2" => "", "output3" => "", "output4" => "", "output5" => "", "output6" => "", "solution" => "", "result1" => "", "result2" => "", "result3" => "", "result4" => "", "result5" => "", "result6" => "", "result1_points" => "", "result2_points" => "", "result3_points" => "", "result4_points" => "", "result5_points" => "", "result6_points" => "", "function_name"=>"", "function_name_points"=>"", "function_name_result"=>"", "function_name_result_points"=>"", "colon_points"=>"", "colon_result"=>"", "colon_result_points"=>"", "constraint"=>"", "constraint_points"=>"", "constraint_result"=>"", "constraint_result_points"=>"", "autoGrade" => "", "grade" => "", "comments" => "", "ID" => "");
       $arrQarr = array();
-      foreach ($question_rows as $q) {
+
+      foreach($qinfo as $info){
         
-        $questionsArr["name"]=$q['name'];
-        $questionsArr["description"]=$q['description'];
-        $questionsArr["task"]=$q['task'];
-        $questionsArr["input1"]=$q['input1'];
-        $questionsArr["input2"]=$q['input2'];
-        $questionsArr["input3"]=$q['input3'];
-        $questionsArr["input4"]=$q['input4'];
-        $questionsArr["input5"]=$q['input5'];
-        $questionsArr["input6"]=$q['input6'];
-        $questionsArr["output1"]=$q['output1'];
-        $questionsArr["output2"]=$q['output2'];
-        $questionsArr["output3"]=$q['output3'];
-        $questionsArr["output4"]=$q['output4'];
-        $questionsArr["output5"]=$q['output5'];
-        $questionsArr["output6"]=$q['output6'];
-        $questionsArr["solution"]=$q['solution'];
-        $questionsArr["result1"]=$q['result1'];
-        $questionsArr["result2"]=$q['result2'];
-        $questionsArr["result3"]=$q['result3'];
-        $questionsArr["result4"]=$q['result4'];
-        $questionsArr["result5"]=$q['result5'];
-        $questionsArr["result6"]=$q['result6'];
-        $questionsArr["result1_points"]=$q['result1_points'];
-        $questionsArr["result2_points"]=$q['result2_points'];
-        $questionsArr["result3_points"]=$q['result3_points'];
-        $questionsArr["result4_points"]=$q['result4_points'];
-        $questionsArr["result5_points"]=$q['result5_points'];
-        $questionsArr["result6_points"]=$q['result6_points'];
-        $questionsArr["autoGrade"]=$q['autograde'];
-        $questionsArr["grade"]=$q['grade'];
-        $questionsArr["comments"]=$q['comments'];
-        $questionsArr["ID"]=$q['id'];
+        $questionsArr["output1_points"]=$info['output1_points'];
+        $questionsArr["output2_points"]=$info['output2_points'];
+        $questionsArr["output3_points"]=$info['output3_points'];
+        $questionsArr["output4_points"]=$info['output4_points'];
+        $questionsArr["output5_points"]=$info['output5_points'];
+        $questionsArr["output6_points"]=$info['output6_points'];
 
-        $questionsArr["function_name"]=$q['functionName'];
-        $questionsArr["function_name_points"]=$q['functionNamePoints'];
-        $questionsArr["function_name_result"]=$q['functionName_result'];
-        $questionsArr["function_name_result_points"]=$q['function_name_result_points'];
+        $questionsArr["name"]=$info['name'];
+        $questionsArr["description"]=$info['description'];
+        $questionsArr["task"]=$info['task'];
+        $questionsArr["input1"]=$info['input1'];
+        $questionsArr["output1"]=$info['output1'];
+        $questionsArr["input2"]=$info['input2'];
+        $questionsArr["output2"]=$info['output2'];
+        $questionsArr["solution"]=$info['solution'];
+        $questionsArr["result1"]=$info['result1'];
+        $questionsArr["result2"]=$info['result2'];
+        $questionsArr["autoGrade"]=$info['autograde'];
+        $questionsArr["grade"]=$info['grade'];
+        $questionsArr["comments"]=$info['comments'];
+        $questionsArr["ID"]=$info['id'];
 
-        $questionsArr["colon_points"]=$q['colonPoints'];
-        $questionsArr["colon_result"]=$q['colon_result'];
-        $questionsArr["colon_result_points"]=$q['colon_result_points'];
+
+           
+
+
+
+        $questionsArr["input3"]=$info['input3'];
+        $questionsArr["input4"]=$info['input4'];
+        $questionsArr["input5"]=$info['input5'];
+        $questionsArr["input6"]=$info['input6'];
+
+        $questionsArr["output3"]=$info['output3'];
+        $questionsArr["output4"]=$info['output4'];
+        $questionsArr["output5"]=$info['output5'];
+        $questionsArr["output6"]=$info['output6'];
+
+        $questionsArr["result3"]=$info['result3'];
+        $questionsArr["result4"]=$info['result4'];
+        $questionsArr["result5"]=$info['result5'];
+        $questionsArr["result6"]=$info['result6'];
+        $questionsArr["result1_points"]=$info['result1_points'];
+        $questionsArr["result2_points"]=$info['result2_points'];
+        $questionsArr["result3_points"]=$info['result3_points'];
+        $questionsArr["result4_points"]=$info['result4_points'];
+        $questionsArr["result5_points"]=$info['result5_points'];
+        $questionsArr["result6_points"]=$info['result6_points'];
+ 
+
+        $questionsArr["function_name"]=$info['functionName'];
+        $questionsArr["function_name_points"]=$info['functionNamePoints'];
+        $questionsArr["function_name_result"]=$info['functionName_result'];
+        $questionsArr["function_name_result_points"]=$info['function_name_result_points'];
+
+        $questionsArr["colon_points"]=$info['colonPoints'];
+        $questionsArr["colon_result"]=$info['colon_result'];
+        $questionsArr["colon_result_points"]=$info['colon_result_points'];
         
        
         $cid=$q['constraintID'];
@@ -96,21 +117,13 @@ function gue($json, $conn){
         $cn = $f->fetchColumn();
         $questionsArr["constraint"]=$cn;
       
-        $questionsArr["constraint_points"]=$q['constraint_result_points'];
-        $questionsArr["constraint_result"]=$q['constraint_result'];
-        $questionsArr["constraint_result_points"]=$q['constraint_result_points'];
+        $questionsArr["constraint_points"]=$info['constraintStringPoints'];
+        $questionsArr["constraint_result"]=$info['constraint_result'];
+        $questionsArr["constraint_result_points"]=$info['constraint_result_points'];
 
-        $questionsArr["output1_result"]=$q['output1_result'];
-        $questionsArr["output2_result"]=$q['output2_result'];
-        $questionsArr["output3_result"]=$q['output3_result'];
-        $questionsArr["output4_result"]=$q['output4_result'];
-        $questionsArr["output5_result"]=$q['output5result'];
-        $questionsArr["output6_result"]=$q['output6result'];
         
         array_push($arrQarr, $questionsArr);
 
-        
- 
       }
 
 
