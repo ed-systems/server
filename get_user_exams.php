@@ -42,7 +42,7 @@ function gue($json, $conn){
       $subid=$info['id'];      
 
       echo "\nOUTPUT HERE\n";
-      echo $info['id'];
+      echo $info['examID'];
 
       $subQinfoquery = 'SELECT * FROM `grand_view` WHERE `subID`=:s';
       echo $subQinfoquery;
