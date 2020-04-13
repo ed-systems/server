@@ -49,6 +49,17 @@
               echo $q['output6_points'];
               echo "\nPoints here \n";
               
+              $questionsArr["output1_points"]=$q['output1_points'];
+              $questionsArr["output2_points"]=$q['output2_points'];
+              $questionsArr["output3_points"]=$q['output3_points'];
+              $questionsArr["output4_points"]=$q['output4_points'];
+              $questionsArr["output5_points"]=$q['output5_points'];
+              $questionsArr["output6_points"]=$q['output6_points'];
+              
+              echo "OTHER Points here \n";
+              echo $questionsArr['output6_points'];
+              echo "\nOTHER Points here \n";
+
               $questionsArr["name"]=$q['name'];
               $questionsArr["description"]=$q['description'];
               $questionsArr["task"]=$q['task'];
@@ -100,13 +111,6 @@
               $questionsArr["constraint_points"]=$q['constraintStringPoints'];
               $questionsArr["constraint_result"]=$q['constraint_result'];
               $questionsArr["constraint_result_points"]=$q['constraint_result_points'];
-
-              $questionsArr["output1_points"]=$q['output1_points'];
-              $questionsArr["output2_points"]=$q['output2_points'];
-              $questionsArr["output3_points"]=$q['output3_points'];
-              $questionsArr["output4_points"]=$q['output4_points'];
-              $questionsArr["output5_points"]=$q['output5_points'];
-              $questionsArr["output6_points"]=$q['output6_points'];
             
 
               array_push($arrQarr, $questionsArr);    
