@@ -22,6 +22,8 @@
 		$i6=$input_data['input6'];
 		$o6=$input_data['output6'];
 
+		$fn=$input_data['function_name'];
+		
 		$id=$input_data['ID'];
 
 
@@ -37,8 +39,8 @@
     		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     		if($id==''){
-    			$sql = "INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, output1, input2, output2, input3, output3, input4, output4, input5, output5, input6, output6)
-    			VALUES ($cid, $did, $tid,'$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2', '$i3', '$o3', '$i4', '$o4', '$i5', '$o5', '$i6', '$o6')";
+    			$sql = "INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, output1, input2, output2, input3, output3, input4, output4, input5, output5, input6, output6, functionName, constraintString)
+    			VALUES ($cid, $did, $tid,'$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2', '$i3', '$o3', '$i4', '$o4', '$i5', '$o5', '$i6', '$o6', 'test', 'test')";
     			// use exec() because no results are returned
     			$conn->exec($sql);
     			$message = "New question record created successfully";
@@ -67,6 +69,12 @@
 				$conn->exec("UPDATE questions SET output5='$o5' WHERE id='$id'");
 				$conn->exec("UPDATE questions SET input6='$i6' WHERE id='$id'");
     			$conn->exec("UPDATE questions SET output6='$o6' WHERE id='$id'");
+
+				$conn->exec("UPDATE questions SET constraintID='$cid' WHERE id='$id'");
+				$conn->exec("UPDATE questions SET difficultyID='$did' WHERE id='$id'");
+    			$conn->exec("UPDATE questions SET topicID='$tid' WHERE id='$id'");
+				
+				$conn->exec("UPDATE questions SET functionName='$fn' WHERE id='$id'");
 
     			$message = "Existing question record update successfully";
     			json_encode($message);
