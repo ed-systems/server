@@ -52,7 +52,6 @@
                     $question_rows = $conn->query($examQuery);
                     //create array variable for questions
                     $questionsArr = array("questionID"=>"","points"=>"", "function_name_points" => "", "constraint_points" => "", "colon_points" => "", "output1_points" => "", "output2_points" => "", "output3_points" => "", "output4_points" => "", "output5_points" => "", "output6_points" => "" );
-                    //$questionsArr = array("questionID"=>"","points"=>"");
                     $arrQarr = array();
                     foreach($question_rows as $q){
                       #code...
@@ -60,7 +59,9 @@
                       $questionsArr["questionID"]=$q['questionID'];
                       $questionsArr["points"]=$q['points'];
 
-
+                      $q = $conn->query("SELECT functionNamePoints FROM exam_questions WHERE questionID='$qid' AND examID=$eid");
+                      $fnp = $q->fetchColumn();
+                      $questionsArr["function_name_points"]=$fnp;
 
 /* this is also modification
                       //functionName points
