@@ -48,7 +48,7 @@ function enroll_student($json, $conn){
 ///////////////////////////////////////////////////////////////////
   //echo "here0";
 
-  $submitted_questions_insert_query = 'INSERT INTO `submitted_questions` (`questionID` ,`subID`, `solution`, `result1`, `result2`, `result3`, `result4`, `result5`, `result6`, `functionName_result`, `colon_result`, `constraint_result`, `result1_points`, `result2_points`, `result3_points`, `result4_points`, `result5_points`, `result6_points`, `function_name_results_points`, `colon_results_points`, `constraint_results_points`, `autograde`, `grade`, `comments`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
+  $submitted_questions_insert_query = 'INSERT INTO `submitted_questions` (`questionID` ,`subID`, `solution`, `result1`, `result2`, `result3`, `result4`, `result5`, `result6`, `functionName_result`, `colon_result`, `constraint_result`, `result1_points`, `result2_points`, `result3_points`, `result4_points`, `result5_points`, `result6_points`, `function_name_result_points`, `colon_result_points`, `constraint_result_points`, `autograde`, `grade`, `comments`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
   //echo "here1";
   $submitted_questions_insert = $conn->prepare($submitted_questions_insert_query);
   //echo "here2";
