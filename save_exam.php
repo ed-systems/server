@@ -86,8 +86,27 @@
                     
                     $qid = $question['questionID'];
                     $pts = $question['points'];
-                    $sql = "INSERT INTO exam_questions (examID, questionID, points, output1_points, output2_points, output3_points, output4_points, output5_points, output6_points, functionName, functionNamePoints, constraintString, constraintStringPoints, colonPoints)
-                    VALUES ('$eid', '$qid', '$pts', 9, 9, 9, 9, 9, 9, 'test', 9, 'test', 9, 9)";
+/*
+                    $op1 = $question['output1_points'];
+                    $op2 = $question['output2_points'];
+                    $op3 = $question['output3_points'];
+                    $op4 = $question['output4_points'];
+                    $op5 = $question['output5_points'];
+                    $op6 = $question['output6_points'];
+
+                 
+                    $fnp = $question['function_name_points'];
+
+                    
+                    $csp = $question['constraint_points'];
+
+                    $cp = $question['colon_points'];
+*/
+
+
+
+                    $sql = "INSERT INTO exam_questions (examID, questionID, points, output1_points, output2_points, output3_points, output4_points, output5_points, output6_points, functionNamePoints, constraintStringPoints, colonPoints)
+                    VALUES ('$eid', '$qid', '$pts', 9, 9, 9, 9, 9, 9, 9, 9, 9)";
                     $conn->query($sql);
                 }
                 $message = "New exam record created successfully";
@@ -113,8 +132,8 @@
                     
                     $qid = $question['questionID'];
                     $pts = $question['points'];
-                    $sql = "INSERT INTO exam_questions (examID, questionID, points)
-                    VALUES ('$eid', '$qid', '$pts')";
+                    $sql = "INSERT INTO exam_questions (examID, questionID, points, output1_points, output2_points, output3_points, output4_points, output5_points, output6_points, functionNamePoints, constraintStringPoints, colonPoints)
+                    VALUES ('$eid', '$qid', '$pts', 9, 9, 9, 9, 9, 9, 9, 9, 9)";
                     $conn->query($sql);
                 }
 
