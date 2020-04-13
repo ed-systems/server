@@ -193,11 +193,9 @@ function save_student_submissions($json, $conn)
     //echo $resultspackage;
     $results = $resultspackage;
     echo $resultspackage;
-    echo $results;
-
-//autograde question\\
-//add total of all results points, constrain points, name points, colon points; store in $qAg
-//$eMarks = $eMarks + $qAg;
+    //autograde question\\
+    //add total of all results points, constrain points, name points, colon points; store in $qAg
+    //$eMarks = $eMarks + $qAg;
     $eMarks = $eMarks + $results['autoGrade'];
     //print_r($results['autoGrade']);
     //echo json_encode($eMarks);
@@ -217,6 +215,11 @@ function save_student_submissions($json, $conn)
 
     $rp1 = $results['result1_points'];
     $update_questioncomments->bindValue(':resp1', $rp1);
+
+    echo "Some funky shit";
+    echo $rp1;
+    echo "Fuck me";
+
     $rp2 = $results['result2_points'];
     $update_questioncomments->bindValue(':resp2', $rp2);    
     $rp3 = $results['result3_points'];
