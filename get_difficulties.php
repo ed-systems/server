@@ -8,30 +8,30 @@ $json = json_decode(file_get_contents('php://input'), true);
 //get difficulties
 function getD(){
 
-
+echo "here0";
     $difficultyInfoQuery = 'SELECT * FROM difficulties';
     $difficultyInfo = $conn->prepare($difficultyInfoQuery);
     $difficultyInfo->execute();
     $dinfo = $difficultyInfo->fetchAll(\PDO::FETCH_ASSOC);
-    
+echo "here1";
 
     $difficulty_array=array();
-
+echo "here2";
 
         foreach($dinfo as $info){
-     
+echo "beginloop";
         
             $dId = $info['id'];
             $dName = $info['difficulty_string'];
             $dDescription = $info['difficulty_description'];
-
+echo "midloop";
             $difficulty_array_obj=array("id" => $dId, "name" => $dName, "description" => $dDescription);
             array_push($difficulty_array_obj, $difficulty_array);
-
+echo "endloop";
 
         }
 
-
+echo "here3";
     //encodes dataArr in json formatting
     $output_data = json_encode($difficulty_array);
 
