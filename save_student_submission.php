@@ -166,8 +166,11 @@ function save_student_submissions($json, $conn)
     $fnp = $q->fetchColumn();
 
     //constraint name
-    $q = $conn->query("SELECT constraintString FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
+    $q = $conn->query("SELECT constraintID FROM questions WHERE id= '$qid'");
+    $cid = $q->fetchColumn();
+    $q = $conn->query("SELECT constraintString FROM constraints WHERE id= '$cid'");
     $cs = $q->fetchColumn();
+
     //constraint points
     $q = $conn->query("SELECT constraintStringPoints FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
     $csp = $q->fetchColumn();
