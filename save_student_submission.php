@@ -199,9 +199,7 @@ function save_student_submissions($json, $conn)
     //print_r($results['autoGrade']);
     //echo json_encode($eMarks);
 
-    $r1 = $results['result1']);
-    //echo $r1;
-
+    $r1 = $results['result1'];
     $update_questioncomments->bindValue(':res1', $r1);
     $r2 = $results['result2'];
     $update_questioncomments->bindValue(':res2', $r2);
