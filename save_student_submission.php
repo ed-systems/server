@@ -51,7 +51,7 @@ function save_student_submissions($json, $conn)
   $update_status->bindValue(':id', $json['ID']);
   $update_status->execute();
 
-  $autograde_sum = 0;
+  //$autograde_sum = 0;
 
 
 
@@ -186,7 +186,9 @@ function save_student_submissions($json, $conn)
     //echo json_encode($user_exams_obj);
 
 
+
     
+    echo json_encode($user_exams_obj);
 
     $resultspackage = querry_middle($user_exams_obj);
     $results = json_decode($resultspackage, true);
@@ -250,7 +252,7 @@ function save_student_submissions($json, $conn)
 
   $update_gradecomments->execute();
 
-  echo $arrQarr;
+  //echo $arrQarr;
 
   //echo json_encode($update_questioncomments);
 
