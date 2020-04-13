@@ -200,7 +200,7 @@ function save_student_submissions($json, $conn)
     //echo json_encode($eMarks);
 
     $r1 = $results['result1'];
-    echo $r1[0];
+    echo json_encode($r1);
     $update_questioncomments->bindValue(':res1', $r1);
     $r2 = $results['result2'];
     $update_questioncomments->bindValue(':res2', $r2);
