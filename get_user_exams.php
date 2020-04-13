@@ -41,7 +41,7 @@ function gue($json, $conn){
       $c=$info['comments'];
       $subid=$info['id'];      
 
-      $subQinfoquery = 'SELECT * FROM `submited_questions_with_info` WHERE `subID`=:s';
+      $subQinfoquery = 'SELECT * FROM `submitted_questions_with_info` WHERE `subID`=:s';
       $subQinfo = $conn->prepare($subQinfoquery);
       $subQinfo->bindValue(':s', $subid);
       $subQinfo->execute();
