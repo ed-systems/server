@@ -4,8 +4,7 @@
   $password = "DBPassword1!";
   $dbname = "npm26";
 
-    /* hardcode POST argument */
-    // HERE
+ 
 
         //recieve POST
         $input_data = json_decode(file_get_contents('php://input'), true);
@@ -13,9 +12,7 @@
         //pull token
         $tok = $input_data["token"];
         $eid = $input_data["examID"];
-        //$eid = 30;
-        //echo $eid;
-        //echo "<br>";
+
 
 
     //try connect to database
@@ -34,13 +31,12 @@
         array_push($subIds,$row['id']);
       }
 
-      //print_r($subIds);
-      //echo "<br>";
+
 
       $submissions=array();
-//echo "here1";
+
       foreach($subIds as $id){
-//      echo "here2";
+
        
         $subQuery = "SELECT * FROM grand_view WHERE subID='$id'";
             $question_rows = $conn->query($subQuery);
@@ -91,12 +87,12 @@
               $questionsArr["colon_result"]=$q['colon_result'];
               $questionsArr["colon_result_points"]=$q['colon_result_points'];
               
-              //constraint name
+             
               $cid=$q['constraintID'];
               $f = $conn->query("SELECT constraint_string FROM constraints WHERE id=$cid");
               $cn = $f->fetchColumn();
               $questionsArr["constraint"]=$cn;
-              //
+            
               $questionsArr["constraint_points"]=$q['constraint_result_points'];
               $questionsArr["constraint_result"]=$q['constraint_result'];
               $questionsArr["constraint_result_points"]=$q['constraint_result_points'];
@@ -142,9 +138,8 @@
 
         array_push($submissions, $submission_obj);
 
-        // echo "HERE";
 
-        //print_r($submission_obj);
+
 
 
 
@@ -170,8 +165,6 @@
   $conn = null;
   
 
-  /* prints array for formating test */
-  //print_r($dataArr);
     
     //encodes dataArr in json formatting
     $output_data = json_encode($submissions);
@@ -181,6 +174,5 @@
     
 
     echo $output_data;
-    //curl responds with results
-    //print_r($jsonArr);
+
 ?>
