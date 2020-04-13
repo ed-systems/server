@@ -33,7 +33,7 @@ try {
 
 
         foreach($dInfo as $info){
-            echo $info['difficulty_string'];
+            echo $info['id'];
             //echo json_encode($info['id']);
             $dId = $info['id'];
             //echo json_encode($info['difficulty_string']); 
