@@ -95,12 +95,12 @@
               array_push($arrQarr, $questionsArr);
 
               //output_points
-              $questionsArr["output1_points"]=$q['output1_points'];
-              $questionsArr["output2_points"]=$q['output2_points'];
-              $questionsArr["output3_points"]=$q['output3_points'];
-              $questionsArr["output4_points"]=$q['output4_points'];
-              $questionsArr["output5_points"]=$q['output5_points'];
-              $questionsArr["output6_points"]=$q['output6_points'];
+             // $questionsArr["output1_points"]=$q['output1_points'];
+              //$questionsArr["output2_points"]=$q['output2_points'];
+              //$questionsArr["output3_points"]=$q['output3_points'];
+             // $questionsArr["output4_points"]=$q['output4_points'];
+             // $questionsArr["output5_points"]=$q['output5_points'];
+             // $questionsArr["output6_points"]=$q['output6_points'];
 
             }
 
