@@ -54,7 +54,9 @@ $dbname = "npm26";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "before func";
     getD();
+    echo "after func";
   } catch (PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
   }
