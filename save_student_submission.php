@@ -189,7 +189,7 @@ function save_student_submissions($json, $conn)
 
 
     $resultspackage = querry_middle($user_exams_obj);
-    $results = json_encode($resultspackage, true);
+    $results = json_decode($resultspackage, true);
 
     //autograde question\\
     //add total of all results points, constrain points, name points, colon points; store in $qAg
@@ -249,7 +249,7 @@ function save_student_submissions($json, $conn)
   $update_gradecomments->execute();
 
   echo json_encode($update_questioncomments);
-  
+
 //echo "here2"
   // update exam submission record which includes the sum of the scores of the each question
 }
