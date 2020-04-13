@@ -212,7 +212,7 @@ function save_student_submissions($json, $conn)
     $update_questioncomments->bindValue(':res5', $r5);
     $r6 = $results['result6'];
     $update_questioncomments->bindValue(':res6', $r6);
-/*
+
     $rp1 = $results['result1_points'];
     $update_questioncomments->bindValue(':resp1', $rp1);
     $rp2 = $results['result2_points'];
@@ -225,8 +225,6 @@ function save_student_submissions($json, $conn)
     $update_questioncomments->bindValue(':resp5', $rp5);
     $rp6 = $results['result6_points'];
     $update_questioncomments->bindValue(':resp6', $rp6);
-
-*/
 
     $g = $results['autoGrade'];
     //echo json_encode($g);
