@@ -10,8 +10,11 @@ function getD(){
 
 echo "here0";
     $difficultyInfoQuery = 'SELECT * FROM difficulties';
+    echo "here0.1";
     $difficultyInfo = $conn->prepare($difficultyInfoQuery);
+    echo "here0.2";
     $difficultyInfo->execute();
+    echo "here0.3";
     $dinfo = $difficultyInfo->fetchAll(\PDO::FETCH_ASSOC);
 echo "here1";
 
