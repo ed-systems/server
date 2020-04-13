@@ -10,7 +10,7 @@ function getD(){
 
 echo "here0";
     echo "here0.1";
-    $stmt = $conn->prepare("SELECT * FROM difficulties");
+    $stmt = $conn->prepare("SELECT id FROM difficulties");
     echo "here0.2";
     $dinfo = $stmt->execute();
     echo "here0.3";
