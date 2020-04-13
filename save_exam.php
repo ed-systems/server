@@ -99,9 +99,9 @@
 
                     
                     $csp = $question['constraint_points'];
-
+                    echo $csp;
                     $cp = $question['colon_points'];
-
+                    echo $cp;
 
 
 
@@ -166,9 +166,9 @@
 
                     
                     $csp = $question['constraint_points'];
-
+                    echo $csp;
                     $cp = $question['colon_points'];
-
+                    echo $cp;
 
                     $sql = "INSERT INTO exam_questions (examID, questionID, points, output1_points, output2_points, output3_points, output4_points, output5_points, output6_points, functionNamePoints, constraintStringPoints, colonPoints)
                     VALUES ('$eid', '$qid', 77, '$op1', '$op2', '$op3', '$op4', '$op5', '$op6', '$fnp', '$csp', '$cp')";
