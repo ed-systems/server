@@ -23,7 +23,7 @@ try {
 
  
  
-    $stmt = $conn->prepare("SELECT id FROM difficulties");
+    $stmt = $conn->prepare("SELECT * FROM difficulties");
     $stmt->execute();
 
     $dInfo = $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -33,7 +33,6 @@ try {
 
 
         foreach($dInfo as $info){
-            echo $info['id'];
             //echo json_encode($info['id']);
             $dId = $info['id'];
             //echo json_encode($info['difficulty_string']); 
