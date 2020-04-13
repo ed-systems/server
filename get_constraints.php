@@ -34,7 +34,7 @@ try {
             $cName = $info['constraint_string'];
             $cDescription = $info['constraint_description'];
 
-            $constraint_array_obj = array("id" => $dId, "name" => $dName, "description" => $dDescription);
+            $constraint_array_obj = array("id" => $cId, "name" => $cName, "description" => $cDescription);
 
             array_push($constraints_array, $constraint_array_obj);
         }
