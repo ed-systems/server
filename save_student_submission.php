@@ -234,8 +234,6 @@ function save_student_submissions($json, $conn)
     $update_questioncomments->bindValue(':ag', $g);
 
     $update_questioncomments->execute();
-
-    array_push($arrQarr, $questionsArr);
   }
 
 
