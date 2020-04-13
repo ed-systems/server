@@ -74,7 +74,7 @@
 				$conn->exec("UPDATE questions SET difficultyID=1 WHERE id='$id'");
     			$conn->exec("UPDATE questions SET topicID=1 WHERE id='$id'");
 				
-				$conn->exec("UPDATE questions SET functionName='$fn' WHERE id='$id'");
+				$conn->exec("UPDATE questions SET functionName='test' WHERE id='$id'");
 
     			$message = "Existing question record update successfully";
     			json_encode($message);
