@@ -92,9 +92,9 @@
               $questionsArr["colon_result_points"]=$q['colon_result_points'];
               
               //constraint name
-              $f = $conn->query("SELECT constraintString FROM constraintts WHERE id='$q['constraintID']'");
-              $cn = $f->fetchColumn();
-              $questionsArr["constraint"]=$cn;
+             // $f = $conn->query("SELECT constraintString FROM constraintts WHERE id='$q['constraintID']'");
+              //$cn = $f->fetchColumn();
+             // $questionsArr["constraint"]=$cn;
               //
               $questionsArr["constraint_points"]=$q['constraint_result_points'];
               $questionsArr["constraint_result"]=$q['constraint_result'];
