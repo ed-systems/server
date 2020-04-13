@@ -45,15 +45,15 @@ echo "endloop";
 
 echo "here3";
     //encodes dataArr in json formatting
-    $output_data = json_encode($difficulty_array);
+    //$output_data = json_encode($difficulty_array);
 
     //json header
-    header('Content-Type: application/json');
+    //header('Content-Type: application/json');
     
 
-    echo $output_data;  
+    //echo $output_data;  
 
-
+        echo "$difficulty_array";
 
 
 
