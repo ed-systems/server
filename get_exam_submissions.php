@@ -93,7 +93,7 @@
               $cn = $f->fetchColumn();
               $questionsArr["constraint"]=$cn;
             
-              $questionsArr["constraint_points"]=$q['constraint_result_points'];
+              $questionsArr["constraint_points"]=$q['constraintStringPoints'];
               $questionsArr["constraint_result"]=$q['constraint_result'];
               $questionsArr["constraint_result_points"]=$q['constraint_result_points'];
 
