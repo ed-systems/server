@@ -81,10 +81,9 @@ function save_student_submissions($json, $conn)
 
   $questionsArr = array("solution" => "", "ID" => "");
   $arrQarr = array();
- //echo "here1";
+
   //exam score counter
   $eMarks = 0;
-  //echo json_encode($eMarks);
 
   foreach ($json['questions'] as $question) {
     $update_questioncomments_query = 'UPDATE `submitted_questions` SET solution=:sol, result1=:res1, result2=:res2, result3=:res3, result4=:res4, result5=:res5, result6=:res6, result1_points=:resp1, result2_points=:resp2, result3_points=:resp3, result4_points=:resp4, result5_points=:resp5, result6_points=:resp6, autograde=:ag WHERE subID=:sd AND questionID=:qd';
@@ -190,10 +189,8 @@ function save_student_submissions($json, $conn)
 
 
     $resultspackage = querry_middle($user_exams_obj);
-    //echo $resultspackage;
-    $results = unserialize($resultspackage);
+    $results = json_encode($resultspackage, true);
 
-    echo $results;
     //autograde question\\
     //add total of all results points, constrain points, name points, colon points; store in $qAg
     //$eMarks = $eMarks + $qAg;
@@ -216,10 +213,6 @@ function save_student_submissions($json, $conn)
 
     $rp1 = $results['result1_points'];
     $update_questioncomments->bindValue(':resp1', $rp1);
-
-    echo "Some funky shit \n";
-    echo $r1;
-    echo "Fuck me \n";
 
     $rp2 = $results['result2_points'];
     $update_questioncomments->bindValue(':resp2', $rp2);    
@@ -254,6 +247,9 @@ function save_student_submissions($json, $conn)
   $update_gradecomments->bindValue(':subID', $sid);
 
   $update_gradecomments->execute();
+
+  echo json_encode($update_questioncomments);
+  
 //echo "here2"
   // update exam submission record which includes the sum of the scores of the each question
 }
