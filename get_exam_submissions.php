@@ -97,12 +97,12 @@
               $questionsArr["constraint_result"]=$q['constraint_result'];
               $questionsArr["constraint_result_points"]=$q['constraint_result_points'];
 
-              $questionsArr["output1_result"]=$q['output1_result'];
-              $questionsArr["output2_result"]=$q['output2_result'];
-              $questionsArr["output3_result"]=$q['output3_result'];
-              $questionsArr["output4_result"]=$q['output4_result'];
-              $questionsArr["output5_result"]=$q['output5result'];
-              $questionsArr["output6_result"]=$q['output6result'];
+              $questionsArr["output1_result"]=$q['output1_points'];
+              $questionsArr["output2_result"]=$q['output2_points'];
+              $questionsArr["output3_result"]=$q['output3_points'];
+              $questionsArr["output4_result"]=$q['output4_points'];
+              $questionsArr["output5_result"]=$q['output5_points'];
+              $questionsArr["output6_result"]=$q['output6_points'];
               
               array_push($arrQarr, $questionsArr);
 
