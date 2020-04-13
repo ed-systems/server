@@ -16,9 +16,6 @@ $dbname = "npm26";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    //echo "before func";
-
-
 
 
  
@@ -33,11 +30,8 @@ try {
 
 
         foreach($dInfo as $info){
-            //echo json_encode($info['id']);
             $dId = $info['id'];
-            //echo json_encode($info['difficulty_string']); 
             $dName = $info['difficulty_string'];
-            //echo json_encode($info['difficulty_description']);             
             $dDescription = $info['difficulty_description'];
 
             $difficulty_array_obj = array("id" => $dId, "name" => $dName, "description" => $dDescription);
@@ -51,15 +45,7 @@ try {
 
     //json header
     header('Content-Type: application/json');
-    
-
     echo $output_data;  
-
-    //print_r($difficulty_array);
-
-
-
-    //echo "after func";
   } catch (PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
   }
