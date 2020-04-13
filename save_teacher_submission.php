@@ -79,6 +79,9 @@ function save_teacher_submissions($json, $conn){
  
 }
 
+//result5_points... , colon_result_points, constraint_result_points, function_name_result_points, points, autoGrade, comment - per question
+// comments, grade,
+
   $user_exams_obj = array("token" => $tok, "examID" => $eid, "studentID" => $uid, "grade" => $g, "comments" => $c, "ID" => $sid, "questions" => $arrQarr);
   //echo json_encode($user_exams_obj);
 
