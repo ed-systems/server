@@ -121,12 +121,6 @@
                 $conn->query($sql);
 
 
-
-
-                //$sql="DELETE FROM submitted_questions WHERE examID='submittedQid'";
-               // $conn->query($sql);
-
-
                 // Pseudocode:
                 // When user changes exam info:
                 // Update exam fields
