@@ -20,15 +20,14 @@ try {
 
 
 
-    echo "here0";
-    echo "here0.1";
+ 
+ 
     $stmt = $conn->prepare("SELECT id FROM difficulties");
-    echo "here0.2";
     $dinfo = $stmt->execute();
-    echo "here0.3";
-echo "here1";
+ 
+
     $difficulty_array=array();
-echo "here2";
+
 
         foreach($dinfo as $info){
 echo "beginloop";
@@ -43,7 +42,7 @@ echo "endloop";
 
         }
 
-echo "here3";
+
     //encodes dataArr in json formatting
     //$output_data = json_encode($difficulty_array);
 
@@ -53,7 +52,7 @@ echo "here3";
 
     //echo $output_data;  
 
-        echo "$difficulty_array";
+        print_r($difficulty_array);
 
 
 
