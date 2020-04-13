@@ -27,6 +27,11 @@ function gue($json, $conn){
     $examssubinfoquery = 'SELECT * FROM `submissions` WHERE `studentID`=:s';
     $examssubinfo = $conn->prepare($examssubinfoquery);
     $examssubinfo->bindValue(':s', $uid);
+    
+    echo "\nOUTPUT HERE\n";
+    echo $examssubinfo;
+    echo "\nOUTPUT HERE\n";
+    
     $examssubinfo->execute();
     $einfo = $examssubinfo->fetchAll(\PDO::FETCH_ASSOC);
     
