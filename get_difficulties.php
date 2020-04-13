@@ -33,10 +33,10 @@ try {
 //echo "beginloop";
         
             $dId = $info['id'];
-            $dName = $info['difficulty_string'];
-            $dDescription = $info['difficulty_description'];
+            //$dName = $info['difficulty_string'];
+            //$dDescription = $info['difficulty_description'];
 //echo "midloop";
-            $difficulty_array_obj=array("id" => $dId, "name" => $dName, "description" => $dDescription);
+            $difficulty_array_obj=array("id" => $dId); //, "name" => $dName, "description" => $dDescription);
             array_push($difficulty_array_obj, $difficulty_array);
 //echo "endloop";
 
