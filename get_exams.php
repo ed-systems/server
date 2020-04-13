@@ -80,29 +80,29 @@
                       //colon points
                       $q = $conn->query("SELECT colonPoints FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $clnp = $q->fetchColumn();
-                      $questionsArr["colon_points"]=$fnp;
+                      $questionsArr["colon_points"]=$clnp;
 
 
 
 
                       $q = $conn->query("SELECT output1_points FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $op1 = $q->fetchColumn();
-                      $questionsArr["output1_points"]=$fnp;
+                      $questionsArr["output1_points"]=$op1;
                       $q = $conn->query("SELECT output2_points FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $op2 = $q->fetchColumn();
-                      $questionsArr["output2_points"]=$fnp;
+                      $questionsArr["output2_points"]=$op2;
                       $q = $conn->query("SELECT output3_points FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $op3 = $q->fetchColumn();
-                      $questionsArr["output3_points"]=$fnp;
+                      $questionsArr["output3_points"]=$op3;
                       $q = $conn->query("SELECT output4_points FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $op4 = $q->fetchColumn();
-                      $questionsArr["output4_points"]=$fnp;
+                      $questionsArr["output4_points"]=$op4;
                       $q = $conn->query("SELECT output5_points FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $op5 = $q->fetchColumn();
-                      $questionsArr["output5_points"]=$fnp;
+                      $questionsArr["output5_points"]=$op5;
                       $q = $conn->query("SELECT output6_points FROM exam_questions WHERE questionID='$qid' AND examID=$id");
                       $op6 = $q->fetchColumn();
-                      $questionsArr["output6_points"]=$fnp;
+                      $questionsArr["output6_points"]=$op6;
 
 
 
@@ -130,7 +130,7 @@
 
 //code edit is below!!!
 //$q = $conn->query("SELECT 'description' FROM exams WHERE id='$id'");
-$q = $conn->query("SELECT `name` FROM exams WHERE id='$id'");
+              $q = $conn->query("SELECT `name` FROM exams WHERE id='$id'");
 
 
              // $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE examID = '$id'");
