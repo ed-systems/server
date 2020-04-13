@@ -27,7 +27,7 @@
       //$uid = 9;
 
         //query view
-        $sql = "SELECT DISTINCT id FROM `exams` WHERE creatorID = '$uid'";
+        $sql = "SELECT DISTINCT id FROM exams WHERE creatorID = '$uid'";
 
         //create array variable for examIds
         $examIds=array();
