@@ -25,7 +25,7 @@ try {
     $stmt = $conn->prepare("SELECT id FROM difficulties");
     $stmt->execute();
 
-    $dInfo = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $dInfo = $stmt->fetchAll(\PDO::FETCH_ASSOC);
  
 
     $difficulty_array=array();
