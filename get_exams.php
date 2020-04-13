@@ -74,9 +74,8 @@
 
                       //constraint points
                       $q = $conn->query("SELECT constraintStringPoints FROM exam_questions WHERE questionID='$qid' AND examID=$id");
-                      
                       $csp = $q->fetchColumn();
-                      $questionsArr["constraint_points"]=$fnp;
+                      $questionsArr["constraint_points"]=$csp;
 
                       //colon points
                       $q = $conn->query("SELECT colonPoints FROM exam_questions WHERE questionID='$qid' AND examID=$id");
