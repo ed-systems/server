@@ -114,26 +114,64 @@
                 echo $m;
     		}
             else{
-                $conn->exec("UPDATE exams SET name='$n' WHERE id='$eid'");               
-                $conn->exec("UPDATE exams SET description='$d' WHERE id='$eid'");
-                //$eTok=generateRandomString();
-                $conn->exec("UPDATE exams SET examToken='$eTok' WHERE id='$eid'");
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 //remove all questionId's, points, and examIds WHERE examID is $eid
                 $sql="DELETE FROM exam_questions WHERE examID='$eid'";
                 $conn->query($sql);
 
 
+                // Pseudocode:
+                // When user changes exam info:
+                // Update exam fields
+                    $conn->exec("UPDATE exams SET name='$n' WHERE id='$eid'");               
+                    $conn->exec("UPDATE exams SET description='$d' WHERE id='$eid'");
+                    //$eTok=generateRandomString();
+                    $conn->exec("UPDATE exams SET examToken='$eTok' WHERE id='$eid'");
+                // remove exam_questions connected to this exam
+                    $sql="DELETE FROM exam_questions WHERE examID='$eid'";
+                    $conn->query($sql);
+                // remove exam_submissions connected to this exam
+                    $sql="DELETE FROM submissions WHERE examID='$eid'";
+                    $conn->query($sql);
+               
+               
 
+
+                // remove submitted_questions connected to this exam
+                    $q = $conn->query("SELECT id FROM submissions WHERE examID='$eid'");
+                    $sid = $q->fetchColumn();
+                    $sql="DELETE FROM submitted_questions WHERE subID='$sid'";
+                    $conn->query($sql);
+
+
+                // add question from the scratch tp the exam_questions
 
 
                 //address issue number 2 in this loop
                 foreach($questions as $question){
                     
                     $qid = $question['questionID'];
-                    $pts = $question['points'];
+                    //$pts = $question['points'];
+
+                    $op1 = $question['output1_points'];
+                    $op2 = $question['output2_points'];
+                    $op3 = $question['output3_points'];
+                    $op4 = $question['output4_points'];
+                    $op5 = $question['output5_points'];
+                    $op6 = $question['output6_points'];
+
+                 
+                    $fnp = $question['function_name_points'];
+
+                    
+                    $csp = $question['constraint_points'];
+
+                    $cp = $question['colon_points'];
+
+
                     $sql = "INSERT INTO exam_questions (examID, questionID, points, output1_points, output2_points, output3_points, output4_points, output5_points, output6_points, functionNamePoints, constraintStringPoints, colonPoints)
-                    VALUES ('$eid', '$qid', '$pts', 9, 9, 9, 9, 9, 9, 9, 9, 9)";
+                    VALUES ('$eid', '$qid', 99, '$op1', '$op2', '$op3', '$op4', '$op5', '$op6', '$fnp', '$csp', '$cp')";
                     $conn->query($sql);
                 }
 
