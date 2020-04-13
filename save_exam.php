@@ -85,7 +85,7 @@
                 foreach($questions as $question){
                     
                     $qid = $question['questionID'];
-                    $pts = $question['points'];
+                    //$pts = $question['points'];
 /*
                     $op1 = $question['output1_points'];
                     $op2 = $question['output2_points'];
@@ -105,8 +105,8 @@
 
 
 
-                    $sql = "INSERT INTO exam_questions (examID, questionID, points, output1_points, output2_points, output3_points, output4_points, output5_points, output6_points, functionNamePoints, constraintStringPoints, colonPoints)
-                    VALUES ('$eid', '$qid', '$pts', 9, 9, 9, 9, 9, 9, 9, 9, 9)";
+                    $sql = "INSERT INTO exam_questions (examID, questionID, output1_points, output2_points, output3_points, output4_points, output5_points, output6_points, functionNamePoints, constraintStringPoints, colonPoints)
+                    VALUES ('$eid', '$qid', 9, 9, 9, 9, 9, 9, 9, 9, 9)";
                     $conn->query($sql);
                 }
                 $message = "New exam record created successfully";
