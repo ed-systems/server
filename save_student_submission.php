@@ -113,7 +113,8 @@ function save_student_submissions($json, $conn)
 
     
     $q = $conn->query("SELECT points FROM exam_questions WHERE questionID= '$qid'");
-    $pts = $q->fetchColumn();
+    $pt = $q->fetchColumn();
+    $pts = (int)$pt;
 
     $q = $conn->query("SELECT input1 FROM questions WHERE id= '$qid'");
     $i1 = $q->fetchColumn();
@@ -181,7 +182,7 @@ function save_student_submissions($json, $conn)
 
     
     //$user_exams_obj = array("input1" => $question['input1'], "input2" => $question['input2'], "output1" => $question['output1'], "output2" => $question['output2'], "points" => $question['points'], "questionID" => $question['questionID'], "solution" => $question['solution']);
-    $user_exams_obj = array("questionID" => $qid, "points" => $pts, "solution" => $S, "function_name" => $fn, "function_name_points" => $fnp, "constraint" => $cs, "constraint_points" => $csp, "colon_points" => $clnp, "input1" => $i1, "input2" => $i2, "input3" => $i3, "input4" => $i4, "input5" => $i5, "input6" => $i6, "output1" => $o1, "output2" => $o2, "output3" => $o3, "output4" => $o4, "output5" => $o5, "output6" => $o6, "output1_points" => $op1, "output2_points" => $op2, "output3_points" => $op3, "output_points4" => $op4, "output_points5" => $op5, "output6_points" => $op6);
+    $user_exams_obj = array("questionID" => $qid, "points" => $pts, "solution" => $S, "function_name" => $fn, "function_name_points" => $fnp, "constraint" => $cs, "constraint_points" => $csp, "colon_points" => $clnp, "input1" => $i1, "input2" => $i2, "input3" => $i3, "input4" => $i4, "input5" => $i5, "input6" => $i6, "output1" => $o1, "output2" => $o2, "output3" => $o3, "output4" => $o4, "output5" => $o5, "output6" => $o6, "output1_points" => $op1, "output2_points" => $op2, "output3_points" => $op3, "output4_points" => $op4, "output5_points" => $op5, "output6_points" => $op6);
     //also send input/output points, function name&points, constraint & points, colon_points,
     //echo json_encode($user_exams_obj);
 
