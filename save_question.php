@@ -43,10 +43,12 @@
 				//VALUES ($cid, $did, $tid,'$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2', '$i3', '$o3', '$i4', '$o4', '$i5', '$o5', '$i6', '$o6', '$fn')";
 				echo "here1\n";
 
+				$testInsert="INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, input2, input3, input4, input5, input6, output1, output2, output3, output4, output5, output6, functionName)
+				VALUES (:conid, :diffid, :topid, :nam, :descr, :tas, :inp1, :inp2, :inp3, :inp4, :inp5, :inp6, :outp1, :outp2, :outp3, :outp4, :outp5, :outp6, :funcn)";
 
-				$sql = $conn->prepare("INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, input2, input3, input4, input5, input6, output1, output2, output3, output4, output5, output6, functionName)
-				VALUES (:conid, :diffid, :topid, :nam, :descr, :tas, :inp1, :inp2, :inp3, :inp4, :inp5, :inp6, :outp1, :outp2, :outp3, :outp4, :outp5, :outp6, :funcn)");
+				$sql = $conn->prepare($testInsert);
 echo "here2\n";
+				echo $cid;
 				$sql = bindParam(':conid', $cid);
 				echo "here3\n";
 				$sql = bindParam(':did', $diffid);
