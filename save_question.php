@@ -39,13 +39,44 @@
     		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     		if($id==''){
-    			$sql = "INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, output1, input2, output2, input3, output3, input4, output4, input5, output5, input6, output6, functionName)
-    			VALUES ($cid, $did, $tid,'$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2', '$i3', '$o3', '$i4', '$o4', '$i5', '$o5', '$i6', '$o6', '$fn')";
-    			// use exec() because no results are returned
-    			$conn->exec($sql);
+
+			/*
+    			$sql = $conn->prepare("INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, output1, input2, output2, input3, output3, input4, output4, input5, output5, input6, output6, functionName)
+				VALUES ($cid, $did, $tid,'$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2', '$i3', '$o3', '$i4', '$o4', '$i5', '$o5', '$i6', '$o6', '$fn')");
+			*/
+
+				$sql = $conn->prepare("INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, output1, input2, output2, input3, output3, input4, output4, input5, output5, input6, output6, functionName)
+				VALUES ($cid, $did, $tid,'$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2', '$i3', '$o3', '$i4', '$o4', '$i5', '$o5', '$i6', '$o6', '$fn')");
+
+
+				$stmt->bindParam(':cid', $cid);
+				$stmt->bindParam(':did', $did);
+				$stmt->bindParam(':tid', $tid);
+				$stmt->bindParam(':n', $n);				
+				$stmt->bindParam(':d', $d);
+				$stmt->bindParam(':t', $t);
+				$stmt->bindParam(':i1', $i1);
+				$stmt->bindParam(':o1', $o1);
+				$stmt->bindParam(':i2', $i2);
+				$stmt->bindParam(':o2', $o2);
+				$stmt->bindParam(':i3', $i3);
+				$stmt->bindParam(':o3', $o3);				
+				$stmt->bindParam(':i4', $i4);
+				$stmt->bindParam(':o4', $o4);
+				$stmt->bindParam(':i5', $i5);
+				$stmt->bindParam(':o5', $o5);
+				$stmt->bindParam(':o6', $o6);
+				$stmt->bindParam(':fn', $fn);
+
+				$conn->exec($sql);
+				
+
+
+
     			$message = "New question record created successfully";
     			json_encode($message);
-    			echo $message;
+				echo $message;
+				
     		}
     		else{
     			//update
