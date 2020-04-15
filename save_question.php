@@ -92,8 +92,15 @@
 
 				//$sql->bindParam(':id',$id);
 
+				$sql="UPDATE `questions` SET `name` = :n WHERE id = :id'";
+				$stmt = $conn->prepare($sql);
+				$stmt->bindParam(':n'=$n);
+				$stmt->bindParam(':id'=$id);
+				$stmt->execute();
 
-				$conn->prepare("UPDATE questions SET name='$n' WHERE id='$id'")->execute();   			
+
+
+				//$conn->prepare("UPDATE questions SET name='$n' WHERE id='$id'")->execute();   			
     			$conn->prepare("UPDATE questions SET description='$d' WHERE id='$id'")->execute(); ;
     			$conn->prepare("UPDATE questions SET task = '$t' WHERE id = '$id'")->execute(); ;
     			//str_replace("'", "\'", $t);
