@@ -91,9 +91,9 @@
 				//VALUES (:cid, :did, :tid, :n, :d, :t, :i1, :o1, :i2, :o2, :i3, :o3, :i4, :o4, :i5, :o5, :i6, :o6, :fn) WHERE `id`=$id");
 
 				//$sql->bindParam(':id',$id);
-/*
 
-				$conn->exec("UPDATE questions SET name='$n' WHERE id='$id'");   			
+
+				$conn->prepare("UPDATE questions SET name='$n' WHERE id='$id'")->execute();   			
     			$conn->exec("UPDATE questions SET description='$d' WHERE id='$id'");
     			$conn->exec("UPDATE questions SET task = '$t' WHERE id = '$id'");
     			//str_replace("'", "\'", $t);
@@ -116,9 +116,9 @@
     			$conn->exec("UPDATE questions SET topicID='$tid' WHERE id='$id'");
 				
 				$conn->exec("UPDATE questions SET functionName='$fn' WHERE id='$id'");
-*/
 
 
+/*
 				$sql = $conn->prepare("UPDATE questions SET (`constraintID`, `difficultyID`, `topicID`, `name`, `description`, `task`, `input1`, `output1`, `input2`, `output2`, `input3`, `output3`, `input4`, `output4`, `input5`, `output5`, `input6`, `output6`, `functionName`)
 				VALUES (:cid, :did, :tid, :n, :d, :t, :i1, :o1, :i2, :o2, :i3, :o3, :i4, :o4, :i5, :o5, :i6, :o6, :fn) WHERE `id`=$id");
 
@@ -146,7 +146,7 @@
 				echo "before";
 				$sql->execute();
 				echo "after";
-
+*/
 
 
 
