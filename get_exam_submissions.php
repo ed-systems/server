@@ -38,7 +38,7 @@
       foreach($subIds as $id){
 
        
-        $subQuery = "SELECT * FROM grand_view3 WHERE subID='$id'";
+        $subQuery = "SELECT * FROM grand_view2 WHERE subID='$id'";
             $question_rows = $conn->query($subQuery);
 
             $questionsArr = array("name" => "", "description" => "", "task"=> "", "solution" => "", "function_name" => "", "function_name_points"=>"", "constraint"=>"", "constraint_points"=>"", "colon_points"=>"", "input1" => "", "input2" => "", "input3" => "", "input4" => "", "input5" => "", "input6" => "", "output1" => "", "output2" => "", "output3" => "", "output4" => "", "output5" => "", "output6" => "", "result1" => "", "result2" => "", "result3" => "", "result4" => "", "result5" => "", "result6" => "", "function_name_result" => "", "colon_result" => "", "constraint_result" => "", "output1_points" => "", "output2_points" => "", "output3_points" => "", "output4_points" => "", "output5_points" => "", "output6_points" => "", "result1_points" => "", "result2_points" => "", "result3_points" => "", "result4_points" => "", "result5_points" => "", "result6_points" => "", "function_name_result" => "", "function_name_result_points"=>"", "colon_result" => "", "colon_result_points"=>"", "constraint_result"=>"", "constraint_result_points"=>"", "autoGrade" => "", "grade" => "", "comments" => "", "ID" => "");
