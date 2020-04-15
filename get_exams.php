@@ -137,7 +137,7 @@
               $n = $q->fetchColumn();
 
 
-              $pps = $conn->prepare("SELECT `name` FROM `exam_questions_with_userid` WHERE `examName` =:n");
+              $pps = $conn->prepare("SELECT `examName` FROM `exam_questions_with_userid` WHERE `examName` =:n");
               $pps->bindParam(':n', $n);
               $pps->execute();
 
