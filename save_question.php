@@ -119,7 +119,7 @@
 */
 
 
-				$sql = $conn->prepare("INSERT INTO questions (`constraintID`, `difficultyID`, `topicID`, `name`, `description`, `task`, `input1`, `output1`, `input2`, `output2`, `input3`, `output3`, `input4`, `output4`, `input5`, `output5`, `input6`, `output6`, `functionName`)
+				$sql = $conn->prepare("UPDATE questions SET (`constraintID`, `difficultyID`, `topicID`, `name`, `description`, `task`, `input1`, `output1`, `input2`, `output2`, `input3`, `output3`, `input4`, `output4`, `input5`, `output5`, `input6`, `output6`, `functionName`)
 				VALUES (:cid, :did, :tid, :n, :d, :t, :i1, :o1, :i2, :o2, :i3, :o3, :i4, :o4, :i5, :o5, :i6, :o6, :fn) WHERE `id`=$id");
 
 
