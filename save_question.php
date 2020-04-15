@@ -111,8 +111,8 @@
 
 
 
-				$conn->exec($sql);
-
+				//$conn->exec($sql);
+				$sql->execute();
 
 
 
