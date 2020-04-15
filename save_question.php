@@ -133,7 +133,8 @@
     			//$conn->exec("UPDATE auth_table SET token='$tok' WHERE id = '$uid'");
     			//$conn->exec("UPDATE questions SET (name, description, task, input1, output1, input2, output2) VALUES ('$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2') WHERE id = '$id'");
     			////////////$conn->exec("UPDATE questions SET name='$n',description='$d',task='$t',input1='$i1',output1='$o1',input2='$i2',output2='o2' WHERE id = '$id'");
-    			$conn->exec("UPDATE questions SET name='$n' WHERE id='$id'");   			
+/* 
+				$conn->exec("UPDATE questions SET name='$n' WHERE id='$id'");   			
     			$conn->exec("UPDATE questions SET description='$d' WHERE id='$id'");
     			$conn->exec("UPDATE questions SET task = '$t' WHERE id = '$id'");
     			//str_replace("'", "\'", $t);
@@ -156,6 +157,37 @@
     			$conn->exec("UPDATE questions SET topicID='$tid' WHERE id='$id'");
 				
 				$conn->exec("UPDATE questions SET functionName='$fn' WHERE id='$id'");
+*/
+
+
+				$sql = $conn->prepare("UPDATE questions SET(constraintID, difficultyID, topicID, name, description, task, input1, output1, input2, output2, input3, output3, input4, output4, input5, output5, input6, output6, functionName)
+				VALUES (:cid, :did, :tid, :n, :d, :t, :i1, :o1, :i2, :o2, :i3, :o3, :i4, :o4, :i5, :o5, :i6, :o6, :fn) WHERE ID='$id'");
+
+
+				$sql->bindParam(':cid', $cid);
+				$sql->bindParam(':did', $did);
+				$sql->bindParam(':tid', $tid);
+				$sql->bindParam(':n', $n);				
+				$sql->bindParam(':d', $d);
+				$sql->bindParam(':t', $t);
+				$sql->bindParam(':i1', $i1);
+				$sql->bindParam(':o1', $o1);
+				$sql->bindParam(':i2', $i2);
+				$sql->bindParam(':o2', $o2);
+				$sql->bindParam(':i3', $i3);
+				$sql->bindParam(':o3', $o3);				
+				$sql->bindParam(':i4', $i4);
+				$sql->bindParam(':o4', $o4);
+				$sql->bindParam(':i5', $i5);
+				$sql->bindParam(':o5', $o5);
+				$sql->bindParam(':o6', $o6);
+				$sql->bindParam(':fn', $fn);
+
+				$sql->execute();
+
+
+
+
 
     			$message = "Existing question record update successfully";
     			json_encode($message);
