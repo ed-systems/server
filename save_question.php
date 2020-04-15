@@ -39,44 +39,47 @@
     		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     		if($id==''){
+    			//$sql = "INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, output1, input2, output2, input3, output3, input4, output4, input5, output5, input6, output6, functionName)
+    			//VALUES ($cid, $did, $tid,'$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2', '$i3', '$o3', '$i4', '$o4', '$i5', '$o5', '$i6', '$o6', '$fn')";
 
-			/*
-    			$sql = $conn->prepare("INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, output1, input2, output2, input3, output3, input4, output4, input5, output5, input6, output6, functionName)
-				VALUES ($cid, $did, $tid,'$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2', '$i3', '$o3', '$i4', '$o4', '$i5', '$o5', '$i6', '$o6', '$fn')");
-			*/
+
 
 				$sql = $conn->prepare("INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, output1, input2, output2, input3, output3, input4, output4, input5, output5, input6, output6, functionName)
 				VALUES (:cid, :did, :tid, :n, :d, :t, :i1, :o1, :i2, :o2, :i3, :o3, :i4, :o4, :i5, :o5, :i6, :o6, :fn)");
 
 
-				$stmt->bindParam(':cid', $cid);
-				$stmt->bindParam(':did', $did);
-				$stmt->bindParam(':tid', $tid);
-				$stmt->bindParam(':n', $n);				
-				$stmt->bindParam(':d', $d);
-				$stmt->bindParam(':t', $t);
-				$stmt->bindParam(':i1', $i1);
-				$stmt->bindParam(':o1', $o1);
-				$stmt->bindParam(':i2', $i2);
-				$stmt->bindParam(':o2', $o2);
-				$stmt->bindParam(':i3', $i3);
-				$stmt->bindParam(':o3', $o3);				
-				$stmt->bindParam(':i4', $i4);
-				$stmt->bindParam(':o4', $o4);
-				$stmt->bindParam(':i5', $i5);
-				$stmt->bindParam(':o5', $o5);
-				$stmt->bindParam(':o6', $o6);
-				$stmt->bindParam(':fn', $fn);
+				$sql->bindParam(':cid', $cid);
+				$sql->bindParam(':did', $did);
+				$sql->bindParam(':tid', $tid);
+				$sql->bindParam(':n', $n);				
+				$sql->bindParam(':d', $d);
+				$sql->bindParam(':t', $t);
+				$sql->bindParam(':i1', $i1);
+				$sql->bindParam(':o1', $o1);
+				$sql->bindParam(':i2', $i2);
+				$sql->bindParam(':o2', $o2);
+				$sql->bindParam(':i3', $i3);
+				$sql->bindParam(':o3', $o3);				
+				$sql->bindParam(':i4', $i4);
+				$sql->bindParam(':o4', $o4);
+				$sql->bindParam(':i5', $i5);
+				$sql->bindParam(':o5', $o5);
+				$sql->bindParam(':o6', $o6);
+				$sql->bindParam(':fn', $fn);
 
 				$conn->exec($sql);
-				
 
 
 
-    			$message = "New question record created successfully";
-    			json_encode($message);
+
+				$message = "New question record created successfully";
+				json_encode($message);
 				echo $message;
-				
+
+
+
+
+
     		}
     		else{
     			//update
