@@ -142,12 +142,12 @@
 
 
               $pps1 = $conn->prepare("SELECT `examName` FROM `exam_questions_with_userid` WHERE `examID` =:id");
-              $pps->bindParam(':id', $id);
-              $n = $pps->execute();
+              $pps1->bindParam(':id', $id);
+              $n = $pps1->execute();
 
               $pps2 = $conn->prepare("SELECT `examDescription` FROM `exam_questions_with_userid` WHERE `examName` =:n");
               $pps2->bindParam(':n', $n);
-              $d->execute();
+              $d= $pps2->execute();
 
               //$q = $conn->query("SELECT examDescription FROM exam_questions_with_userid WHERE `examName` = '$n'");
               //$d = $q->fetchColumn();
