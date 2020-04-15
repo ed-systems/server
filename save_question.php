@@ -50,6 +50,7 @@
 echo "here2\n";
 				//echo $cid;
 				$stmt->bindParam(':conid', $cid);
+				echo "wtf";
 				$sql = bindParam(':conid', $cid);
 				echo "here3\n";
 				$sql = bindParam(':did', $diffid);
