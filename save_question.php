@@ -49,7 +49,7 @@
 				$stmt = $conn->prepare($testInsert);
 echo "here2\n";
 				//echo $cid;
-				$stmt->bindParam(':uid', $uid);
+				$stmt->bindParam(':conid', $cid);
 				$sql = bindParam(':conid', $cid);
 				echo "here3\n";
 				$sql = bindParam(':did', $diffid);
