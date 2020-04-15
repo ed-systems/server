@@ -83,11 +83,17 @@
     			//$conn->exec("UPDATE questions SET (name, description, task, input1, output1, input2, output2) VALUES ('$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2') WHERE id = '$id'");
     			////////////$conn->exec("UPDATE questions SET name='$n',description='$d',task='$t',input1='$i1',output1='$o1',input2='$i2',output2='o2' WHERE id = '$id'");
 
+
+				$sql = $conn->prepare("UPDATE questions SET `constraintID`=:cid, `difficultyID`=:did, `topicID`=:tid, `name`=:n, `description`=:d, `task`=:t, input1=:i1, input2=:i2, input3=:i3, input4=:i4, input5=:i5, input6=:i6, output1=:o1, output2=:o2, output3=:o3, output4=:o4, output5=:o5, output6=:o6, fn=:fn WHERE `id`=:id");
+
+				$sql->bindParam(':id',$id);
+/*
+
 				$conn->exec("UPDATE questions SET name='$n' WHERE id='$id'");   			
     			$conn->exec("UPDATE questions SET description='$d' WHERE id='$id'");
     			$conn->exec("UPDATE questions SET task = '$t' WHERE id = '$id'");
     			//str_replace("'", "\'", $t);
-    			$conn->exec("UPDATE questions SET task='$t' WHERE id='$id'");
+    			//$conn->exec("UPDATE questions SET task = '$t' WHERE id = '$id'");
     			$conn->exec("UPDATE questions SET input1='$i1' WHERE id='$id'");
     			$conn->exec("UPDATE questions SET output1='$o1' WHERE id='$id'");
     			$conn->exec("UPDATE questions SET input2='$i2' WHERE id='$id'");
@@ -106,11 +112,11 @@
     			$conn->exec("UPDATE questions SET topicID='$tid' WHERE id='$id'");
 				
 				$conn->exec("UPDATE questions SET functionName='$fn' WHERE id='$id'");
+*/
 
 
-/*
-				$sql = $conn->prepare("INSERT INTO questions (`constraintID`, `difficultyID`, `topicID`, `name`, `description`, `task`, `input1`, `output1`, `input2`, `output2`, `input3`, `output3`, `input4`, `output4`, `input5`, `output5`, `input6`, `output6`, `functionName`)
-				VALUES (:cid, :did, :tid, :n, :d, :t, :i1, :o1, :i2, :o2, :i3, :o3, :i4, :o4, :i5, :o5, :i6, :o6, :fn)");
+				//$sql = $conn->prepare("INSERT INTO questions (`constraintID`, `difficultyID`, `topicID`, `name`, `description`, `task`, `input1`, `output1`, `input2`, `output2`, `input3`, `output3`, `input4`, `output4`, `input5`, `output5`, `input6`, `output6`, `functionName`)
+				//VALUES (:cid, :did, :tid, :n, :d, :t, :i1, :o1, :i2, :o2, :i3, :o3, :i4, :o4, :i5, :o5, :i6, :o6, :fn)");
 
 
 				$sql->bindParam(':cid', $cid);
@@ -135,7 +141,7 @@
 
 				
 				$sql->execute();
-*/
+
 
 
 
