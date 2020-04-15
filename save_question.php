@@ -85,9 +85,9 @@
 
 
 
-				$sql="UPDATE questions SET name=:n, description=:d, task=:t WHERE id = :id";
+				$sql="UPDATE questions SET name=:n, description=:d, task=:t, functionName=:fn WHERE id = :id";
 				$query = $conn->prepare($sql);
-				$query->execute(array(':n'=>$n, ':d'=>$d, ':t'=>$t, 'id'=>$id));
+				$query->execute(array(':n'=>$n, ':d'=>$d, ':t'=>$t, ':fn'=>$fn, 'id'=>$id));
 
 
 
@@ -113,7 +113,7 @@
 				$conn->exec("UPDATE questions SET difficultyID='$did' WHERE id='$id'");
     			$conn->exec("UPDATE questions SET topicID='$tid' WHERE id='$id'");
 				
-				$conn->exec("UPDATE questions SET functionName='$fn' WHERE id='$id'");
+				//$conn->exec("UPDATE questions SET functionName='$fn' WHERE id='$id'");
 
 
 /*
