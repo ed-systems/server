@@ -45,7 +45,7 @@
 
 
 				$sql = $conn->prepare("INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, output1, input2, output2, input3, output3, input4, output4, input5, output5, input6, output6, functionName)
-				VALUES (constraintID=:cid, :did, :tid, :n, :d, :t, :i1, :o1, :i2, :o2, :i3, :o3, :i4, :o4, :i5, :o5, :i6, :o6, :fn)");
+				VALUES (:cid, :did, :tid, \n:n, \n:d, \n:t, \n:i1, \n:o1, \n:i2, \n:o2, \n:i3, \n:o3, \n:i4, \n:o4, \n:i5, \n:o5, \n:i6, \n:o6, \n:fn)");
 
 
 				$sql->bindParam(':cid', $cid);
