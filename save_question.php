@@ -46,9 +46,10 @@
 				$testInsert="INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, input2, input3, input4, input5, input6, output1, output2, output3, output4, output5, output6, functionName)
 				VALUES (:conid, :diffid, :topid, :nam, :descr, :tas, :inp1, :inp2, :inp3, :inp4, :inp5, :inp6, :outp1, :outp2, :outp3, :outp4, :outp5, :outp6, :funcn)";
 
-				$sql = $conn->prepare($testInsert);
+				$stmt = $conn->prepare($testInsert);
 echo "here2\n";
-				echo $cid;
+				//echo $cid;
+				$stmt->bindParam(':uid', $uid);
 				$sql = bindParam(':conid', $cid);
 				echo "here3\n";
 				$sql = bindParam(':did', $diffid);
