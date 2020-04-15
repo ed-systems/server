@@ -112,7 +112,7 @@
 
 
 				//$conn->exec($sql);
-				$sql->execute();
+				//$sql->execute();
 
 
 
