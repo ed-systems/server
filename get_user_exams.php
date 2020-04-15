@@ -41,10 +41,11 @@ function gue($json, $conn){
       $c=$info['comments'];
       $subid=$info['id'];
 
-      $subQinfoquery = 'SELECT * FROM `grand_view2` WHERE `subID`=:s and `examID`='$eid'';
+      $subQinfoquery = 'SELECT * FROM `grand_view2` WHERE `subID`=:s and `examID`=:edd';
 
       $subQinfo = $conn->prepare($subQinfoquery);
       $subQinfo->bindValue(':s', $subid);
+      $subQinfo->bindValue(':edd',$eid);
 
       $subQinfo->execute();
       $qinfo = $subQinfo->fetchAll(\PDO::FETCH_ASSOC);
