@@ -92,8 +92,8 @@ function save_student_submissions($json, $conn)
 
     $update_questioncomments = $conn->prepare($update_questioncomments_query);
 
-    $S = str_replace("\n","", $question['solution']);
-
+   // $S = str_replace("\n","", $question['solution']);
+    $S = $question['solution'];
 
 
 
