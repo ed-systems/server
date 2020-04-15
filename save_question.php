@@ -96,7 +96,9 @@
 				$stmt = $conn->prepare($sql);
 				$stmt->bindParam(':n'=$n);
 				$stmt->bindParam(':id'=$id);
+				echo "beofore exec";
 				$stmt->execute();
+				echo "after exec";
 
 /*
 
