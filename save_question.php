@@ -66,7 +66,9 @@
 				$sql->bindParam(':outp5', $o5);
 				$sql->bindParam(':outp6', $o6);
 				$sql->bindParam(':funcn', $fn);
-				$sql->execute(); 
+				echo "here0";
+				$sql->execute();
+				echo "here1"; 
 
 
 /*
