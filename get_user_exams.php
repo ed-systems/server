@@ -41,7 +41,7 @@ function gue($json, $conn){
       $c=$info['comments'];
       $subid=$info['id'];
 
-      $subQinfoquery = 'SELECT * FROM `grand_view` WHERE `subID`=:s and `examID`='$eid'';
+      $subQinfoquery = 'SELECT * FROM `grand_view2` WHERE `subID`=:s and `examID`='$eid'';
 
       $subQinfo = $conn->prepare($subQinfoquery);
       $subQinfo->bindValue(':s', $subid);
