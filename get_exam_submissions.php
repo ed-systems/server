@@ -23,7 +23,7 @@
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
       
-      $sql = "SELECT DISTINCT id FROM submissions WHERE examID = '$eid' and status=1";
+      $sql = "SELECT DISTINCT id FROM submissions WHERE examID = '$eid'";
 
       $subIds=array();
 
