@@ -92,7 +92,7 @@
 
 				//$sql->bindParam(':id',$id);
 
-				$sql="UPDATE `questions` SET `name` = :n WHERE id = :id'";
+				$sql="UPDATE `questions` SET `name` = :n WHERE `id` = :id'";
 				$stmt = $conn->prepare($sql);
 				$stmt->bindParam(':n'=$n);
 				$stmt->bindParam(':id'=$id);
