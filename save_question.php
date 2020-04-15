@@ -98,7 +98,7 @@
     			$conn->prepare("UPDATE questions SET task = '$t' WHERE id = '$id'")->execute(); ;
     			//str_replace("'", "\'", $t);
     			//$conn->exec("UPDATE questions SET task = '$t' WHERE id = '$id'");
-    			$conn->prepare("UPDATE questions SET input1='$i1' WHERE id='$id'")->prepareute(); ;
+    			$conn->prepare("UPDATE questions SET input1='$i1' WHERE id='$id'")->execute(); ;
     			$conn->prepare("UPDATE questions SET output1='$o1' WHERE id='$id'")->execute(); ;
     			$conn->prepare("UPDATE questions SET input2='$i2' WHERE id='$id'")->execute(); ;
     			$conn->prepare("UPDATE questions SET output2='$o2' WHERE id='$id'")->execute(); ;
