@@ -66,9 +66,9 @@
 				$sql->bindParam(':o5', $o5);
 				$sql->bindParam(':o6', $o6);
 				$sql->bindParam(':fn', $fn);
-
-				$conn->exec($sql);
 */
+				$conn->exec($sql);
+
 
 
 
