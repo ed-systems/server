@@ -92,40 +92,31 @@
 
 				//$sql->bindParam(':id',$id);
 
-				$sql="UPDATE `questions` SET `name` = :n WHERE `id` = :id'";
-				$stmt = $conn->prepare($sql);
-				$stmt->bindParam(':n'=$n);
-				$stmt->bindParam(':id'=$id);
-				echo "beofore exec";
-				$stmt->execute();
-				echo "after exec";
 
-/*
-
-				//$conn->prepare("UPDATE questions SET name='$n' WHERE id='$id'")->execute();   			
-    			$conn->prepare("UPDATE questions SET description='$d' WHERE id='$id'")->execute(); ;
-    			$conn->prepare("UPDATE questions SET task = '$t' WHERE id = '$id'")->execute(); ;
+				$conn->exec("UPDATE questions SET name='$n' WHERE id='$id'");   			
+    			$conn->exec("UPDATE questions SET description='$d' WHERE id='$id'");
+    			$conn->exec("UPDATE questions SET task = '$t' WHERE id = '$id'");
     			//str_replace("'", "\'", $t);
     			//$conn->exec("UPDATE questions SET task = '$t' WHERE id = '$id'");
-    			$conn->prepare("UPDATE questions SET input1='$i1' WHERE id='$id'")->execute(); ;
-    			$conn->prepare("UPDATE questions SET output1='$o1' WHERE id='$id'")->execute(); ;
-    			$conn->prepare("UPDATE questions SET input2='$i2' WHERE id='$id'")->execute(); ;
-    			$conn->prepare("UPDATE questions SET output2='$o2' WHERE id='$id'")->execute(); ;
-    			$conn->prepare("UPDATE questions SET input3='$i3' WHERE id='$id'")->execute(); ;
-				$conn->prepare("UPDATE questions SET output3='$o3' WHERE id='$id'")->execute(); ;
-				$conn->prepare("UPDATE questions SET input4='$i4' WHERE id='$id'")->execute(); ;
-				$conn->prepare("UPDATE questions SET output4='$o4' WHERE id='$id'")->execute(); ;
-				$conn->prepare("UPDATE questions SET input5='$i5' WHERE id='$id'")->execute(); ;
-				$conn->prepare("UPDATE questions SET output5='$o5' WHERE id='$id'")->execute(); ;
-				$conn->prepare("UPDATE questions SET input6='$i6' WHERE id='$id'")->execute(); ;
-    			$conn->prepare("UPDATE questions SET output6='$o6' WHERE id='$id'")->execute(); ;
+    			$conn->exec("UPDATE questions SET input1='$i1' WHERE id='$id'");
+    			$conn->exec("UPDATE questions SET output1='$o1' WHERE id='$id'");
+    			$conn->exec("UPDATE questions SET input2='$i2' WHERE id='$id'");
+    			$conn->exec("UPDATE questions SET output2='$o2' WHERE id='$id'");
+    			$conn->exec("UPDATE questions SET input3='$i3' WHERE id='$id'");
+				$conn->exec("UPDATE questions SET output3='$o3' WHERE id='$id'");
+				$conn->exec("UPDATE questions SET input4='$i4' WHERE id='$id'");
+				$conn->exec("UPDATE questions SET output4='$o4' WHERE id='$id'");
+				$conn->exec("UPDATE questions SET input5='$i5' WHERE id='$id'");
+				$conn->exec("UPDATE questions SET output5='$o5' WHERE id='$id'");
+				$conn->exec("UPDATE questions SET input6='$i6' WHERE id='$id'");
+    			$conn->exec("UPDATE questions SET output6='$o6' WHERE id='$id'");
 
-				$conn->prepare("UPDATE questions SET constraintID='$cid' WHERE id='$id'")->execute(); ;
-				$conn->prepare("UPDATE questions SET difficultyID='$did' WHERE id='$id'")->execute(); ;
-    			$conn->prepare("UPDATE questions SET topicID='$tid' WHERE id='$id'")->execute(); ;
+				$conn->exec("UPDATE questions SET constraintID='$cid' WHERE id='$id'");
+				$conn->exec("UPDATE questions SET difficultyID='$did' WHERE id='$id'");
+    			$conn->exec("UPDATE questions SET topicID='$tid' WHERE id='$id'");
 				
-				$conn->prepare("UPDATE questions SET functionName='$fn' WHERE id='$id'")->execute(); ;
-*/
+				$conn->exec("UPDATE questions SET functionName='$fn' WHERE id='$id'");
+
 
 /*
 				$sql = $conn->prepare("UPDATE questions SET (`constraintID`, `difficultyID`, `topicID`, `name`, `description`, `task`, `input1`, `output1`, `input2`, `output2`, `input3`, `output3`, `input4`, `output4`, `input5`, `output5`, `input6`, `output6`, `functionName`)
