@@ -43,14 +43,6 @@
 				//VALUES ($cid, $did, $tid,'$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2', '$i3', '$o3', '$i4', '$o4', '$i5', '$o5', '$i6', '$o6', '$fn')";
 	
 				
-				$stmt = $conn->prepare("INSERT INTO questions (,constraintID, difficultyID, topicID) VALUES (?,:cciidd, :ddiidd, :ttiidd)");
-                $stmt->bindParam(':cciidd', $cid);
-                $stmt->bindParam(':ddiidd', $did);
-                $stmt->bindParam(':tttiidd', $tid);
-                $stmt->execute(); 
-
-
-
 /*
 				$q="INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, input2, input3, input4, input5, input6, output1, output2, output3, output4, output5, output6, functionName)
 				VALUES (:conid, :diffid, :topid, :nam, :descr, :tas, :inp1, :inp2, :inp3, :inp4, :inp5, :inp6, :outp1, :outp2, :outp3, :outp4, :outp5, :outp6, :funcn)";
@@ -80,23 +72,9 @@
 				echo "here1"; 
 */
 
-/*
-			$stmt = $conn->prepare("INSERT INTO exams (creatorID, name, description, examToken) VALUES (:uid, :n, :d, :eTok)");
-			$stmt->bindParam(':uid', $uid);
-			$stmt->bindParam(':n', $n);
-			$stmt->bindParam(':d', $d);
-			$stmt->bindParam(':eTok', $eTok);
-			$stmt->execute(); 
-*/
 
 
-
-
-
-
-
-/*
-				$sql = $conn->prepare("INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, output1, input2, output2, input3, output3, input4, output4, input5, output5, input6, output6, functionName)
+				$sql = $conn->prepare("INSERT INTO questions (`constraintID`, `difficultyID`, `topicID`, `name`, `description`, `task`, `input1`, `output1`, `input2`, `output2`, `input3`, `output3`, `input4`, `output4`, `input5`, `output5`, `input6`, `output6`, `functionName`)
 				VALUES (:cid, :did, :tid, :n, :d, :t, :i1, :o1, :i2, :o2, :i3, :o3, :i4, :o4, :i5, :o5, :i6, :o6, :fn)");
 
 
@@ -116,16 +94,18 @@
 				$sql->bindParam(':o4', $o4);
 				$sql->bindParam(':i5', $i5);
 				$sql->bindParam(':o5', $o5);
+				$sql->bindParam(':i6', $i6);
 				$sql->bindParam(':o6', $o6);
 				$sql->bindParam(':fn', $fn);
-*/
+
 		
 
 
 
 				//$conn->exec($sql);
-				//$sql->execute();
-
+				echo "before execution\n";
+				$sql->execute();
+				echo "after execution\n";
 
 
 				$message = "New question record created successfully";
