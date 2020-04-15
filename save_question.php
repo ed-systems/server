@@ -83,7 +83,15 @@
     			//$conn->exec("UPDATE questions SET (name, description, task, input1, output1, input2, output2) VALUES ('$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2') WHERE id = '$id'");
     			////////////$conn->exec("UPDATE questions SET name='$n',description='$d',task='$t',input1='$i1',output1='$o1',input2='$i2',output2='o2' WHERE id = '$id'");
 
-				$conn->exec("UPDATE questions SET name='$n' WHERE id='$id'");   			
+
+
+				$sql="UPDATE questions SET name=:n WHERE id = :id";
+				$query = $conn->prepare($sql);
+				$query->execute(array(':n'=>$n, 'id'=>$id));
+
+
+
+				//$conn->exec("UPDATE questions SET name='$n' WHERE id='$id'");   			
     			$conn->exec("UPDATE questions SET description='$d' WHERE id='$id'");
     			$conn->exec("UPDATE questions SET task = '$t' WHERE id = '$id'");
     			//str_replace("'", "\'", $t);
