@@ -43,7 +43,7 @@
 				//VALUES ($cid, $did, $tid,'$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2', '$i3', '$o3', '$i4', '$o4', '$i5', '$o5', '$i6', '$o6', '$fn')";
 	
 				
-				$stmt = $conn->prepare("INSERT INTO questions (constraintID, difficultyID, topicID) VALUES (:cciidd, :ddiidd, :ttiidd)");
+				$stmt = $conn->prepare("INSERT INTO questions (,constraintID, difficultyID, topicID) VALUES (?,:cciidd, :ddiidd, :ttiidd)");
                 $stmt->bindParam(':cciidd', $cid);
                 $stmt->bindParam(':ddiidd', $did);
                 $stmt->bindParam(':tttiidd', $tid);
