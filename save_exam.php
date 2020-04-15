@@ -66,7 +66,7 @@
                 $stmt->bindParam(':n', $n);
                 $stmt->bindParam(':d', $d);
                 $stmt->bindParam(':eTok', $eTok);
-                $stmt->execute();
+                $stmt->execute(); 
 
     			//$sql = "INSERT INTO exams (creatorID, name, description, examToken)
     			//VALUES ('$uid', '$n', '$d', '$eTok')";
