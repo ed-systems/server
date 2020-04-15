@@ -84,7 +84,7 @@
     			////////////$conn->exec("UPDATE questions SET name='$n',description='$d',task='$t',input1='$i1',output1='$o1',input2='$i2',output2='o2' WHERE id = '$id'");
 
 
-				$sql = $conn->prepare("UPDATE questions SET `constraintID`=:cid, `difficultyID`=:did, `topicID`=:tid, `name`=:n, `description`=:d, `task`=:t, input1=:i1, input2=:i2, input3=:i3, input4=:i4, input5=:i5, input6=:i6, output1=:o1, output2=:o2, output3=:o3, output4=:o4, output5=:o5, output6=:o6, fn=:fn WHERE `id`=:id");
+				$sql = $conn->prepare("UPDATE questions SET `constraintID`=:cid, `difficultyID`=:did, `topicID`=:tid, `name`=:n, `description`=:d, `task`=:t, `input1`=:i1, `input2`=:i2, `input3`=:i3, `input4`=:i4, `input5`=:i5, `input6`=:i6, `output1`=:o1, `output2`=:o2, `output3`=:o3, `output4`=:o4, `output5`=:o5, `output6`=:o6, `fn`=:fn WHERE `id`=:id");
 
 				$sql->bindParam(':id',$id);
 /*
@@ -139,9 +139,9 @@
 				$sql->bindParam(':o6', $o6);
 				$sql->bindParam(':fn', $fn);
 
-				
+				echo "before";
 				$sql->execute();
-
+				echo "after";
 
 
 
