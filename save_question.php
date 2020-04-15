@@ -41,31 +41,51 @@
     		if($id==''){
     			//$sql = "INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, output1, input2, output2, input3, output3, input4, output4, input5, output5, input6, output6, functionName)
 				//VALUES ($cid, $did, $tid,'$n', '$d', '$t', '$i1', '$o1', '$i2', '$o2', '$i3', '$o3', '$i4', '$o4', '$i5', '$o5', '$i6', '$o6', '$fn')";
-				
+				echo "here1\n";
 
 
 				$sql = $conn->prepare("INSERT INTO questions (constraintID, difficultyID, topicID, name, description, task, input1, input2, input3, input4, input5, input6, output1, output2, output3, output4, output5, output6, functionName)
 				VALUES (:conid, :diffid, :topid, :nam, :descr, :tas, :inp1, :inp2, :inp3, :inp4, :inp5, :inp6, :outp1, :outp2, :outp3, :outp4, :outp5, :outp6, :funcn)");
-
+echo "here2\n";
 				$sql = bindParam(':conid', $cid);
+				echo "here3\n";
 				$sql = bindParam(':did', $diffid);
+				echo "here4\n";
 				$sql = bindParam(':tid', $topid);
+				echo "here5\n";
 				$sql = bindParam(':nam', $n);
+				echo "here6\n";
 				$sql = bindParam(':descr', $d);
+				echo "here7\n";
 				$sql = bindParam(':tas', $t);
+				echo "here8\n";
 				$sql = bindParam(':inp1', $i1);
+				echo "here9\n";
 				$sql = bindParam(':inp2', $i2);
+				echo "here10\n";
 				$sql = bindParam(':inp3', $i3);
+				echo "here11\n";
 				$sql = bindParam(':inp4', $i4);
+				echo "here12\n";
 				$sql = bindParam(':inp5', $i5);
+				echo "here13\n";
 				$sql = bindParam(':inp6', $i6);
+				echo "here14\n";
 				$sql = bindParam(':outp1', $o1);
+				echo "here15\n";
 				$sql = bindParam(':outp2', $o2);
+				echo "here16\n";
 				$sql = bindParam(':outp3', $o3);
+				echo "here17\n";
 				$sql = bindParam(':outp4', $o4);
+				echo "here18\n";
 				$sql = bindParam(':outp5', $o5);
+				echo "here19\n";
 				$sql = bindParam(':outp6', $o6);
+				echo "here20\n";
+
 				$sql = bindParam(':funcn', $fn);
+				echo "here21\n";
 
 
 /*
@@ -112,13 +132,16 @@
 
 
 				$conn->exec($sql);
-
+				echo "here22\n";
 
 
 
 				$message = "New question record created successfully";
+				echo "here23\n";
 				json_encode($message);
+				echo "here24\n";
 				echo $message;
+				echo "here25\n";
 
 
 
