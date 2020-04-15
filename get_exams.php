@@ -130,27 +130,14 @@
 
 //code edit is below!!!
 //$q = $conn->query("SELECT 'description' FROM exams WHERE id='$id'");
-              //$q = $conn->query("SELECT `name` FROM exams WHERE id='$id'");
+              $q = $conn->query("SELECT `name` FROM exams WHERE id='$id'");
 
 
-              $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE examID = '$id'");
+             // $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE examID = '$id'");
               $n = $q->fetchColumn();
 
-              /*              $q = $conn->prepare("SELECT `examName` FROM exam_questions_with_userid WHERE examID = :id");
-              $q->bindParam(':id',$id);
-              $n = $q->execute(); */
-
-
-              $pps1 = $conn->prepare("SELECT `examName` FROM `exam_questions_with_userid` WHERE `examID` =:id");
-              $pps1->bindParam(':id', $id);
-              $n = $pps1->execute();
-
-              $pps2 = $conn->prepare("SELECT `examDescription` FROM `exam_questions_with_userid` WHERE `examName` =:n");
-              $pps2->bindParam(':n', $n);
-              $d= $pps2->execute();
-
-              //$q = $conn->query("SELECT examDescription FROM exam_questions_with_userid WHERE `examName` = '$n'");
-              //$d = $q->fetchColumn();
+              $q = $conn->query("SELECT examDescription FROM exam_questions_with_userid WHERE `examName` = '$n'");
+              $d = $q->fetchColumn();
               //echo $d;
               //exam info obj
               $exam_obj = array("name" => $n, "description"=> $d, "questions" => $arrQarr, "id" => $id);
