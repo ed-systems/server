@@ -98,7 +98,7 @@
 				$stmt->bindParam(':id'=$id);
 				$stmt->execute();
 
-
+/*
 
 				//$conn->prepare("UPDATE questions SET name='$n' WHERE id='$id'")->execute();   			
     			$conn->prepare("UPDATE questions SET description='$d' WHERE id='$id'")->execute(); ;
@@ -123,7 +123,7 @@
     			$conn->prepare("UPDATE questions SET topicID='$tid' WHERE id='$id'")->execute(); ;
 				
 				$conn->prepare("UPDATE questions SET functionName='$fn' WHERE id='$id'")->execute(); ;
-
+*/
 
 /*
 				$sql = $conn->prepare("UPDATE questions SET (`constraintID`, `difficultyID`, `topicID`, `name`, `description`, `task`, `input1`, `output1`, `input2`, `output2`, `input3`, `output3`, `input4`, `output4`, `input5`, `output5`, `input6`, `output6`, `functionName`)
