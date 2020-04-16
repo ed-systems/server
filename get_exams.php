@@ -142,7 +142,7 @@
               //$gname=>bindParam(':n', $n);
               //$d=$gname->execute();
 
-              //$d = $q->fetchColumn();
+              $d = $q->fetchColumn();
 
 
 
