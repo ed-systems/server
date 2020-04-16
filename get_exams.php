@@ -34,7 +34,7 @@
 
         foreach ($conn->query($sql) as $row) {
           # code...
-          array_push($examIds,$row['id']);
+          array_push($examIds, $row['id']);
         }
         //print_r($examIds);
         //echo "<br>";
@@ -133,7 +133,7 @@
 
 
 
-              $q = $conn->query("SELECT name FROM exams WHERE id='$id'");
+              $q = $conn->query("SELECT name FROM exam_questions_with_userid WHERE `examID` = '$id'");
 
 
              // $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE examID = '$id'");

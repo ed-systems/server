@@ -5,9 +5,7 @@
   $dbname = "npm26";
 
 
-  //grab data from curl
-
-  //DOWN DOWN\\
+ 
   
 
         //recieve POST
@@ -16,22 +14,7 @@
         //pull post data
         $token = $input_data["token"];
 
-        //check if teacher
-        //$q = $conn->query("SELECT id FROM auth_table WHERE token='$token'");
-        //$uid = $q->fetchColumn();
-        
-       // $q = $conn->query("SELECT type FROM users WHERE id='$uid'");
-       // $typ = $q->fetchColumn();       
-        
-        //echo $typ; 
-//if ($typ==1) {
-  # code...
 
-  
-  //UP UP\\
-
-    /* hardcode argument */
-    // HERE
 
 
     //try connect to database
@@ -50,8 +33,7 @@
 
 
         if ($typ==1) {
-          # code...
-        
+
 
 
         //query view
@@ -64,8 +46,6 @@
           # code...
           array_push($questionIds,$row['id']);
         }
-        //print_r($questionIds);
-        //echo "<br>";
 
             $questions = array();
 
@@ -133,7 +113,6 @@
               $questions_obj = array("name"=> "$n", "description"=> "$d", "task"=>"$t", "function_name"=>"$fn", "constraintID"=>"$cid", "difficultyID"=>"$did", "topicID"=>"$tid","input1" => "$i1", "output1" => "$o1", "input2" => "$i2", "output2" => "$o2", "input3" => "$i3", "output3" => "$o3", "input4" => "$i4", "output4" => "$o4", "input5" => "$i5", "output5" => "$o5", "input6" => "$i6", "output6" => "$o6", "ID" => "$id");
               array_push($questions, $questions_obj);
             }
-          //print_r($questions);
 
 
 
@@ -157,17 +136,4 @@
     //terminate connection
   $conn = null;
   
-
-  /* prints array for formating test */
-  //print_r($dataArr);
-    
-    //encodes dataArr in json formatting
-   // $output_data = json_encode($questions);
-
-    //json header
-   // header('Content-Type: application/json');
-
-    //curl responds with results
-   // echo $output_data;
-  //}
 ?>
