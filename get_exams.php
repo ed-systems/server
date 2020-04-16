@@ -136,8 +136,16 @@
              // $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE examID = '$id'");
               $n = $q->fetchColumn();
 
-              $q = $conn->query("SELECT examDescription FROM exam_questions_with_userid WHERE `examName` = '$n'");
-              $d = $q->fetchColumn();
+
+              $gname = $conn->prepare("SELECT `examDescription` FROM exam_questions_with_userid WHERE `examName` => :n");
+             // $q = $conn->query("SELECT `examDescription` FROM exam_questions_with_userid WHERE `examName` = '$n'");
+              $gname=>bindParam(':n', $n);
+              $d=$gname->execute();
+
+              //$d = $q->fetchColumn();
+
+
+
               //echo $d;
               //exam info obj
               $exam_obj = array("name" => $n, "description"=> $d, "questions" => $arrQarr, "id" => $id);
