@@ -116,40 +116,20 @@
 
 
 
-#make edits with code below
-/*
-              //$q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE examID = '$id'");
-              $q = $conn->query("SELECT `name` FROM exams WHERE id='$id'");
+
+
+
+#here
+              $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE `examID` = $id");         
               $n = $q->fetchColumn();
-
-             // $q = $conn->query("SELECT examDescription FROM exam_questions_with_userid WHERE examID = '$id'");
-              $q = $conn->query("SELECT 'description' FROM exams WHERE id='$id'");
-              $d = $q->fetchColumn();
-*/
-#make edits with code above
-
-//code edit is below!!!
-//$q = $conn->query("SELECT 'description' FROM exams WHERE id='$id'");
-
-
-
-              $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE `examID` = '$id'");
-
-
-             // $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE examID = '$id'");
-              $n = $q->fetchColumn();
-
+#
               $q = $conn->query("SELECT examDescription FROM exam_questions_with_userid WHERE `examName` = '$n'");
               $d = $q->fetchColumn();
-              //echo $d;
-              //exam info obj
+
               $exam_obj = array("name" => $n, "description"=> $d, "questions" => $arrQarr, "id" => $id);
               array_push($exams, $exam_obj);
-              //$jsonArr = array();
-             // array_push($jsonArr, $exams);      
+
             }
-      //json_encode($jsonArr);  
-      //print_r($jsonArr);
 
     
   }
@@ -163,9 +143,7 @@
   $conn = null;
   
 
-  /* prints array for formating test */
-  //print_r($dataArr);
-    
+
     //encodes dataArr in json formatting
     $output_data = json_encode($exams);
 
@@ -174,6 +152,5 @@
     
 
     echo $output_data;
-    //curl responds with results
-    //print_r($jsonArr);
+
 ?>
