@@ -111,22 +111,17 @@
 
 
 #here
-             // $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE `examID` = $id");         
-             // $n = $q->fetchColumn();
+              $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE `examID` = $id");         
+              $n = $q->fetchColumn();
 #
 
 
-$h2 = 'SELECT :enn FROM exam_questions_with_userid where `examID` = :eid';
-$sth = $conn->prepare($h2, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-$sth->execute(array(':enn' => 'examName', ':eid' => '$id'));
-$n=$sth->fetchAll();
 
 
               $q = $conn->query("SELECT examDescription FROM exam_questions_with_userid WHERE `examName` = '$n'");
               $d = $q->fetchColumn();
 
               $exam_obj = array("name" => $n, "description"=> $d, "questions" => $arrQarr, "id" => $id);
-
 
 
 
