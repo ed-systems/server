@@ -4,8 +4,6 @@
   $password = "DBPassword1!";
   $dbname = "npm26";
 
-    /* hardcode POST argument */
-    // HERE
 
         //recieve POST
         $input_data = json_decode(file_get_contents('php://input'), true);
@@ -21,24 +19,22 @@
     // set the PDO error mode to exception
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-      //get uid from auth table where token match
+     
       $q = $conn->query("SELECT id FROM auth_table WHERE token = '$tok'");
       $uid = $q->fetchColumn();
-      //$uid = 9;
+ 
 
-        //query view
+   
         $sql = "SELECT DISTINCT id FROM exams WHERE creatorID = '$uid'";
 
-        //create array variable for examIds
+      
         $examIds=array();
 
         foreach ($conn->query($sql) as $row) {
-          # code...
+   
           array_push($examIds, $row['id']);
         }
-        //print_r($examIds);
-        //echo "<br>";
-            //creates array variable for exams
+
             $exams=array();
 
 
@@ -47,25 +43,20 @@
               
               $examQuery = "SELECT * FROM exam_questions_with_userid WHERE examID='$id'";
 
-                  //questions part
+             
 
                     $question_rows = $conn->query($examQuery);
-                    //create array variable for questions
+         
                     $questionsArr = array("questionID"=>"","points"=>"", "function_name_points" => "", "constraint_points" => "", "colon_points" => "", "output1_points" => "", "output2_points" => "", "output3_points" => "", "output4_points" => "", "output5_points" => "", "output6_points" => "" );
                     $arrQarr = array();
                     foreach($question_rows as $qr){
-                      #code...
-                      //array_push($questionsArr, "questionID" => $q['questionID'], "points" => $q['points']);
+
                       $questionsArr["questionID"]=$qr['questionID'];
                       $questionsArr["points"]=$qr['points'];
 
 
                       $qid=$qr['questionID'];
                       
-                   ///   $q = $conn->query("SELECT functionNamePoints FROM exam_questions WHERE questionID='$qid' AND examID=$id");
-                    ///  $fnp = $q->fetchColumn();
-                     /// $questionsArr["function_name_points"]=$fnp;
-
 
                       //functionName points
                       $q = $conn->query("SELECT functionNamePoints FROM exam_questions WHERE questionID='$qid' AND examID=$id");
@@ -120,13 +111,26 @@
 
 
 #here
-              $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE `examID` = $id");         
-              $n = $q->fetchColumn();
+             // $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE `examID` = $id");         
+             // $n = $q->fetchColumn();
 #
+
+
+$h2 = 'SELECT :enn FROM exam_questions_with_userid where `examID` = :eid';
+$sth = $conn->prepare($h2, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+$sth->execute(array(':enn' => 'examName', ':eid' => '$id'));
+$n=$sth->fetchAll();
+
+
               $q = $conn->query("SELECT examDescription FROM exam_questions_with_userid WHERE `examName` = '$n'");
               $d = $q->fetchColumn();
 
               $exam_obj = array("name" => $n, "description"=> $d, "questions" => $arrQarr, "id" => $id);
+
+
+
+
+
               array_push($exams, $exam_obj);
 
             }
