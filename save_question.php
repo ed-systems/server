@@ -85,9 +85,9 @@
 
 
 
-				$sql="UPDATE questions SET name=:n, description=:d, task=:t, functionName=:fn WHERE id = :id";
+				$sql="UPDATE questions SET name=:n, description=:d, task=:t, input1=:i1, output1=:o1, functionName=:fn WHERE id = :id";
 				$query = $conn->prepare($sql);
-				$query->execute(array(':n'=>$n, ':d'=>$d, ':t'=>$t, ':fn'=>$fn, 'id'=>$id));
+				$query->execute(array(':n'=>$n, ':d'=>$d, ':t'=>$t, ':i1'=>$i1, ':o1'=>$o1, ':fn'=>$fn, 'id'=>$id));
 
 
 
@@ -96,8 +96,9 @@
     			//$conn->exec("UPDATE questions SET task = '$t' WHERE id = '$id'");
     			//str_replace("'", "\'", $t);
     			//$conn->exec("UPDATE questions SET task='$t' WHERE id='$id'");
-    			$conn->exec("UPDATE questions SET input1='$i1' WHERE id='$id'");
-    			$conn->exec("UPDATE questions SET output1='$o1' WHERE id='$id'");
+    		//	$conn->exec("UPDATE questions SET input1='$i1' WHERE id='$id'");
+			//	$conn->exec("UPDATE questions SET output1='$o1' WHERE id='$id'");
+				
     			$conn->exec("UPDATE questions SET input2='$i2' WHERE id='$id'");
     			$conn->exec("UPDATE questions SET output2='$o2' WHERE id='$id'");
     			$conn->exec("UPDATE questions SET input3='$i3' WHERE id='$id'");
