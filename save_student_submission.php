@@ -97,7 +97,7 @@ function save_student_submissions($json, $conn)
 
 
 
-    $update_questioncomments->bindValue(':sol', $S);
+    $update_questioncomments->bindValue(':sol', urldecode($S);
 
     $update_questioncomments->bindValue(':sd', $sid);
 
