@@ -111,9 +111,13 @@
 
 
 #here
-              $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE `examID` = '$id'");         
-              $n = $q->fetchColumn();
+ //             $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE `examID` = '$id'");         
+ //             $n = $q->fetchColumn();
 #
+$wtfPDO = "SELECT examName FROM exam_questions_with_userid WHERE examID =:id";
+$hammer = $conn->prepare($wtfPDO);
+$hammer->bindValue(":id", $id);
+$hammer->execute();
 
 
 
