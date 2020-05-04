@@ -118,7 +118,7 @@ $wtfPDO = "SELECT examName FROM exam_questions_with_userid WHERE examID =:id";
 $hammer = $conn->prepare($wtfPDO);
 $hammer->bindValue(":id", $id);
 $hammer->execute();
-$n = $hammer->fetchAll(\PDO::FETCH_ASSOC);
+$n = $hammer->fetchColumn();
 
 
 
