@@ -44,22 +44,7 @@
             $eTok=generateRandomString();
     		if($eid==''){
 
-/*
-                function generateRandomString($length = 10) {
-                    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                    $charactersLength = strlen($characters);
-                    $randomString = '';
-                    for ($i = 0; $i < $length; $i++) {
-                      $randomString .= $characters[rand(0, $charactersLength - 1)];
-                     }
-                    return $randomString;
-                }
-*/
-                //$eTok=generateRandomString();
 
-                //$q = $conn->query("SELECT id FROM auth_table WHERE token = '$uTok'");
-                 //   $uid = $q->fetchColumn();
-                    //$uid=999;//remove
 
                 $stmt = $conn->prepare("INSERT INTO exams (creatorID, name, description, examToken) VALUES (:uid, :n, :d, :eTok)");
                 $stmt->bindParam(':uid', $uid);
@@ -68,19 +53,12 @@
                 $stmt->bindParam(':eTok', $eTok);
                 $stmt->execute(); 
 
-    			//$sql = "INSERT INTO exams (creatorID, name, description, examToken)
-    			//VALUES ('$uid', '$n', '$d', '$eTok')";
-    			// use exec() because no results are returned
-    			//$conn->exec($sql);
+
 
                 $q = $conn->query("SELECT id FROM exams WHERE examToken='$eTok'");
                 $eid = $q->fetchColumn();
 
-                //echo "$eid";
 
-                //fetch eid
-                //SELECT id FROM questions = qid
-                //fetch pts
                 //for each question in question do this
                 foreach($questions as $question){
                     
@@ -115,7 +93,7 @@
                 echo $m;
     		}
             else{
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
                 //remove all questionId's, points, and examIds WHERE examID is $eid
                 $sql="DELETE FROM exam_questions WHERE examID='$eid'";

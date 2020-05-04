@@ -111,7 +111,7 @@
 
 
 #here
-              $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE `examID` = $id");         
+              $q = $conn->query("SELECT examName FROM exam_questions_with_userid WHERE `examID` = '$id'");         
               $n = $q->fetchColumn();
 #
 
