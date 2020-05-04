@@ -29,6 +29,7 @@ function release_exam($json, $conn){
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
     release_exam($json, $conn);
+    echo "exam released!";
   
   }
   
