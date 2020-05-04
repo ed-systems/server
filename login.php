@@ -46,8 +46,7 @@
     
     //compare pass positive
     if($pw==$passhash){
-        //print_r("SUCESSFULL login");
-        //$dataArr = array("database"=> array("success"=> true, "message"=> "Successful login with $un (database)." ),"webnjit"=> array("success"=> null,"message"=> null ));
+     
         $dataArr = array("token" => $tok); 
 
         
@@ -76,8 +75,7 @@
     //compare pass negative
     if($pw!=$passhash){
         print_r("UNSUCESSFULL login");
-        //$dataArr = array("database"=> array("success"=> false, "message"=> "Unsuccessful login with $un (database)." ),"webnjit"=> array("success"=> null,"message"=> null ));
-        //$dataArr = array("token"=> $tok); 
+
     }
     
     //close db connection

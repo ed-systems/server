@@ -41,8 +41,7 @@
           # code...
           array_push($studentIds,$row['id']);
         }
-        //print_r($studentIds);
-        //echo "<br>";
+      
 
             $students = array();
 
@@ -57,9 +56,7 @@
               $student_obj = array("name"=> "$n", "ID"=> "$id");
               array_push($students, $student_obj);
             }
-          //print_r($students);
-
-
+      
 
 
                 //encodes dataArr in json formatting
@@ -83,18 +80,5 @@
     //terminate connection
   $conn = null;
   
-
-  /* prints array for formating test */
-  //print_r($dataArr);
-    
-    //encodes dataArr in json formatting
-    //$output_data = json_encode($dataArr);
-
-    //json header
-    //header('Content-Type: application/json');
-
-    //curl responds with results
-    //echo $output_data;
-
 
 ?>

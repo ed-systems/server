@@ -12,15 +12,6 @@ $password = "DBPassword1!";
 $dbname = "npm26";
 
 
-//update status1
-
-//curl answers to backend
-//recieve data
-
-//update submission autograde
-//update submitted_question solution result 1 result 2 autograde
-
-
 function querry_middle($in)
 {
 
@@ -42,8 +33,6 @@ function querry_middle($in)
 }
 
 
-
-
 function save_student_submissions($json, $conn)
 {
   $update_status_query = 'UPDATE `submissions` SET status = 1 WHERE id = :id';
@@ -51,25 +40,13 @@ function save_student_submissions($json, $conn)
   $update_status->bindValue(':id', $json['ID']);
   $update_status->execute();
 
-  //$autograde_sum = 0;
-
-
-
-
-
 
   $eid = $json['examID'];
 
-  //$update_gradecomments_query = 'UPDATE `submissions` SET autograde=:autoG WHERE id=:subID';
 
-  //$update_gradecomments = $conn->prepare($update_gradecomments_query);
-  //$G = $json['autoGrade'];
- // $update_gradecomments->bindValue(':autoG', $G);
 
   $sid = $json['ID'];
-  //$update_gradecomments->bindValue(':subID', $sid);
 
-  //$update_gradecomments->execute();
 //somecomment
 
   $q = $conn->query("SELECT studentID FROM submissions WHERE id=$sid");
@@ -86,17 +63,16 @@ function save_student_submissions($json, $conn)
   $eMarks = 0;
 
   foreach ($json['questions'] as $question) {
-    //$update_questioncomments_query = 'UPDATE `submitted_questions` SET solution=:sol, result1=:res1, result2=:res2, result3=:res3, result4=:res4, result5=:res5, result6=:res6, result1_points=:resp1, result2_points=:resp2, result3_points=:resp3, result4_points=:resp4, result5_points=:resp5, result6_points=:resp6, autograde=:ag WHERE subID=:sd AND questionID=:qd';
+    
     $update_questioncomments_query = 'UPDATE `submitted_questions` SET solution=:sol, result1=:res1, result2=:res2, result3=:res3, result4=:res4, result5=:res5, result6=:res6, result1_points=:resp1, result2_points=:resp2, result3_points=:resp3, result4_points=:resp4, result5_points=:resp5, result6_points=:resp6, autograde=:ag, functionName_result=:fnrr, constraint_result=:cnrr, colon_result=:clrr, colon_result_points=:clrpp, constraint_result_points=:cnrp, function_name_result_points=:fnrpp WHERE subID=:sd AND questionID=:qd';
     $qid = $question['ID'];
 
     $update_questioncomments = $conn->prepare($update_questioncomments_query);
 
-   // $S = str_replace("\n","", $question['solution']);
+   
     $S = $question['solution'];
 
-   // echo urldecode($S);
-  //  echo "\n";
+ 
 
 
 
@@ -181,14 +157,10 @@ function save_student_submissions($json, $conn)
     //colon points
     $q = $conn->query("SELECT colonPoints FROM exam_questions WHERE questionID= '$qid' AND examID=$eid");
     $clnp = $q->fetchColumn();
-
-
-    
+  
     
     $user_exams_obj = array("questionID" => $qid, "points" => $pts, "solution" => $S, "function_name" => $fn, "function_name_points" => $fnp, "constraint" => $cs, "constraint_points" => $csp, "colon_points" => $clnp, "input1" => $i1, "input2" => $i2, "input3" => $i3, "input4" => $i4, "input5" => $i5, "input6" => $i6, "output1" => $o1, "output2" => $o2, "output3" => $o3, "output4" => $o4, "output5" => $o5, "output6" => $o6, "output1_points" => $op1, "output2_points" => $op2, "output3_points" => $op3, "output4_points" => $op4, "output5_points" => $op5, "output6_points" => $op6);
-    //also send input/output points, function name&points, constraint & points, colon_points,
-    //echo json_encode($user_exams_obj);
-
+   
 
     echo $user_exams_obj;
     $resultspackage = querry_middle($user_exams_obj);
@@ -201,14 +173,10 @@ function save_student_submissions($json, $conn)
 
     echo $resultspackage;
 
-    //echo $results;
 
-    //autograde question\\
-    //add total of all results points, constrain points, name points, colon points; store in $qAg
-    //$eMarks = $eMarks + $qAg;
+   
     $eMarks = $eMarks + $results['autoGrade'];
-    //print_r($results['autoGrade']);
-    //echo json_encode($eMarks);
+ 
 
     $update_questioncomments->bindValue(':res1', $results['result1']);
     $update_questioncomments->bindValue(':res2', $results['result2']);
@@ -224,14 +192,7 @@ function save_student_submissions($json, $conn)
     $update_questioncomments->bindValue(':resp5', $results['result5_points']);
     $update_questioncomments->bindValue(':resp6', $results['result6_points']);
     $update_questioncomments->bindValue(':ag', $results['autoGrade']);
-
-
-
-
-
-
-
-    
+ 
     $update_questioncomments->bindValue(':fnrr', $results['function_name_result']);
     $update_questioncomments->bindValue(':cnrr', $results['constraint_result']);
     $update_questioncomments->bindValue(':clrr', $results['colon_result']);
@@ -239,35 +200,24 @@ function save_student_submissions($json, $conn)
     $update_questioncomments->bindValue(':cnrp', $results['constraint_result_points']);
     $update_questioncomments->bindValue(':fnrpp', $results['function_name_result_points']);
 
-
-
-
-
-
-
     $update_questioncomments->execute();
   }
 
 
- // $eid = $json['examID'];
+
 
   $update_gradecomments_query = 'UPDATE `submissions` SET autograde=:autoG WHERE id=:subID';
 
   $update_gradecomments = $conn->prepare($update_gradecomments_query);
-  //$G = $json['autoGrade'];
+  
   $update_gradecomments->bindValue(':autoG', $eMarks);
 
- // $sid = $json['ID'];
+
   $update_gradecomments->bindValue(':subID', $sid);
 
   $update_gradecomments->execute();
 
-  //echo $arrQarr;
 
-  //echo json_encode($update_questioncomments);
-
-//echo "here2"
-  // update exam submission record which includes the sum of the scores of the each question
 }
 
 

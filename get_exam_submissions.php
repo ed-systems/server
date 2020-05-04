@@ -5,14 +5,12 @@
   $dbname = "npm26";
 
  
-
         //recieve POST
         $input_data = json_decode(file_get_contents('php://input'), true);
 
         //pull token
         $tok = $input_data["token"];
         $eid = $input_data["examID"];
-
 
 
     //try connect to database
@@ -30,8 +28,6 @@
       foreach($conn->query($sql) as $row){
         array_push($subIds,$row['id']);
       }
-
-
 
       $submissions=array();
 
@@ -108,11 +104,6 @@
               array_push($arrQarr, $questionsArr);    
             }
 
-
-
-
-
-
         $q = $conn->query("SELECT studentID FROM submissions WHERE id= '$id'");
           $uid = $q->fetchColumn();
 
@@ -137,20 +128,7 @@
         array_push($submissions, $submission_obj);
 
 
-
-
-
-
-
-
-
-
-
         }
-
-
-
-
     
   }
 
@@ -162,8 +140,7 @@
   //terminate connection
   $conn = null;
   
-
-    
+   
     //encodes dataArr in json formatting
     $output_data = json_encode($submissions);
 

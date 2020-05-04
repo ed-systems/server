@@ -1,10 +1,7 @@
 <?php
 
 
-// pass json_decode'd data into these 
-//$json = json_decode(file_get_contents('php://input'), true);
 
-//header('Content-Type: application/json');
 
 
 $servername = "sql1.njit.edu";

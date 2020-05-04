@@ -100,8 +100,7 @@
                 $conn->query($sql);
 
 
-                // Pseudocode:
-                // When user changes exam info:
+
                 // Update exam fields
                     $conn->exec("UPDATE exams SET name='$n' WHERE id='$eid'");               
                     $conn->exec("UPDATE exams SET description='$d' WHERE id='$eid'");
@@ -157,16 +156,7 @@
                     $conn->query($sql);
                 }
 
-
-
-
-
-
-
-
-
-
-                
+               
                 $message = "Exam record updates succesfully";
                 $m=json_encode($message);
                 echo $m;

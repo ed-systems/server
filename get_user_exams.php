@@ -1,9 +1,5 @@
 <?php
-/////issues
-##grab all student exams not just one
-##submissions id is null
-////
-// pass json_decode'd data into these 
+
 $json = json_decode(file_get_contents('php://input'), true);
 
 $servername = "sql1.njit.edu";
@@ -137,49 +133,15 @@ function gue($json, $conn){
        //echo "here1";
       $q = $conn->query("SELECT `name` FROM `exams` WHERE `id`=$eid");
         $en = $q->fetchColumn();
-       // echo json_encode($en);
-        //echo "here2";
+
       $q = $conn->query("SELECT `description` FROM `exams` WHERE `id`=$eid");
         $ed = $q->fetchColumn();
-        //echo json_encode($ed);
-        //echo "here3";
-
-/*
-
-        $subminfoquery = 'SELECT * FROM `exams` WHERE `id`=:i';
-        $subminfo = $conn->prepare($subminfoquery);
-        $subminfo->bindValue(':i', $eid);
-        $subminfo->execute();
-        $minfo = $subminfo->fetchAll(\PDO::FETCH_ASSOC);
-
-       foreach($minfo as $info){
-
-       //echo json_encode($info['name']);
-       $en=$info['name'];
-       echo json_encode($en);
-
-       //echo json_encode($info['description']);
-       $ed = $info['description'];
-       echo json_encode($ed);
-
-      //$user_exams_obj = array("studentName" => $fname, "examID" => $eid, "name" = $en, "description" = $ed, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
-
-
-      }
-*/
-
-
-
-
-
 
       $user_exams_obj = array("studentName" => $fname, "examID" => $eid, "examName" => $en, "examDescription" => $ed, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
-      //$user_exams_obj = array("studentName" => $fname, "examID" => $eid, "name" = $en, "description" = $ed, "studentID" => $uid, "status" => $stat, "autoGrade" => $ag, "grade" => $g, "comments" => $c, "ID" => $subid, "questions" => $arrQarr);
 
       array_push($user_exams, $user_exams_obj);
     }
-    // echo $minfo['name'];
-     //echo json_encode($en);
+
   }
  
   //encodes dataArr in json formatting

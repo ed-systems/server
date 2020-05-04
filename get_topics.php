@@ -1,11 +1,6 @@
 <?php
 
 
-// pass json_decode'd data into these 
-//$json = json_decode(file_get_contents('php://input'), true);
-
-//header('Content-Type: application/json');
-
 
 $servername = "sql1.njit.edu";
 $username = "npm26";
@@ -17,8 +12,6 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
- 
  
     $stmt = $conn->prepare("SELECT * FROM topics");
     $stmt->execute();

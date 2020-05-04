@@ -5,25 +5,13 @@
 	$dbname = "npm26";
 
 
-	//grab username from curl
-
-	//DOWN DOWN\\
- 	
-
 		    //recieve POST
     		$input_data = json_decode(file_get_contents('php://input'), true);
 
     		//grab login data        
     		$token = $input_data["token"];
     		
-/*
 	
-	//UP UP\\
-
-    /* hardcode get user test accepting username as input argument */
-	  //$un='student1';
-
-
     //try connect to database
 	try {
    	
@@ -40,25 +28,22 @@
 
    		$q = $conn->query("SELECT full_name FROM users WHERE id = '$uid'");
     		$full = $q->fetchColumn();
-    		//echo $full;
+    	
    		$q = $conn->query("SELECT first_name FROM users WHERE id = '$uid'");
     		$first = $q->fetchColumn();
-    		//echo $first;    	
+    	   	
    		$q = $conn->query("SELECT last_name FROM users WHERE id = '$uid'");
     		$last = $q->fetchColumn();
-    		//echo $last;
+    	
    		$q = $conn->query("SELECT email FROM users WHERE id = '$uid'");
     		$em = $q->fetchColumn();
-    		//echo $em;
+    		
    		$q = $conn->query("SELECT type FROM users WHERE id = '$uid'");
     		$t = $q->fetchColumn();
-    		//echo $t;    		
+    	  		
    		$q = $conn->query("SELECT type_string FROM users WHERE id = '$uid'");
     		$tString = $q->fetchColumn();
-    		//echo $tString;
-   		//$q = $conn->query("SELECT token FROM users WHERE id = '$uid'");
-    	//	$tok = $q->fetchColumn();
-    		//echo $tok;
+   
 
     	//package data in array
     	$dataArr = array("full_name"=> $full, "first_name"=> $first, 
@@ -75,8 +60,6 @@
 	$conn = null;
 	
 
-	/* prints array for formating test */
-	//print_r($dataArr);
     
     //encodes dataArr in json formatting
     $output_data = json_encode($dataArr);
