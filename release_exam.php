@@ -7,7 +7,7 @@ $username = "npm26";
 $password = "DBPassword1!";
 $dbname = "npm26";
 
-function save_teacher_submissions($json, $conn){
+function release_exam($json, $conn){
  
   $sid=$json['submissionID'];
  
@@ -28,7 +28,7 @@ function save_teacher_submissions($json, $conn){
   // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
-    save_teacher_submissions($json, $conn);
+    release_exam($json, $conn);
   
   }
   
