@@ -191,19 +191,24 @@ function save_student_submissions($json, $conn)
     $resultspackage = querry_middle($user_exams_obj);
     $results = json_decode($resultspackage, true);
 
-    echo "BLABLA\n";
+    //echo "BLABLA\n";
     echo json_encode($user_exams_obj);
-    echo "\n";
+    //echo "\n";
     echo $resultspackage;
-    echo "\n";
-    echo "BLABLA\n";
+    //echo "\n";
+   // echo "BLABLA\n";
 
     //echo $results;
 
     //autograde question\\
     //add total of all results points, constrain points, name points, colon points; store in $qAg
     //$eMarks = $eMarks + $qAg;
+    $tp = $tp + $pts;
     $eMarks = $eMarks + $results['autoGrade'];
+
+    $gradezzz = $tp/$eMarks;
+
+    echo $gradezzz;
     //print_r($results['autoGrade']);
     //echo json_encode($eMarks);
 
@@ -220,6 +225,9 @@ function save_student_submissions($json, $conn)
     $update_questioncomments->bindValue(':resp4', $results['result4_points']);
     $update_questioncomments->bindValue(':resp5', $results['result5_points']);
     $update_questioncomments->bindValue(':resp6', $results['result6_points']);
+    
+    
+    
     $update_questioncomments->bindValue(':ag', $results['autoGrade']);
 
 
