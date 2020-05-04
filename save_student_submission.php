@@ -6,8 +6,6 @@
 
 $json = json_decode(file_get_contents('php://input'), true);
 
-$wtf = $_GET['solution'];
-
 $servername = "sql1.njit.edu";
 $username = "npm26";
 $password = "DBPassword1!";
@@ -99,7 +97,7 @@ function save_student_submissions($json, $conn)
 
 
 
-    $update_questioncomments->bindValue(':sol', urldecode($S);
+    $update_questioncomments->bindValue(':sol', $S);
 
     $update_questioncomments->bindValue(':sd', $sid);
 
@@ -184,7 +182,7 @@ function save_student_submissions($json, $conn)
 
     
     
-    $user_exams_obj = array("questionID" => $qid, "points" => $pts, "solution" => $wtf, "function_name" => $fn, "function_name_points" => $fnp, "constraint" => $cs, "constraint_points" => $csp, "colon_points" => $clnp, "input1" => $i1, "input2" => $i2, "input3" => $i3, "input4" => $i4, "input5" => $i5, "input6" => $i6, "output1" => $o1, "output2" => $o2, "output3" => $o3, "output4" => $o4, "output5" => $o5, "output6" => $o6, "output1_points" => $op1, "output2_points" => $op2, "output3_points" => $op3, "output4_points" => $op4, "output5_points" => $op5, "output6_points" => $op6);
+    $user_exams_obj = array("questionID" => $qid, "points" => $pts, "solution" => $S, "function_name" => $fn, "function_name_points" => $fnp, "constraint" => $cs, "constraint_points" => $csp, "colon_points" => $clnp, "input1" => $i1, "input2" => $i2, "input3" => $i3, "input4" => $i4, "input5" => $i5, "input6" => $i6, "output1" => $o1, "output2" => $o2, "output3" => $o3, "output4" => $o4, "output5" => $o5, "output6" => $o6, "output1_points" => $op1, "output2_points" => $op2, "output3_points" => $op3, "output4_points" => $op4, "output5_points" => $op5, "output6_points" => $op6);
     //also send input/output points, function name&points, constraint & points, colon_points,
     //echo json_encode($user_exams_obj);
 
