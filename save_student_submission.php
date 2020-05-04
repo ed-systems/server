@@ -95,6 +95,9 @@ function save_student_submissions($json, $conn)
    // $S = str_replace("\n","", $question['solution']);
     $S = $question['solution'];
 
+    echo urldecode($S);
+    echo "\n";
+
 
 
     $update_questioncomments->bindValue(':sol', $S);
