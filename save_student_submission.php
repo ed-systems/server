@@ -26,10 +26,8 @@ function querry_middle($jsonIn, $solIn)
 
   $fuArr = array();
 
-  $data = json_encode($in); // Encoding that data to pass it
-  $urle = urlencode($solIn);
-
-
+  $data = json_encode($jsonIn); // Encoding that data to pass it
+  $urleSol = urlencode($solIn);
   $fuArr = array("json" -> $data, "solution" -> $urleSol);
 
   $ch = curl_init('https://web.njit.edu/~dsk43/cs490-middle/grade_question.php'); // Test URL
