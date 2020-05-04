@@ -126,9 +126,9 @@
  //             $q = $conn->query("SELECT examDescription FROM exam_questions_with_userid WHERE `examName` = '$n'");
  //             $d = $q->fetchColumn();
 
-                $wtfPDO = "SELECT examName FROM exam_questions_with_userid WHERE examID =:id";
+                $wtfPDO = "SELECT examDescription FROM exam_questions_with_userid WHERE examName =:n";
                 $hammer = $conn->prepare($wtfPDO);
-                $hammer->bindValue(":id", $id);
+                $hammer->bindValue(":n", $n);
                 $hammer->execute();
                 $d = $hammer->fetchColumn();
 
