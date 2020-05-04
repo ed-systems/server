@@ -21,18 +21,14 @@ $dbname = "npm26";
 //update submitted_question solution result 1 result 2 autograde
 
 
-function querry_middle($jsonIn, $solIn)
+function querry_middle($in)
 {
 
-  $fuArr = array();
-
-  $data = json_encode($jsonIn); // Encoding that data to pass it
-  $urleSol = urlencode($solIn);
-  $fuArr = array("json" -> $data, "solution" -> $urleSol);
+  $data = json_encode($in); // Encoding that data to pass it
 
   $ch = curl_init('https://web.njit.edu/~dsk43/cs490-middle/grade_question.php'); // Test URL
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST"); // HTTP request method
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $fuArr); // Passing data to the request
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $data); // Passing data to the request
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Whatever
   curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Content-Length: ' . strlen($data))); // Setting necessary headers
 
@@ -192,7 +188,7 @@ function save_student_submissions($json, $conn)
 
 
     echo $user_exams_obj;
-    $resultspackage = querry_middle($user_exams_obj, $S);
+    $resultspackage = querry_middle($user_exams_obj);
     $results = json_decode($resultspackage, true);
 
     echo "BLABLA\n";
